@@ -19,7 +19,7 @@ namespace kub_app
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Gebeurt er helemaal niks
+            // Hallo mijn naam is Jeffrey!
         }
     }
 }
