@@ -21,6 +21,7 @@ namespace kub_app
         {
             // Gebeurt er helemaal niks
             MessageBox.Show("Kelly Jensen");
+            //Haha
         }
     }
 }
