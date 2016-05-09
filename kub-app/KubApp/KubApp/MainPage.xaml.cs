@@ -29,7 +29,7 @@ namespace KubApp_v0._1
 
         private void btnChangeMood_Click(object sender, RoutedEventArgs e)
         {
-            //change color
+            currentColor.Fill = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 175, 27, 27));
         }
     }
 }

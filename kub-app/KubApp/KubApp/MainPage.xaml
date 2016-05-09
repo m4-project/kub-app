@@ -7,8 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="White">
         <Button x:Name="btnChangeMood" Content="Verander stemming" HorizontalAlignment="Left" Margin="100,369,0,0" VerticalAlignment="Top" Click="btnChangeMood_Click"/>
+        <Rectangle x:Name="currentColor" Fill="AliceBlue" HorizontalAlignment="Left" Height="33" Margin="273,368,0,0" Stroke="Black" VerticalAlignment="Top" Width="33"/>
 
     </Grid>
 </Page>
