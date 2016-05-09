@@ -1,1 +1,1 @@
-C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp_v0.1\KubApp_v0.1.csproj;x64
+C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\KubApp.csproj;x64
