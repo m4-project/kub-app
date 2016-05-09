@@ -26,5 +26,10 @@ namespace KubApp_v0._1
         {
             this.InitializeComponent();
         }
+
+        private void btnChangeMood_Click(object sender, RoutedEventArgs e)
+        {
+            //change color
+        }
     }
 }
