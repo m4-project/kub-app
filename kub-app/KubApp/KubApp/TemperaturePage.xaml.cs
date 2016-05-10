@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KubApp_v0._1;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,37 @@ namespace KubApp
     /// </summary>
     public sealed partial class TemperaturePage : Page
     {
+        byte temperature;
+
         public TemperaturePage()
         {
             this.InitializeComponent();
+            Temperature();
+        }
+
+        public void Temperature()
+        {
+            temperature = 45;
+
+            TemperatureKub.Text = "Temperature Kub = " + temperature + " °C";
+
+            if (temperature >= 60)
+            {
+                LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+            }
+            else if (temperature < 60 && temperature > 30)
+            {
+                LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+            }
+            else if (temperature < 30 && temperature > 0)
+            {
+                LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.Blue);
+            }
+        }
+
+        private void GoToMainPage_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage), null);
         }
     }
 }
