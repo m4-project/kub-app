@@ -7,7 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid Name="LayoutGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Border BorderBrush="Black" Margin="150,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <TextBlock Name="TemperatureKub" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        </Border>
+        <Button Name="GoToMainPage" Content="Mainpage" Click="GoToMainPage_Click" HorizontalAlignment="Left" Margin="150,45,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>

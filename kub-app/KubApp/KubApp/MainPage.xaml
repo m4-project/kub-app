@@ -7,7 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:Name="LayoutRoot" Background="White">
+    <Grid Name="LayoutRoot" Background="White">
+        <Button Name="GoToTemperature" Content="Kub °C" Click="Temperature_Click" HorizontalAlignment="Left" Margin="150,300,0,0" VerticalAlignment="Top"/>
+        <Button Name="GoToLedPage" Content="Ledpage" HorizontalAlignment="Left" Margin="150,200,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
