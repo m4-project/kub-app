@@ -7,8 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Name="LayoutGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        
+        <Border BorderBrush="{ThemeResource ApplicationForegroundThemeBrush}" BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100, 300, 0, 0">
+            <TextBlock Name="TempatureKub" Text="" HorizontalAlignment="Left"/>
+        </Border>
+        
         <Button x:Name="btnChangeMood" Content="Verander stemming" HorizontalAlignment="Left" Margin="100,369,0,0" VerticalAlignment="Top"/>
-
     </Grid>
 </Page>

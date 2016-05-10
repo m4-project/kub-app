@@ -22,9 +22,44 @@ namespace KubApp_v0._1
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        byte tempature;
+
         public MainPage()
         {
             this.InitializeComponent();
+            Tempature();
+        }
+
+        //public void tempatureKub(byte tempature)
+        //{
+        //    if()
+        //    {
+
+        //    }
+        //    else
+        //    {
+
+        //    }
+        //}
+
+        public void Tempature()
+        {
+            tempature = 80;
+
+            TempatureKub.Text = "Tempature Kub = " + tempature + " °C";
+
+            if(tempature >= 60)
+            {
+                LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+            }
+            else if(tempature < 60 && tempature > 30)
+            {
+                LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+            }
+            else if(tempature < 30 && tempature > 0)
+            {
+                LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.Blue);
+            }
         }
     }
 }

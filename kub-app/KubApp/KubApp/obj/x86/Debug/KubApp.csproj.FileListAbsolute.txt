@@ -193,3 +193,4 @@ C:\Users\Danny\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x86\Debug\qualifie
 C:\Users\Danny\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\Danny\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Danny\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Danny\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x86\Debug\KubApp.csprojResolveAssemblyReference.cache
