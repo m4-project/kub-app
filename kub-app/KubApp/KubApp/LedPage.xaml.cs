@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KubApp_v0._1;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,10 +28,20 @@ namespace KubApp
             this.InitializeComponent();
         }
 
-        private void btnChangeMood_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Verandert kleur obv user input
+        /// </summary>
+        private void Stemming_Click(object sender, RoutedEventArgs e)
         {
-            //Verandert kleur van de Kub obv user input
             currentColor.Fill = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 175, 27, 27));
+        }
+
+        /// <summary>
+        /// Linkt naar main page
+        /// </summary>
+        private void LinkMainPage_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage), null);
         }
     }
 }
