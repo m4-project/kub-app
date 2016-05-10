@@ -29,6 +29,13 @@
       <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="KubApp.LedPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.HyperlinkButton">
+      <RootProperty Name="Name" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="Margin" />
+      <RootEvent Name="Click" />
+    </RootType>
     <RootType FullName="KubApp_v0._1.MainPage" />
+    <RootType FullName="KubApp.TemperaturePage" />
   </Roots.RootTypes>
 </Roots>

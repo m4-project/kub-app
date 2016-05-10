@@ -200,3 +200,8 @@ C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\LedPage.
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\LedPage.g.cs
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\LedPage.xaml
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\LedPage.xbf
+C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\TemperaturePage.g.i.cs
+C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\TemperaturePage.g.cs
+C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\TemperaturePage.xaml
+C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\TemperaturePage.xbf
+C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\TemperaturePage.xbf

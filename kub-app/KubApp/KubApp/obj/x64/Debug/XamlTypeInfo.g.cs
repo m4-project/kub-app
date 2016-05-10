@@ -132,17 +132,19 @@ namespace KubApp.KubApp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[4];
+            _typeNameTable = new string[5];
             _typeNameTable[0] = "KubApp.LedPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "KubApp_v0._1.MainPage";
+            _typeNameTable[4] = "KubApp.TemperaturePage";
 
-            _typeTable = new global::System.Type[4];
+            _typeTable = new global::System.Type[5];
             _typeTable[0] = typeof(global::KubApp.LedPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::KubApp_v0._1.MainPage);
+            _typeTable[4] = typeof(global::KubApp.TemperaturePage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -179,6 +181,7 @@ namespace KubApp.KubApp_XamlTypeInfo
 
         private object Activate_0_LedPage() { return new global::KubApp.LedPage(); }
         private object Activate_3_MainPage() { return new global::KubApp_v0._1.MainPage(); }
+        private object Activate_4_TemperaturePage() { return new global::KubApp.TemperaturePage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -208,6 +211,13 @@ namespace KubApp.KubApp_XamlTypeInfo
             case 3:   //  KubApp_v0._1.MainPage
                 userType = new global::KubApp.KubApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_3_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 4:   //  KubApp.TemperaturePage
+                userType = new global::KubApp.KubApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_4_TemperaturePage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
