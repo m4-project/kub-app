@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-05-10T08:34:06.055</Modified>
+      <Modified>2016-05-10T10:27:18.612</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\KubApp.exe">
       <PackagePath>entrypoint\KubApp.exe</PackagePath>
-      <Modified>2016-05-10T08:34:05.126</Modified>
+      <Modified>2016-05-10T10:27:17.241</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\basva\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -498,19 +498,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\KubApp.xr.xml">
       <PackagePath>KubApp.xr.xml</PackagePath>
-      <Modified>2016-05-10T08:33:36.225</Modified>
+      <Modified>2016-05-10T10:17:04.265</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
-      <Modified>2016-04-20T09:40:07.201</Modified>
+      <Modified>2016-05-10T11:06:01.298</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-05-10T08:34:05.825</Modified>
+      <Modified>2016-05-10T10:27:18.211</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\Core\KubApp.exe">
       <PackagePath>KubApp.exe</PackagePath>
-      <Modified>2016-05-10T08:34:06.051</Modified>
+      <Modified>2016-05-10T10:27:18.612</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

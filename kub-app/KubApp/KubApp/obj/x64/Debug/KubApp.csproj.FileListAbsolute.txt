@@ -8,7 +8,6 @@ C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\resource
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\AppxManifest.xml
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\Core\AppxManifest.xml
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\Core\KubApp.exe
-C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\Core\KubApp_v0.1.exe
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\KubApp.build.appxrecipe
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\Microsoft.ApplicationInsights.dll
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\Microsoft.ApplicationInsights.PersistenceChannel.dll
@@ -116,7 +115,6 @@ C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\System.X
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\System.Xml.XDocument.dll
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\System.Xml.XmlDocument.dll
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\System.Xml.XmlSerializer.dll
-C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\KubApp.csprojResolveAssemblyReference.cache
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\App.g.i.cs
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\App.g.cs
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\MainPage.g.i.cs
@@ -205,3 +203,4 @@ C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\Temperat
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\TemperaturePage.xaml
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\TemperaturePage.xbf
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\TemperaturePage.xbf
+C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\KubApp.csprojResolveAssemblyReference.cache
