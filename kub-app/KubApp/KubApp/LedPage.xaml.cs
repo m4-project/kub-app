@@ -13,18 +13,24 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace KubApp_v0._1
+namespace KubApp
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class LedPage : Page
     {
-        public MainPage()
+        public LedPage()
         {
             this.InitializeComponent();
+        }
+
+        private void btnChangeMood_Click(object sender, RoutedEventArgs e)
+        {
+            //Verandert kleur van de Kub obv user input
+            currentColor.Fill = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 175, 27, 27));
         }
     }
 }

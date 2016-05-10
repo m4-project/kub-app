@@ -195,3 +195,8 @@ C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\qualifie
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\qualifiers.txt.intermediate
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\ProjectArchitectures.txt
+C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\bin\x64\Debug\LedPage.xbf
+C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\LedPage.g.i.cs
+C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\LedPage.g.cs
+C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\LedPage.xaml
+C:\Users\basva\Source\Repos\kub-app\kub-app\KubApp\KubApp\obj\x64\Debug\LedPage.xbf
