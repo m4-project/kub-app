@@ -8,8 +8,24 @@
     mc:Ignorable="d">
 
     <Grid Name="LayoutRoot" Background="White">
-        <Button Name="GoToTemperature" Content="Kub °C" Click="Temperature_Click" HorizontalAlignment="Left" Margin="150,300,0,0" VerticalAlignment="Top"/>
-        <Button Name="GoToLedPage" Content="Ledpage" HorizontalAlignment="Left" Margin="150,200,0,0" VerticalAlignment="Top"/>
-
+        <Pivot Title="Kub App">
+            <PivotItem Name="PivotMainpage" Header="Mainpage" Background="White">
+                
+            </PivotItem>
+            <PivotItem Name="PivotTemperature" Header="Temperaturepage" Background="White">
+                <TextBlock 
+                    Name="TemperatureKub" 
+                    Text="" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Margin="150,0,0,0"
+                    />
+            </PivotItem>
+            <PivotItem Name="PivotLedpage" Header="Ledpage" Background="White">
+                <TextBlock 
+                    Text="Hier komt de code van Bas"
+                    />
+            </PivotItem>
+        </Pivot>
     </Grid>
 </Page>
