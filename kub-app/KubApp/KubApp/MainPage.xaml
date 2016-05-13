@@ -27,5 +27,8 @@
                     />
             </PivotItem>
         </Pivot>
+        <Button Name="GoToTemperature" Content="Kub °C" Click="Temperature_Click" HorizontalAlignment="Left" Margin="150,300,0,0" VerticalAlignment="Top"/>
+        <Button Name="GoToLedPage" Content="Ledpage" HorizontalAlignment="Left" Margin="150,200,0,0" VerticalAlignment="Top" Click="Led_Click"/>
+
     </Grid>
 </Page>
