@@ -13,6 +13,11 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Media.Imaging;
+using ColorPicker;
+using System.Threading;
+using System.Threading.Tasks;
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -29,19 +34,23 @@ namespace KubApp
         }
 
         /// <summary>
-        /// Verandert kleur obv user input
-        /// </summary>
-        private void Stemming_Click(object sender, RoutedEventArgs e)
-        {
-            currentColor.Fill = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 175, 27, 27));
-        }
-
-        /// <summary>
         /// Linkt naar main page
         /// </summary>
         private void LinkMainPage_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage), null);
+        }
+
+        private void colorChange()
+        {
+            ColorPicker.ColorPicker colorPicker = new ColorPicker.ColorPicker();
+            SolidColorBrush brush = colorp.SelectedColor;
+            currentColor.Fill = brush;
+        }
+
+        private void colorp_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            colorChange();
         }
     }
 }
