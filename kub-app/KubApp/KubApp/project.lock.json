@@ -3,6 +3,15 @@
   "version": 2,
   "targets": {
     "UAP,Version=v10.0": {
+      "ColorPicker/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        }
+      },
       "M2Mqtt/4.3.0": {
         "type": "package",
         "compile": {
@@ -1944,6 +1953,15 @@
       }
     },
     "UAP,Version=v10.0/win10-arm": {
+      "ColorPicker/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        }
+      },
       "M2Mqtt/4.3.0": {
         "type": "package",
         "compile": {
@@ -3751,6 +3769,15 @@
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
+      "ColorPicker/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        }
+      },
       "M2Mqtt/4.3.0": {
         "type": "package",
         "compile": {
@@ -5515,6 +5542,15 @@
       }
     },
     "UAP,Version=v10.0/win10-x64": {
+      "ColorPicker/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        }
+      },
       "M2Mqtt/4.3.0": {
         "type": "package",
         "compile": {
@@ -7331,6 +7367,15 @@
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
+      "ColorPicker/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        }
+      },
       "M2Mqtt/4.3.0": {
         "type": "package",
         "compile": {
@@ -9095,6 +9140,15 @@
       }
     },
     "UAP,Version=v10.0/win10-x86": {
+      "ColorPicker/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        }
+      },
       "M2Mqtt/4.3.0": {
         "type": "package",
         "compile": {
@@ -10911,6 +10965,15 @@
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
+      "ColorPicker/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        }
+      },
       "M2Mqtt/4.3.0": {
         "type": "package",
         "compile": {
@@ -12676,6 +12739,19 @@
     }
   },
   "libraries": {
+    "ColorPicker/1.0.2": {
+      "sha512": "dZOcHD8ZwPKoRTZ0niZIvx7VL0RT4LVHys5bEBzKunxTbEnZD8n3wCYcEU6Gx9io7rfIvToswAJgmMWSuo4hMA==",
+      "type": "package",
+      "files": [
+        "ColorPicker.1.0.2.nupkg.sha512",
+        "ColorPicker.nuspec",
+        "lib/portable-win81+wpa81/ColorPicker.dll",
+        "lib/portable-win81+wpa81/ColorPicker.pri",
+        "lib/portable-win81+wpa81/ColorPicker/ColorPicker.xr.xml",
+        "lib/portable-win81+wpa81/ColorPicker/Themes/Generic.xbf",
+        "lib/portable-win81+wpa81/ColorPicker/colors.jpg"
+      ]
+    },
     "M2Mqtt/4.3.0": {
       "sha512": "2A1uM20uxuovQKPA0dkZUqD9gUpIMaX7KxdLiVM7IEXdPRL709hGuudHnvlDxm2/6b2LcOjshrYGVG9vdpipag==",
       "type": "package",
@@ -16029,6 +16105,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "ColorPicker >= 1.0.2",
       "M2Mqtt >= 4.3.0",
       "Microsoft.ApplicationInsights >= 2.0.1",
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.2.3",
