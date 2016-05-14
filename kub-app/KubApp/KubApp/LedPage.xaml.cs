@@ -41,14 +41,19 @@ namespace KubApp
             this.Frame.Navigate(typeof(MainPage), null);
         }
 
+        /// <summary>
+        /// Verander kleur naar geselecteerde kleur in de colorpicker
+        /// </summary>
         private void colorChange()
         {
-            ColorPicker.ColorPicker colorPicker = new ColorPicker.ColorPicker();
             SolidColorBrush brush = colorp.SelectedColor;
             currentColor.Fill = brush;
         }
 
-        private void colorp_Tapped(object sender, TappedRoutedEventArgs e)
+        /// <summary>
+        /// Roept colorChanged() met kleur aan op basis van plaats van muis
+        /// </summary>
+        private void colorp_PointerMoved(object sender, PointerRoutedEventArgs e)
         {
             colorChange();
         }

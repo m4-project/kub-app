@@ -1,34 +1,33 @@
 ﻿<Page
-    x:Class="KubApp_v0._1.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:KubApp_v0._1"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ColorPicker="using:ColorPicker"
+    x:Class="KubApp_v0._1.MainPage"
     mc:Ignorable="d">
 
-    <Grid Name="LayoutRoot" Background="White">
-        <Pivot Title="Kub App">
-            <PivotItem Name="PivotMainpage" Header="Mainpage" Background="White">
-                
-            </PivotItem>
-            <PivotItem Name="PivotTemperature" Header="Temperaturepage" Background="White">
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Pivot x:Name="kubMenu" Title="Kub App">
+            <PivotItem x:Name="PivotMainpage" Header="Mainpage" Background="White"/>
+            <PivotItem x:Name="PivotTemperature" Header="Temperaturepage" Background="White">
                 <TextBlock 
-                    Name="TemperatureKub" 
-                    Text="" 
-                    HorizontalAlignment="Left" 
-                    VerticalAlignment="Center" 
-                    Margin="150,0,0,0"
+					x:Name="TemperatureKub" 
+					Text="" 
+					HorizontalAlignment="Left" 
+					VerticalAlignment="Center" 
+					Margin="150,0,0,0"
                     />
             </PivotItem>
-            <PivotItem Name="PivotLedpage" Header="Ledpage" Background="White">
-                <TextBlock 
-                    Text="Hier komt de code van Bas"
-                    />
+            <PivotItem x:Name="PivotLedpage" Header="Ledpage" Background="White">
+                <Grid>
+                    <Rectangle x:Name="currentColor" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="10,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="340"/>
+                    <ColorPicker:ColorPicker x:Name="colorpp" Canvas.ZIndex="2" Height="299" Margin="-4,10,0,0" VerticalAlignment="Top" Background="#FF873030" PointerMoved="colorp_PointerMoved"/>
+                </Grid>
             </PivotItem>
         </Pivot>
-        <Button Name="GoToTemperature" Content="Kub °C" Click="Temperature_Click" HorizontalAlignment="Left" Margin="150,300,0,0" VerticalAlignment="Top"/>
-        <Button Name="GoToLedPage" Content="Ledpage" HorizontalAlignment="Left" Margin="150,200,0,0" VerticalAlignment="Top" Click="Led_Click"/>
-
+        <Button x:Name="GoToTemperature" Content="Kub °C" Click="Temperature_Click" HorizontalAlignment="Left" Margin="162,598,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.544,6.458"/>
+        <Button x:Name="GoToLedPage" Content="Ledpage" HorizontalAlignment="Left" Margin="80,598,0,0" VerticalAlignment="Top" Click="Led_Click" RenderTransformOrigin="-0.216,10.75"/>
     </Grid>
 </Page>

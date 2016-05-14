@@ -17,6 +17,7 @@ using System.Runtime.InteropServices;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 using System.Net;
+using ColorPicker;
 using System.Diagnostics;
 using uPLibrary.Networking.M2Mqtt.Exceptions;
 
@@ -72,6 +73,27 @@ namespace KubApp_v0._1
         private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
             Debug.WriteLine(System.Text.Encoding.UTF8.GetString(e.Message));
+        }
+
+        private void colorChange()
+        {
+            SolidColorBrush brush = colorpp.SelectedColor;
+            currentColor.Fill = brush;
+        }
+
+        private void colorp_PointerMoved(object sender, PointerRoutedEventArgs e)
+        {
+            colorChange();
+        }
+
+        private void Temperature_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(TemperaturePage), null);
+        }
+
+        private void Led_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(LedPage), null);
         }
     }
 }
