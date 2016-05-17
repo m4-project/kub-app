@@ -38,53 +38,53 @@ namespace KubApp_v0._1
         public MainPage()
         {
             this.InitializeComponent();
-            Temperature();
+            //Temperature();
 
             client.Connect("kub-app");
             client.Subscribe(new string[]{ "test" }, new byte[] { 0 });
             client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
         }
 
-        public void Temperature()
-        {
-            temperature = 45;
+        //public void Temperature()
+        //{
+        //    temperature = 45;
 
-            //Zet de text van de textblock naar "Temperature Kub = " + temperature + " °C"
-            TemperatureKub.Text = "Temperature Kub = " + temperature + " °C";
+        //    //Zet de text van de textblock naar "Temperature Kub = " + temperature + " °C"
+        //    TemperatureKub.Text = "Temperature Kub = " + temperature + " °C";
 
-            //Kijkt naar de temperatuur van de Kub en bepaald daarmee de kleur van de achtergrond.
-            if (temperature >= 60)
-            {
-                //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
-                PivotTemperature.Background = new SolidColorBrush(Windows.UI.Colors.Red);
-            }
-            else if (temperature < 60 && temperature > 30)
-            {
-                //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
-                PivotTemperature.Background = new SolidColorBrush(Windows.UI.Colors.LightGreen);
-            }
-            else if (temperature < 30 && temperature > 0)
-            {
-                //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
-                PivotTemperature.Background = new SolidColorBrush(Windows.UI.Colors.LightBlue);
-            }
-        }
+        //    //Kijkt naar de temperatuur van de Kub en bepaald daarmee de kleur van de achtergrond.
+        //    if (temperature >= 60)
+        //    {
+        //        //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
+        //        PivotTemperature.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+        //    }
+        //    else if (temperature < 60 && temperature > 30)
+        //    {
+        //        //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
+        //        PivotTemperature.Background = new SolidColorBrush(Windows.UI.Colors.LightGreen);
+        //    }
+        //    else if (temperature < 30 && temperature > 0)
+        //    {
+        //        //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
+        //        PivotTemperature.Background = new SolidColorBrush(Windows.UI.Colors.LightBlue);
+        //    }
+        //}
 
         private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
             Debug.WriteLine(System.Text.Encoding.UTF8.GetString(e.Message));
         }
 
-        private void colorChange()
-        {
-            SolidColorBrush brush = colorpp.SelectedColor;
-            currentColor.Fill = brush;
-        }
+        //private void colorChange()
+        //{
+        //    SolidColorBrush brush = colorpp.SelectedColor;
+        //    currentColor.Fill = brush;
+        //}
 
-        private void colorp_PointerMoved(object sender, PointerRoutedEventArgs e)
-        {
-            colorChange();
-        }
+        //private void colorp_PointerMoved(object sender, PointerRoutedEventArgs e)
+        //{
+        //    colorChange();
+        //}
 
         private void Temperature_Click(object sender, RoutedEventArgs e)
         {

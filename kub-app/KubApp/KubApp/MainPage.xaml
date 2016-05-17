@@ -11,7 +11,8 @@
     <Grid x:Name="LayoutRoot" Background="White">
         <Pivot x:Name="kubMenu" Title="Kub App">
             <PivotItem x:Name="PivotMainpage" Header="Mainpage" Background="White"/>
-            <PivotItem x:Name="PivotTemperature" Header="Temperaturepage" Background="White">
+            <PivotItem x:Name="PivotInfo" Header="Info" Background="Black"/>
+            <!--<PivotItem x:Name="PivotTemperature" Header="Temperaturepage" Background="White">
                 <TextBlock 
 					x:Name="TemperatureKub" 
 					Text="" 
@@ -25,7 +26,7 @@
                     <Rectangle x:Name="currentColor" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="10,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="340"/>
                     <ColorPicker:ColorPicker x:Name="colorpp" Canvas.ZIndex="2" Height="299" Margin="-4,10,0,0" VerticalAlignment="Top" Background="#FF873030" PointerMoved="colorp_PointerMoved"/>
                 </Grid>
-            </PivotItem>
+            </PivotItem>-->
         </Pivot>
         <Button x:Name="GoToTemperature" Content="Kub °C" Click="Temperature_Click" HorizontalAlignment="Left" Margin="162,598,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.544,6.458"/>
         <Button x:Name="GoToLedPage" Content="Ledpage" HorizontalAlignment="Left" Margin="80,598,0,0" VerticalAlignment="Top" Click="Led_Click" RenderTransformOrigin="-0.216,10.75"/>
