@@ -48,6 +48,18 @@ namespace KubApp
         {
             SolidColorBrush brush = colorp.SelectedColor;
             currentColor.Fill = brush;
+
+            string hexColor = brush.Color.ToString();
+            textBox.Text = hexColor;
+
+            string hexColorSub = hexColor.Substring(3);
+            int R = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            int G = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            int B = int.Parse(hexColorSub.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+
+            textBox1.Text = R.ToString();
+            textBox2.Text = G.ToString();
+            textBox3.Text = B.ToString();
         }
 
         /// <summary>
