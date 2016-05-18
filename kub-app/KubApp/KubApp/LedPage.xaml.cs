@@ -69,5 +69,10 @@ namespace KubApp
         {
             colorChange();
         }
+
+        private void colorp_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            colorChange();
+        }
     }
 }
