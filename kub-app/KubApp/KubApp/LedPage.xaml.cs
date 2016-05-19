@@ -70,6 +70,11 @@ namespace KubApp
             colorChange();
         }
 
+        private void colorp_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            colorChange();
+        }
+
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
             if (Frame.CanGoBack)
