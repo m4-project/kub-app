@@ -20,6 +20,7 @@ using System.Net;
 using ColorPicker;
 using System.Diagnostics;
 using uPLibrary.Networking.M2Mqtt.Exceptions;
+using Windows.Security.Cryptography;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -33,6 +34,8 @@ namespace KubApp_v0._1
         //Maakt een nieuwe MqttClient aan
         private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
         
+        private Dictionary<string, Kub> kubs = new Dictionary<string, Kub>();
+        
         public MainPage()
         {
             this.InitializeComponent();
@@ -42,25 +45,45 @@ namespace KubApp_v0._1
         public void Connect()
         {
             client.Connect("kub-app");
-            client.Subscribe(new string[] { "test" }, new byte[] { 0 });
             client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
+
+            Kub kub = new Kub("1234", client);
+            kub.SetLed(0, 255, 0, 0);
+            kub.SetMode(Kub.Mode.Temperature);
+
+            Kub kub2 = new Kub("3463", client);
+            kub2.SetLed(0, 255, 0, 0);
+            kub2.SetMode(Kub.Mode.Temperature);
         }
 
         private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
-            Debug.WriteLine(System.Text.Encoding.UTF8.GetString(e.Message));
+            string[] parts = e.Topic.Split('/');
+
+            if(parts.Length != 3 || parts[0] != "kub")
+            {
+                return;
+            }
+
+            string kid = parts[1];
+
+            if(e.Message.Length < 5)
+            {
+                return;
+            }
+
+            byte protocolVersion = e.Message[0];
+            int payloadLength = BitConverter.ToInt32(e.Message, 1);
+
+            if(e.Message.Length < payloadLength + 5)
+            {
+                return;
+            }
+
+            byte[] payload = e.Message.Skip(5).ToArray();
+            Kub kub = kubs[kid];
+            kub.PacketReceived(payload, parts[2]);
         }
-
-        //private void colorChange()
-        //{
-        //    SolidColorBrush brush = colorpp.SelectedColor;
-        //    currentColor.Fill = brush;
-        //}
-
-        //private void colorp_PointerMoved(object sender, PointerRoutedEventArgs e)
-        //{
-        //    colorChange();
-        //}
 
         private void Temperature_Click(object sender, RoutedEventArgs e)
         {
