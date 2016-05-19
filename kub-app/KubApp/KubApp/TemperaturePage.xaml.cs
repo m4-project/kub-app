@@ -30,14 +30,15 @@ namespace KubApp
         {
             this.InitializeComponent();
             Temperature();
+            setTemperatureKubStatus();
         }
 
         public void Temperature()
         {
-            temperature = 45;
+            temperature = 50;
 
             //Zet de text van de textblock naar "Temperature Kub = " + temperature + " °C"
-            TemperatureKub.Text = "Temperature Kub = " + temperature + " °C";
+            TemperatureKub.Text = "Kub " + temperature + " °C";
 
             //Kijkt naar de temperatuur van de Kub en bepaald daarmee de kleur van de achtergrond.
             if (temperature >= 60)
@@ -50,17 +51,41 @@ namespace KubApp
                 //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
                 LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.LightGreen);
             }
-            else if (temperature < 30 && temperature > 0)
+            else if (temperature < 30 && temperature > 15)
             {
                 //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
                 LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.LightBlue);
             }
+            else if (temperature < 15 && temperature > 0)
+            {
+                //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
+                LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.White);
+            }
+        }
+
+        public void setTemperatureKubStatus()
+        {
+            //zet de kubs status op connected
+            TemperatureKubStatus.Text = "Kub: Connected";
         }
 
         private void GoToMainPage_Click(object sender, RoutedEventArgs e)
         {
             //Zorgt ervoor dat als de gebruiker op deze knop drukt hij/zij terug gaat naar de beginpagina.
             this.Frame.Navigate(typeof(MainPage), null);
+        }
+
+        private void toLedPage_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(LedPage), null);
+        }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(Frame.CanGoBack)
+            {
+                Frame.GoBack();
+            }
         }
     }
 }

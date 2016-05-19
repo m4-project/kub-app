@@ -69,5 +69,13 @@ namespace KubApp
         {
             colorChange();
         }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Frame.CanGoBack)
+            {
+                Frame.GoBack();
+            }
+        }
     }
 }
