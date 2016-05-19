@@ -28,7 +28,7 @@
                 </Grid>
             </PivotItem>-->
         </Pivot>
-        <Button x:Name="GoToTemperature" Content="Kub °C" Click="Temperature_Click" HorizontalAlignment="Left" Margin="162,598,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.544,6.458"/>
-        <Button x:Name="GoToLedPage" Content="Ledpage" HorizontalAlignment="Left" Margin="80,598,0,0" VerticalAlignment="Top" Click="Led_Click" RenderTransformOrigin="-0.216,10.75"/>
+        <Button x:Name="GoToTemperature" Content="Kub °C" Click="Temperature_Click" HorizontalAlignment="Left" Margin="162,550,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.544,6.458"/>
+        <Button x:Name="GoToLedPage" Content="Ledpage" HorizontalAlignment="Left" Margin="80,550,0,0" VerticalAlignment="Top" Click="Led_Click" RenderTransformOrigin="-0.216,10.75"/>
     </Grid>
 </Page>

@@ -8,13 +8,12 @@
     mc:Ignorable="d">
 
     <Grid Name="LayoutGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="117,216,0,0" VerticalAlignment="Top" Width="100" Source="http://www.eendeei.nl/wp-content//vuur.jpg" Stretch="Fill"/>
-        <TextBlock Name="TemperatureKub" HorizontalAlignment="Left" Margin="130,262,0,358" FontSize="18" Foreground="White" TextWrapping="Wrap" Text=""/>
-        <Button Name="GoToMainPage" Content="Mainpage" Click="GoToMainPage_Click" HorizontalAlignment="Left" Margin="117,598,0,0" VerticalAlignment="Top"/>
+        <TextBlock Name="TemperatureKub" HorizontalAlignment="Left" Margin="117,262,0,358" FontSize="18" TextWrapping="Wrap" Text=""/>
+        <Button Name="GoToMainPage" Content="Mainpage" Click="GoToMainPage_Click" HorizontalAlignment="Left" Margin="117,550,0,0" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="117,420,0,0" TextWrapping="Wrap" Text="Status" VerticalAlignment="Top"/>
         <TextBlock Name="TemperatureKubStatus" HorizontalAlignment="Left" Margin="117,445,0,0" TextWrapping="Wrap" Text="Kub: Disconnected" VerticalAlignment="Top"/>
-        <Button Name="backButton" Content="Back" Click="backButton_Click" HorizontalAlignment="Left" Margin="61,598,0,0" VerticalAlignment="Top"/>
-        <Button Name="toLedPage" Content="Ledpage" Click="toLedPage_Click" HorizontalAlignment="Left" Margin="209,598,0,0" VerticalAlignment="Top"/>
+        <Button Name="backButton" Content="Back" Click="backButton_Click" HorizontalAlignment="Left" Margin="61,550,0,0" VerticalAlignment="Top"/>
+        <Button Name="toLedPage" Content="Ledpage" Click="toLedPage_Click" HorizontalAlignment="Left" Margin="209,550,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
