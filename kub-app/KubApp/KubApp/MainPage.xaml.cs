@@ -80,7 +80,7 @@ namespace KubApp_v0._1
             kub.PacketReceived(payload, parts[2]);
         }
 
-        private void Temperature_Click(object sender, RoutedEventArgs e)
+        private void Info_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(TemperaturePage), kubs["1234"]);// TODO: maak dit configureerbaar
         }
