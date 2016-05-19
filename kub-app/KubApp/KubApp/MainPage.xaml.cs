@@ -46,14 +46,9 @@ namespace KubApp_v0._1
         {
             client.Connect("kub-app");
             client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
-
-            Kub kub = new Kub("1234", client);
-            kub.SetLed(0, 255, 0, 0);
-            kub.SetMode(Kub.Mode.Temperature);
-
-            Kub kub2 = new Kub("3463", client);
-            kub2.SetLed(0, 255, 0, 0);
-            kub2.SetMode(Kub.Mode.Temperature);
+            
+            //TODO: maak instellingenpagina om kubs te koppelen
+            this.kubs.Add("1234", new Kub("1234", client));
         }
 
         private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
@@ -87,12 +82,12 @@ namespace KubApp_v0._1
 
         private void Temperature_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(TemperaturePage), null);
+            this.Frame.Navigate(typeof(TemperaturePage), kubs["1234"]);// TODO: maak dit configureerbaar
         }
 
         private void Led_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(LedPage), null);
+            this.Frame.Navigate(typeof(LedPage));
         }
     }
 }

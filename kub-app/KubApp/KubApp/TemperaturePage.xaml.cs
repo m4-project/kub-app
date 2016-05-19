@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -23,44 +24,54 @@ namespace KubApp
     /// </summary>
     public sealed partial class TemperaturePage : Page
     {
-        //De byte die de MQTT broker verstuurd heeft 
-        byte temperature;
+        private Kub kub;
+        private Timer timer;
 
         public TemperaturePage()
         {
-            this.InitializeComponent();
+            this.InitializeComponent();     
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            this.kub = (Kub)e.Parameter;
+
             Temperature();
             setTemperatureKubStatus();
         }
 
         public void Temperature()
         {
-            temperature = 50;
+            this.kub.RequestData(Kub.DataType.Temperature, delegate (int value)
+            {
+                System.Diagnostics.Debug.WriteLine("Temperature: " + value);
 
-            //Zet de text van de textblock naar "Temperature Kub = " + temperature + " °C"
-            TemperatureKub.Text = "Kub " + temperature + " °C";
+                //Zet de text van de textblock naar "Temperature Kub = " + value + " °C"
+                TemperatureKub.Text = "Kub " + value + " °C";
 
-            //Kijkt naar de temperatuur van de Kub en bepaald daarmee de kleur van de achtergrond.
-            if (temperature >= 60)
-            {
-                //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
-                LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.Red);
-            }
-            else if (temperature < 60 && temperature > 30)
-            {
-                //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
-                LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.LightGreen);
-            }
-            else if (temperature < 30 && temperature > 15)
-            {
-                //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
-                LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.LightBlue);
-            }
-            else if (temperature < 15 && temperature > 0)
-            {
-                //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
-                LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.White);
-            }
+                //Kijkt naar de temperatuur van de Kub en bepaald daarmee de kleur van de achtergrond.
+                if (value >= 60)
+                {
+                    //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
+                    LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                }
+                else if (value < 60 && value > 30)
+                {
+                    //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
+                    LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.LightGreen);
+                }
+                else if (value < 30 && value > 15)
+                {
+                    //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
+                    LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.LightBlue);
+                }
+                else if (value < 15 && value > 0)
+                {
+                    //Verandert de achtergrond kleur van LayoutGrid t.o.v. de temperatuur
+                    LayoutGrid.Background = new SolidColorBrush(Windows.UI.Colors.White);
+                }
+            });
         }
 
         public void setTemperatureKubStatus()

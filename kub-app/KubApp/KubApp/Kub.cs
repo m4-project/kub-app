@@ -7,7 +7,7 @@ using uPLibrary.Networking.M2Mqtt;
 
 namespace KubApp
 {
-    class Kub
+    public class Kub
     {
         public delegate void OnResponse(int value);
 
@@ -34,11 +34,6 @@ namespace KubApp
             this.mqttClient = mqttClient;
 
             mqttClient.Subscribe(new string[] { "kub/" + this.id + "/kubres" }, new byte[] { 0 });
-
-            this.RequestData(DataType.Temperature, delegate (int value)
-            {
-                System.Diagnostics.Debug.WriteLine("Temperature: " + value);
-            });
         }
 
         public void PacketReceived(byte[] payload, string packetType)
