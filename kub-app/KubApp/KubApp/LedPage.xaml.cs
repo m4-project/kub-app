@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Media.Imaging;
 using ColorPicker;
 using System.Threading;
 using System.Threading.Tasks;
+using Windows.Security.Cryptography.Core;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
