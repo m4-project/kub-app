@@ -22,5 +22,6 @@
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="243,495,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="243,532,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox3" HorizontalAlignment="Left" Margin="243,569,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <Button Name="backButton" Content="Back" Click="backButton_Click" HorizontalAlignment="Left" Margin="30,598,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>
