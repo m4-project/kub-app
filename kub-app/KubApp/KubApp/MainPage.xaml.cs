@@ -48,8 +48,8 @@ namespace KubApp_v0._1
             client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
 
             //TODO: maak instellingenpagina om kubs te koppelen
-            this.kubs.Add("1234", new Kub("1234", client));
-
+            Kub kub = new Kub("1234", client);
+            this.kubs.Add("1234",kub);
         }
 
         private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
@@ -106,6 +106,62 @@ namespace KubApp_v0._1
         private void SETTINGS_Click(object sender, RoutedEventArgs e)
         {
             kubMenu.SelectedIndex = 4;
+        }
+
+        private void changeColor()
+        {
+            curColor.Fill = colorp.SelectedColor;
+
+            // geselecteerde kleur in hexadecimaal
+            string hexColor = colorp.SelectedColor.Color.ToString();
+
+            // geselecteerde kleur in RGB
+            string hexColorSub = hexColor.Substring(3);
+            int R = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            int G = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            int B = int.Parse(hexColorSub.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+        }
+
+        private void colorp_PointerMoved(object sender, PointerRoutedEventArgs e)
+        {
+            changeColor();
+        }
+
+        private void colorp_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            changeColor();
+        }
+
+        private void pickColorFlyout_Closed(object sender, object e)
+        {
+            changeColor();
+        }
+
+        private void slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            // geselecteerde kleur in hexadecimaal
+            string hexColor = colorp.SelectedColor.Color.ToString();
+
+            // geselecteerde kleur in RGB
+            string hexColorSub = hexColor.Substring(3);
+            int R = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            int G = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            int B = int.Parse(hexColorSub.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+
+            double sliderValue = slider.Value;
+
+            double resultR = R / 100 * sliderValue;
+            double resultG = G / 100 * sliderValue;
+            double resultB = B / 100 * sliderValue;
+
+            var brush = new SolidColorBrush(Windows.UI.Color.FromArgb(255, (byte)resultR, (byte)resultG, (byte)resultB));
+            curColor.Fill = brush;
+
+        }
+
+        private void ScanQR_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(newKub));
         }
     }
 }
