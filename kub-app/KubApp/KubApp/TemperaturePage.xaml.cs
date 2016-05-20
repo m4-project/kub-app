@@ -84,21 +84,15 @@ namespace KubApp
             });
         }
 
-        public void setTemperatureKubStatus()
-        {
-            //zet de kubs status op connected
-            TemperatureKubStatus.Text = "Kub: Connected";
-        }
-
         private void GoToMainPage_Click(object sender, RoutedEventArgs e)
         {
             //Zorgt ervoor dat als de gebruiker op deze knop drukt hij/zij terug gaat naar de beginpagina.
-            this.Frame.Navigate(typeof(MainPage), null);
+            this.Frame.Navigate(typeof(MainPage));
         }
 
         private void toLedPage_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(LedPage), null);
+            this.Frame.Navigate(typeof(LedPage));
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)

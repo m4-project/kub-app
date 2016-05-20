@@ -42,29 +42,14 @@ namespace KubApp_v0._1
             Connect();
         }
 
-        public void getID()
-        {
-            //string kubId = textbox.Text;
-            //int number;
-            //bool containNumber = int.TryParse(kubId, out number);
-
-            //if(containNumber == false)
-            //{
-            //  MessageBox.Show("Please enter the serial number of your Kub");
-            //}
-            //else if(containNumber == true)
-            //{
-            //  kubId = Conver.ToString(number);
-            //}
-        }
-
         public void Connect()
         {
             client.Connect("kub-app");
             client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
-            
+
             //TODO: maak instellingenpagina om kubs te koppelen
             this.kubs.Add("1234", new Kub("1234", client));
+
         }
 
         private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
@@ -100,7 +85,7 @@ namespace KubApp_v0._1
         private void Info_Click(object sender, RoutedEventArgs e)
         {
             kubMenu.SelectedIndex = 1;
-            //this.Frame.Navigate(typeof(TemperaturePage), kubs["1234"]);// TODO: maak dit configureerbaar
+            //this.Frame.Navigate(typeof(TemperaturePage), kubs["1234"]); // TODO: maak dit configureerbaar
         }
 
         private void Led_Click(object sender, RoutedEventArgs e)
