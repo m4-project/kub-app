@@ -29,9 +29,13 @@ namespace KubApp
     /// </summary>
     public sealed partial class LedPage : Page
     {
+        public int[] rgbArray { get; set; }
+
+        public SolidColorBrush fillColor { get; set; }
         public LedPage()
         {
             this.InitializeComponent();
+            this.rgbArray = new int[] { 0, 0, 0 };
         }
 
         /// <summary>
@@ -47,20 +51,21 @@ namespace KubApp
         /// </summary>
         private void colorChange()
         {
-            SolidColorBrush brush = colorp.SelectedColor;
-            currentColor.Fill = brush;
+            this.fillColor = colorp.SelectedColor;
+            currentColor.Fill = fillColor;
 
-            string hexColor = brush.Color.ToString();
+            string hexColor = fillColor.Color.ToString();
             textBox.Text = hexColor;
 
             string hexColorSub = hexColor.Substring(3);
-            int R = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-            int G = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
-            int B = int.Parse(hexColorSub.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
 
-            textBox1.Text = R.ToString();
-            textBox2.Text = G.ToString();
-            textBox3.Text = B.ToString();
+            this.rgbArray[0] = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            this.rgbArray[1] = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            this.rgbArray[2] = int.Parse(hexColorSub.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+
+            textBox1.Text = rgbArray[0].ToString();
+            textBox2.Text = rgbArray[1].ToString();
+            textBox3.Text = rgbArray[2].ToString();
         }
 
         /// <summary>
@@ -82,6 +87,16 @@ namespace KubApp
             {
                 Frame.GoBack();
             }
+        }
+
+        private void cancelColor_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private void applyColor_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage), fillColor);
         }
     }
 }

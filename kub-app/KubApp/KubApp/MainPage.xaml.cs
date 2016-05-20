@@ -35,7 +35,7 @@ namespace KubApp_v0._1
         private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
         
         private Dictionary<string, Kub> kubs = new Dictionary<string, Kub>();
-        
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -86,6 +86,11 @@ namespace KubApp_v0._1
         }
 
         private void Led_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(LedPage));
+        }
+
+        private void curColor_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(LedPage));
         }

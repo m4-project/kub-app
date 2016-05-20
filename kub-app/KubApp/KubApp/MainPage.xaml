@@ -63,7 +63,7 @@
             </PivotItem>
             <PivotItem Header="LED-CONTROL">
                 <Grid>
-
+                    <Rectangle x:Name="curColor" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="42" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="42" PointerPressed="curColor_PointerPressed"/>
                 </Grid>
             </PivotItem>
             <PivotItem Header="GAMES">
@@ -79,7 +79,7 @@
         </Pivot>
     </Grid>
     <!-- OLD - mis dat je hier wat van nodig bent nog -->
-            <!--<PivotItem x:Name="PivotTemperature" Header="Temperaturepage" Background="White">
+    <!--<PivotItem x:Name="PivotTemperature" Header="Temperaturepage" Background="White">
                 <TextBlock 
 					x:Name="TemperatureKub" 
 					Text="" 

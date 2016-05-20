@@ -7,6 +7,15 @@
     xmlns:ColorPicker="using:ColorPicker"
     x:Class="KubApp.LedPage"
     mc:Ignorable="d">
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton x:Name="applyColor" Icon="Accept" Label="Apply" Click="applyColor_Click"/>
+            <AppBarButton x:Name="cancelColor" Icon="Cancel" Label="Cancel" Click="cancelColor_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
     <Page.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black" Offset="0"/>
@@ -15,13 +24,14 @@
     </Page.Background>
 
     <Grid Background="#FFFFFFFF">
+        <Image Stretch="Fill" Source="Assets/bg.jpg" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Rectangle x:Name="currentColor" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="10,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="340"/>
         <Button x:Name="LinkMainPage" Content="Main Page" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="LinkMainPage_Click"/>
         <ColorPicker:ColorPicker x:Name="colorp" Canvas.ZIndex="1" Height="299" Margin="10,47,10,0" VerticalAlignment="Top" Background="#FF873030" PointerMoved="colorp_PointerMoved" PointerPressed="colorp_PointerPressed"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="10,495,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="243,495,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="243,532,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Margin="243,569,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
-        <Button Name="backButton" Content="Back" Click="backButton_Click" HorizontalAlignment="Left" Margin="10,555,0,0" VerticalAlignment="Top" Width="71"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="243,456,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="243,495,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Margin="243,532,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+        <Button Name="backButton" Content="Back" Click="backButton_Click" HorizontalAlignment="Left" Margin="10,532,0,0" VerticalAlignment="Top" Width="71"/>
     </Grid>
 </Page>
