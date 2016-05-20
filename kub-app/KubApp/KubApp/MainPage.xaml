@@ -117,41 +117,19 @@
                     <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top" Width="120"/>
                     <TextBlock x:Name="textBoxPrimaryKub" HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Primary Kub:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
                     <TextBlock x:Name="textBoxAddKub" HorizontalAlignment="Left" Margin="0,120,0,0" TextWrapping="Wrap" Text="Scan new Kub:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
-                    <!--<Button x:Name="ScanQR" Click="ScanQR_Click" HorizontalAlignment="Left" Margin="200,100,0,0" VerticalAlignment="Top" Height="70" Width="70">
+                    <Button x:Name="ScanQR" Click="ScanQR_Click" HorizontalAlignment="Left" Margin="200,100,0,0" VerticalAlignment="Top" Height="70" Width="70">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="Qrcode.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
-                    </Button>-->
-                    <!--<Button x:Name="connectFB" Click="ScanQR_Click" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top" Height="70" Width="70" Background="Transparent">
+                    </Button>
+                    <Button x:Name="connectFB" Click="ScanQR_Click" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top" Height="70" Width="70" Background="Transparent">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="fb.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-15,-10,-15,-10"/>
                         </Grid>
-                    </Button>-->
+                    </Button>
                     <TextBlock x:Name="textBoxConnectFB" HorizontalAlignment="Left" Margin="0,200,0,0" TextWrapping="Wrap" Text="Login with:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
                 </Grid>
             </PivotItem>
         </Pivot>
     </Grid>
-    <!-- OLD - mis dat je hier wat van nodig bent nog -->
-    <!--<PivotItem x:Name="PivotTemperature" Header="Temperaturepage" Background="White">
-                <TextBlock 
-					x:Name="TemperatureKub" 
-					Text="" 
-					HorizontalAlignment="Left" 
-					VerticalAlignment="Center" 
-					Margin="150,0,0,0"
-                    />
-            </PivotItem>
-            <PivotItem x:Name="PivotLedpage" Header="Ledpage" Background="White">
-                <Grid>
-                    <Rectangle x:Name="currentColor" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="10,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="340"/>
-                    <ColorPicker:ColorPicker x:Name="colorpp" Canvas.ZIndex="2" Height="299" Margin="-4,10,0,0" VerticalAlignment="Top" Background="#FF873030" PointerMoved="colorp_PointerMoved"/>
-                </Grid>
-            </PivotItem>-->
-    <!-- END OLD -->
-    <!-- BUTTONS MOETEN WORDEN OVERGEZET
-        <Button x:Name="GoToTemperature" Content="Kub °C" Click="Temperature_Click" HorizontalAlignment="Left" Margin="162,550,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.544,6.458"/>
-        <Button x:Name="GoToLedPage" Content="Ledpage" HorizontalAlignment="Left" Margin="80,550,0,0" VerticalAlignment="Top" Click="Led_Click" RenderTransformOrigin="-0.216,10.75"/>
-    </Grid>
-    END BUTTONS -->
 </Page>
