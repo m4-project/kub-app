@@ -73,7 +73,7 @@
             </PivotItem>
             <PivotItem Header="SETTINGS">
                 <Grid>
-
+                    
                 </Grid>
             </PivotItem>
         </Pivot>

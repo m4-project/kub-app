@@ -25,11 +25,21 @@ namespace KubApp
     public sealed partial class TemperaturePage : Page
     {
         private Kub kub;
-        private Timer timer;
 
         public TemperaturePage()
         {
-            this.InitializeComponent();     
+            this.InitializeComponent();
+
+            //Timer om de temperatuur te refreshen na 1 minuut zodat dit up to date blijft
+            DispatcherTimer dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += DispatcherTimer_Tick;
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 30);
+            dispatcherTimer.Start();
+        }
+
+        private void DispatcherTimer_Tick(object sender, object e)
+        {
+            Temperature();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

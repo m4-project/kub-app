@@ -42,6 +42,22 @@ namespace KubApp_v0._1
             Connect();
         }
 
+        public void getID()
+        {
+            //string kubId = textbox.Text;
+            //int number;
+            //bool containNumber = int.TryParse(kubId, out number);
+
+            //if(containNumber == false)
+            //{
+            //  MessageBox.Show("Please enter the serial number of your Kub");
+            //}
+            //else if(containNumber == true)
+            //{
+            //  kubId = Conver.ToString(number);
+            //}
+        }
+
         public void Connect()
         {
             client.Connect("kub-app");
@@ -68,6 +84,7 @@ namespace KubApp_v0._1
             }
 
             byte protocolVersion = e.Message[0];
+
             int payloadLength = BitConverter.ToInt32(e.Message, 1);
 
             if(e.Message.Length < payloadLength + 5)
@@ -82,7 +99,7 @@ namespace KubApp_v0._1
 
         private void Info_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(TemperaturePage), kubs["1234"]);// TODO: maak dit configureerbaar
+            this.Frame.Navigate(typeof(TemperaturePage), kubs["1234"]); // TODO: maak dit configureerbaar
         }
 
         private void Led_Click(object sender, RoutedEventArgs e)
