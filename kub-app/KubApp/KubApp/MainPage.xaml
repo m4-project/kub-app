@@ -87,7 +87,21 @@
             </PivotItem>
             <PivotItem Header="GAMES">
                 <Grid>
-
+                    <Button x:Name="RockPaper" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                        <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
+                            <Image Stretch="Fill" Source="rockpaper.jpg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="Game2" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                        <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
+                            <Image Stretch="Fill" Source="Assets/game.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="Game3" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                        <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
+                            <Image Stretch="Fill" Source="Assets/game.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
+                        </Grid>
+                    </Button>
                 </Grid>
             </PivotItem>
             <PivotItem Header="SETTINGS">
