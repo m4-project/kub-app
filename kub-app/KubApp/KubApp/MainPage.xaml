@@ -69,10 +69,15 @@
                             <CompositeTransform ScaleY="-1"/>
                         </Rectangle.RenderTransform>
                     </Rectangle>
-                    <Button x:Name="PickColor" Click="Led_Click" HorizontalAlignment="Left" Margin="220,140,0,0" VerticalAlignment="Top" Height="50" Width="60" Background="Transparent">
+                    <Button x:Name="PickColor" HorizontalAlignment="Left" Margin="220,140,0,0" VerticalAlignment="Top" Height="50" Width="60" Background="Transparent">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
-                            <Image Stretch="Fill" Source="colormap.gif" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-7"/>
+                            <Image Stretch="Fill" Source="colormap.gif" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-12,-8,-12,-8"/>
                         </Grid>
+                        <Button.Flyout>
+                            <Flyout>
+                                <ColorPicker:ColorPicker x:Name="colorp" Height="258" VerticalAlignment="Top" Background="White" Width="277"/>
+                            </Flyout>
+                        </Button.Flyout>
                     </Button>
                     <TextBlock x:Name="textBoxBrightness" HorizontalAlignment="Left" Margin="0,240,0,0" TextWrapping="Wrap" Text="Brightness" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
                     <Slider x:Name="slider" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Width="300"/>

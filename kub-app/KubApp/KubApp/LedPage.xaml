@@ -24,7 +24,13 @@
     </Page.Background>
 
     <Grid Background="#FFFFFFFF">
-        <Image Stretch="Fill" Source="Assets/bg.jpg" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Image Stretch="Fill" Source="Assets/bg.jpg" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <FlyoutBase.AttachedFlyout>
+                <Flyout>
+                    <Grid Height="100" Width="100"/>
+                </Flyout>
+            </FlyoutBase.AttachedFlyout>
+        </Image>
         <Rectangle x:Name="currentColor" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="10,351,0,0" Stroke="Black" VerticalAlignment="Top" Width="340"/>
         <Button x:Name="LinkMainPage" Content="Main Page" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="LinkMainPage_Click"/>
         <ColorPicker:ColorPicker x:Name="colorp" Canvas.ZIndex="1" Height="299" Margin="10,47,10,0" VerticalAlignment="Top" Background="#FF873030" PointerMoved="colorp_PointerMoved" PointerPressed="colorp_PointerPressed"/>
@@ -33,5 +39,13 @@
         <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="243,495,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox3" HorizontalAlignment="Left" Margin="243,532,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
         <Button Name="backButton" Content="Back" Click="backButton_Click" HorizontalAlignment="Left" Margin="10,532,0,0" VerticalAlignment="Top" Width="71"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="243,10,0,0" VerticalAlignment="Top">
+            <Button.Flyout>
+                <Flyout>
+                    <TextBlock Text="test"/>
+                </Flyout>
+            </Button.Flyout>
+        </Button>
+
     </Grid>
 </Page>
