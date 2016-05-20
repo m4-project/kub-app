@@ -28,17 +28,17 @@
                             <Image Stretch="Fill" Source="Assets/info.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="LED" Click="Led_Click" HorizontalAlignment="Left" Margin="168,50,0,0" VerticalAlignment="Top" Height="122" Width="122">
+                    <Button x:Name="LED" Click="LED_Click_1" HorizontalAlignment="Left" Margin="168,50,0,0" VerticalAlignment="Top" Height="122" Width="122">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="Assets/led.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-7"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="GAMES" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                    <Button x:Name="GAMES" Click="GAMES_Click" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="Assets/game.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="SETTINGS" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                    <Button x:Name="SETTINGS" Click="SETTINGS_Click" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="Assets/settings.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
@@ -48,7 +48,7 @@
             <PivotItem x:Name="PivotInfo" Header="INFO">
                 <Grid>
                     <Image x:Name="image" HorizontalAlignment="Left" Height="197" Margin="15,60,0,0" VerticalAlignment="Top" Width="300" Source="Assets/temp.png" Stretch="Fill"/>
-                    <TextBox x:Name="textBox" BorderThickness="0" HorizontalAlignment="Left" Margin="80,110,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Height="150" Width="213" FontFamily="Comfortaa" FontSize="110" Canvas.ZIndex="99" Background="Transparent" Foreground="#FFE2D2AD"/>
+                    <TextBlock x:Name="textBox" HorizontalAlignment="Left" Margin="80,110,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Height="150" Width="213" FontFamily="Comfortaa" FontSize="110" Canvas.ZIndex="99" Foreground="#FFE2D2AD"/>
                     <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="15,290,0,0" TextWrapping="Wrap" Text="Status" FontFamily="Comfortaa" FontSize="25" VerticalAlignment="Top"/>
                     <Rectangle Fill="#FFF42413" HorizontalAlignment="Left" Height="4" Margin="15,325,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.5,0.5">
                         <Rectangle.RenderTransform>
@@ -57,18 +57,51 @@
                     </Rectangle>
                     <TextBlock x:Name="textBlockkub" HorizontalAlignment="Left" Margin="15,350,0,0" TextWrapping="Wrap" Text="Kub :" FontFamily="Comfortaa" FontSize="25" VerticalAlignment="Top"/>
                     <TextBlock x:Name="textBlockhue" HorizontalAlignment="Left" Margin="15,390,0,0" TextWrapping="Wrap" Text="Hue :" FontFamily="Comfortaa" FontSize="25" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxkubstatus" HorizontalAlignment="Left" Margin="90,352,0,0" TextWrapping="Wrap" Text="Connected" FontFamily="Comfortaa" FontSize="20" Background="Transparent" BorderThickness="0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBoxkhuestatus" HorizontalAlignment="Left" Margin="90,392,0,0" TextWrapping="Wrap" Text="Connected" FontFamily="Comfortaa" FontSize="20" Background="Transparent" BorderThickness="0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBoxkubstatus" HorizontalAlignment="Left" Margin="90,352,0,0" TextWrapping="Wrap" Text="Connected" FontFamily="Comfortaa" FontSize="20" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBoxkhuestatus" HorizontalAlignment="Left" Margin="90,392,0,0" TextWrapping="Wrap" Text="Connected" FontFamily="Comfortaa" FontSize="20" VerticalAlignment="Top"/>
                 </Grid>
             </PivotItem>
             <PivotItem Header="LED-CONTROL">
                 <Grid>
-                    <Rectangle x:Name="curColor" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="42" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="42" PointerPressed="curColor_PointerPressed"/>
+                    <TextBlock x:Name="textBoxPickColor" HorizontalAlignment="Left" Margin="0,145,0,0" TextWrapping="Wrap" Text="Color Picker" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
+                    <Rectangle Fill="#FFF42413" HorizontalAlignment="Left" Height="4" Margin="10,195,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Button x:Name="PickColor" Click="Led_Click" HorizontalAlignment="Left" Margin="220,140,0,0" VerticalAlignment="Top" Height="50" Width="60" Background="Transparent">
+                        <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
+                            <Image Stretch="Fill" Source="colormap.gif" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-7"/>
+                        </Grid>
+                    </Button>
+                    <TextBlock x:Name="textBoxBrightness" HorizontalAlignment="Left" Margin="0,240,0,0" TextWrapping="Wrap" Text="Brightness" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
+                    <Slider x:Name="slider" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Width="300"/>
+                    <TextBlock x:Name="textBoxPower" HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Power" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
+                    <ToggleSwitch x:Name="toggleSwitchLed" HorizontalAlignment="Left" Margin="220,50,0,0" VerticalAlignment="Top"/>
+                    <Rectangle Fill="#FFF42413" HorizontalAlignment="Left" Height="4" Margin="10,100,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
                 </Grid>
             </PivotItem>
             <PivotItem Header="GAMES">
                 <Grid>
-
+                    <Button x:Name="RockPaper" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                        <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
+                            <Image Stretch="Fill" Source="rockpaper.jpg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="Game2" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                        <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
+                            <Image Stretch="Fill" Source="Assets/game.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="Game3" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                        <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
+                            <Image Stretch="Fill" Source="Assets/game.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
+                        </Grid>
+                    </Button>
                 </Grid>
             </PivotItem>
             <PivotItem Header="SETTINGS">
