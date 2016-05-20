@@ -63,7 +63,26 @@
             </PivotItem>
             <PivotItem Header="LED-CONTROL">
                 <Grid>
-
+                    <TextBox x:Name="textBoxPickColor" HorizontalAlignment="Left" Margin="0,145,0,0" TextWrapping="Wrap" Text="Color Picker" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25" Background="Transparent" BorderThickness="0"/>
+                    <Rectangle Fill="#FFF42413" HorizontalAlignment="Left" Height="4" Margin="10,195,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Button x:Name="PickColor" Click="Led_Click" HorizontalAlignment="Left" Margin="220,140,0,0" VerticalAlignment="Top" Height="50" Width="60" Background="Transparent">
+                        <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
+                            <Image Stretch="Fill" Source="colormap.gif" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-7"/>
+                        </Grid>
+                    </Button>
+                    <TextBox x:Name="textBoxBrightness" HorizontalAlignment="Left" Margin="0,240,0,0" TextWrapping="Wrap" Text="Brightness" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25" Background="Transparent" BorderThickness="0"/>
+                    <Slider x:Name="slider" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Width="300"/>
+                    <TextBox x:Name="textBoxPower" HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Power" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25" Background="Transparent" BorderThickness="0"/>
+                    <ToggleSwitch x:Name="toggleSwitchLed" HorizontalAlignment="Left" Margin="220,50,0,0" VerticalAlignment="Top"/>
+                    <Rectangle Fill="#FFF42413" HorizontalAlignment="Left" Height="4" Margin="10,100,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <CompositeTransform ScaleY="-1"/>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
                 </Grid>
             </PivotItem>
             <PivotItem Header="GAMES">
@@ -79,7 +98,7 @@
         </Pivot>
     </Grid>
     <!-- OLD - mis dat je hier wat van nodig bent nog -->
-            <!--<PivotItem x:Name="PivotTemperature" Header="Temperaturepage" Background="White">
+    <!--<PivotItem x:Name="PivotTemperature" Header="Temperaturepage" Background="White">
                 <TextBlock 
 					x:Name="TemperatureKub" 
 					Text="" 
