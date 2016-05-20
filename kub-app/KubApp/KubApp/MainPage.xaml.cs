@@ -175,5 +175,10 @@ namespace KubApp_v0._1
             textBox2.Text = R.ToString();
             textBox1.Text = result.ToString();
         }
+
+        private void ScanQR_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(newKub));
+        }
     }
 }
