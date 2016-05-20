@@ -166,11 +166,13 @@ namespace KubApp_v0._1
 
             double sliderValue = slider.Value;
 
-            textBox1.Text = sliderValue.ToString();
+            double resultR = R / 100 * sliderValue;
+            double resultG = G / 100 * sliderValue;
+            double resultB = B / 100 * sliderValue;
 
-            double result = R / 100 * sliderValue;
+            var brush = new SolidColorBrush(Windows.UI.Color.FromArgb(255, (byte)resultR, (byte)resultG, (byte)resultB));
+            curColor.Fill = brush;
 
-            textBox2.Text = result.ToString();
         }
 
         private void ScanQR_Click(object sender, RoutedEventArgs e)
