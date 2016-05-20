@@ -20,7 +20,13 @@ using System.Threading.Tasks;
 using Windows.Security.Cryptography.Core;
 
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
+//
+//
+//  PAGINA WORDT MOMENTEEL NIET GEBRUIKT!
+//  BEWAREN TOT DEFINITIEVE VERSIE APP.
+//
+//
+//
 
 namespace KubApp
 {
@@ -59,9 +65,9 @@ namespace KubApp
 
             string hexColorSub = hexColor.Substring(3);
 
-            this.rgbArray[0] = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-            this.rgbArray[1] = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
-            this.rgbArray[2] = int.Parse(hexColorSub.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+            int R = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            int G = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            int B = int.Parse(hexColorSub.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
 
             textBox1.Text = rgbArray[0].ToString();
             textBox2.Text = rgbArray[1].ToString();

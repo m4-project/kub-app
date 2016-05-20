@@ -69,18 +69,19 @@
                             <CompositeTransform ScaleY="-1"/>
                         </Rectangle.RenderTransform>
                     </Rectangle>
+                    <Rectangle x:Name="curColor" HorizontalAlignment="Left" Height="30" Margin="160,-175,0,0" Width="30" Fill="White" Stroke="Black"/>
                     <Button x:Name="PickColor" HorizontalAlignment="Left" Margin="220,140,0,0" VerticalAlignment="Top" Height="50" Width="60" Background="Transparent">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="colormap.gif" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-12,-8,-12,-8"/>
                         </Grid>
                         <Button.Flyout>
-                            <Flyout>
-                                <ColorPicker:ColorPicker x:Name="colorp" Height="258" VerticalAlignment="Top" Background="White" Width="277"/>
+                            <Flyout x:Name="pickColorFlyout" Closed="pickColorFlyout_Closed">
+                                <ColorPicker:ColorPicker x:Name="colorp" Height="258" VerticalAlignment="Top" Background="White" Width="277" PointerPressed="colorp_PointerPressed" PointerMoved="colorp_PointerMoved"/>
                             </Flyout>
                         </Button.Flyout>
                     </Button>
                     <TextBlock x:Name="textBoxBrightness" HorizontalAlignment="Left" Margin="0,240,0,0" TextWrapping="Wrap" Text="Brightness" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
-                    <Slider x:Name="slider" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Width="300"/>
+                    <Slider x:Name="slider" Minimum="0" Maximum="100" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Width="300" ValueChanged="slider_ValueChanged"/>
                     <TextBlock x:Name="textBoxPower" HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Power" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
                     <ToggleSwitch x:Name="toggleSwitchLed" HorizontalAlignment="Left" Margin="220,50,0,0" VerticalAlignment="Top"/>
                     <Rectangle Fill="#FFF42413" HorizontalAlignment="Left" Height="4" Margin="10,100,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.5,0.5">
@@ -88,6 +89,8 @@
                             <CompositeTransform ScaleY="-1"/>
                         </Rectangle.RenderTransform>
                     </Rectangle>
+                    <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="160,382,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="68,382,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
                 </Grid>
             </PivotItem>
             <PivotItem Header="GAMES">
