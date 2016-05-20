@@ -131,17 +131,14 @@ namespace KubApp_v0._1
             // geselecteerde kleur in hexadecimaal
             string hexColor = colorp.SelectedColor.Color.ToString();
 
-            //geselecteerde kleur in RGB
+            // geselecteerde kleur in RGB
             string hexColorSub = hexColor.Substring(3);
-
             int R = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
             int G = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
             int B = int.Parse(hexColorSub.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
-
-
         }
 
-        private void pickColorFlyout_Closed(object sender, object e)
+        private void colorp_PointerMoved(object sender, PointerRoutedEventArgs e)
         {
             changeColor();
         }
@@ -151,7 +148,7 @@ namespace KubApp_v0._1
             changeColor();
         }
 
-        private void colorp_PointerMoved(object sender, PointerRoutedEventArgs e)
+        private void pickColorFlyout_Closed(object sender, object e)
         {
             changeColor();
         }
@@ -161,19 +158,19 @@ namespace KubApp_v0._1
             // geselecteerde kleur in hexadecimaal
             string hexColor = colorp.SelectedColor.Color.ToString();
 
-            //geselecteerde kleur in RGB
+            // geselecteerde kleur in RGB
             string hexColorSub = hexColor.Substring(3);
-
             int R = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
             int G = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
             int B = int.Parse(hexColorSub.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
 
-            double sliderValue = e.NewValue;
+            double sliderValue = slider.Value;
+
+            textBox1.Text = sliderValue.ToString();
 
             double result = R / 100 * sliderValue;
 
-            textBox2.Text = R.ToString();
-            textBox1.Text = result.ToString();
+            textBox2.Text = result.ToString();
         }
 
         private void ScanQR_Click(object sender, RoutedEventArgs e)
