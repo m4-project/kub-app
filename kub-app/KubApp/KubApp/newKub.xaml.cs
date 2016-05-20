@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
 using ZXing;
 using ZXing.Common;
 using ZXing.Mobile;
@@ -45,11 +46,12 @@ namespace KubApp
             ProcessScanResult(result);
         }
 
-        private void ProcessScanResult(ZXing.Result result)
+        private async void ProcessScanResult(ZXing.Result result)
         {
             string message = string.Empty;
             message = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
-            
+            var dialog = new MessageDialog(message);
+            await dialog.ShowAsync();
         }
     }
 }
