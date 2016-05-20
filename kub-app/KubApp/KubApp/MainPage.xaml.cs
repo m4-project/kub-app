@@ -122,5 +122,10 @@ namespace KubApp_v0._1
         {
             kubMenu.SelectedIndex = 4;
         }
+
+        private void ScanQR_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(newKub));
+        }
     }
 }

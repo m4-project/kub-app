@@ -111,7 +111,20 @@
             </PivotItem>
             <PivotItem Header="SETTINGS">
                 <Grid>
-                    
+                    <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="textBoxPrimaryKub" HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Primary Kub:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
+                    <TextBlock x:Name="textBoxAddKub" HorizontalAlignment="Left" Margin="0,120,0,0" TextWrapping="Wrap" Text="Scan new Kub:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
+                    <Button x:Name="ScanQR" Click="ScanQR_Click" HorizontalAlignment="Left" Margin="200,100,0,0" VerticalAlignment="Top" Height="70" Width="70">
+                        <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
+                            <Image Stretch="Fill" Source="Qrcode.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
+                        </Grid>
+                    </Button>
+                    <Button x:Name="connectFB" Click="ScanQR_Click" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top" Height="70" Width="70" Background="Transparent">
+                        <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
+                            <Image Stretch="Fill" Source="fb.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-15,-10,-15,-10"/>
+                        </Grid>
+                    </Button>
+                    <TextBlock x:Name="textBoxConnectFB" HorizontalAlignment="Left" Margin="0,200,0,0" TextWrapping="Wrap" Text="Login with:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
                 </Grid>
             </PivotItem>
         </Pivot>
