@@ -5,16 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
-using System.Threading.Tasks;
-using Windows.Devices.Enumeration;
-using Windows.Devices.Sensors;
-using Windows.Graphics.Display;
-using Windows.Graphics.Imaging;
-using Windows.Media;
-using Windows.Media.Capture;
-using Windows.Media.MediaProperties;
-using Windows.Storage;
-using Windows.Storage.FileProperties;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -70,7 +60,6 @@ namespace KubApp
             var result = await _scanner.Scan();
             ProcessScanResult(result);
         }
-
 
         public void kubID()
         {
