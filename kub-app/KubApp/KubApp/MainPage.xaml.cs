@@ -184,14 +184,14 @@ namespace KubApp_v0._1
         {
             curColor.Fill = colorp.SelectedColor;
 
-            // geselecteerde kleur in hexadecimaal
-            string hexColor = colorp.SelectedColor.Color.ToString();
+            //// geselecteerde kleur in hexadecimaal
+            //string hexColor = colorp.SelectedColor.Color.ToString();
 
-            // geselecteerde kleur in RGB
-            string hexColorSub = hexColor.Substring(3);
-            int R = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-            int G = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
-            int B = int.Parse(hexColorSub.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+            //// geselecteerde kleur in RGB
+            //string hexColorSub = hexColor.Substring(3);
+            //int R = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+            //int G = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+            //int B = int.Parse(hexColorSub.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
         }
 
         private void colorp_PointerMoved(object sender, PointerRoutedEventArgs e)
@@ -222,13 +222,12 @@ namespace KubApp_v0._1
 
             double sliderValue = slider.Value;
 
-            double resultR = R / 100 * sliderValue;
-            double resultG = G / 100 * sliderValue;
-            double resultB = B / 100 * sliderValue;
+            double resultR = Math.Round(R * (sliderValue / 100));
+            double resultG = Math.Round(G * (sliderValue / 100));
+            double resultB = Math.Round(B * (sliderValue / 100));
 
-            var brush = new SolidColorBrush(Windows.UI.Color.FromArgb(255, (byte)resultR, (byte)resultG, (byte)resultB));
+            SolidColorBrush brush = new SolidColorBrush(Windows.UI.Color.FromArgb(255, (byte)resultR, (byte)resultG, (byte)resultB));
             curColor.Fill = brush;
-
         }
 
         private void ScanQR_Click(object sender, RoutedEventArgs e)
