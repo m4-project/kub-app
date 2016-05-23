@@ -61,14 +61,6 @@ namespace KubApp
             ProcessScanResult(result);
         }
 
-        private async void ProcessScanResult(ZXing.Result result)
-        {
-            string message = string.Empty;
-            message = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
-            var dialog = new MessageDialog(message);
-            await dialog.ShowAsync();
-        }
-
         public void kubID()
         {
             var json = message;
