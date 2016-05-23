@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="KubApp_v0._1.App">
-      <uap:VisualElements DisplayName="KubApp_v0.1" Square150x150Logo="" Square44x44Logo="Assets\Square44x44Logo.png" Description="KubApp_v0.1" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="KubApp_v0.1" Square150x150Logo="Assets\LockScreenLogo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="KubApp_v0.1" BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />
