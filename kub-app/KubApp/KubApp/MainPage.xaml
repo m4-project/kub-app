@@ -48,16 +48,16 @@
             <PivotItem x:Name="PivotInfo" Header="INFO">
                 <Grid>
                     <Image x:Name="image" HorizontalAlignment="Left" Height="197" Margin="15,60,0,0" VerticalAlignment="Top" Width="300" Source="Assets/temp.png" Stretch="Fill"/>
-                    <TextBlock x:Name="textBox" HorizontalAlignment="Left" Margin="80,110,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Height="150" Width="213" FontFamily="Comfortaa" FontSize="110" Canvas.ZIndex="99" Foreground="#FFE2D2AD"/>
-                    <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="15,290,0,0" TextWrapping="Wrap" Text="Status" FontFamily="Comfortaa" FontSize="25" VerticalAlignment="Top"/>
-                    <Rectangle Fill="#FFF42413" HorizontalAlignment="Left" Height="4" Margin="15,325,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.5,0.5">
+                    <TextBlock x:Name="temperatureKub" HorizontalAlignment="Left" Margin="80,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="150" Width="213" FontFamily="Comfortaa" FontSize="110" Canvas.ZIndex="99" Foreground="#FFE2D2AD"/>
+                    <TextBlock x:Name="textBlockStatus" HorizontalAlignment="Left" Margin="15,290,0,0" TextWrapping="Wrap" Text="Status" FontFamily="Comfortaa" FontSize="25" VerticalAlignment="Top"/>
+                    <Rectangle Name="statusColor" Fill="#FFF42413" HorizontalAlignment="Left" Height="4" Margin="15,325,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.5,0.5">
                         <Rectangle.RenderTransform>
                             <CompositeTransform ScaleY="-1"/>
                         </Rectangle.RenderTransform>
                     </Rectangle>
                     <TextBlock x:Name="textBlockkub" HorizontalAlignment="Left" Margin="15,350,0,0" TextWrapping="Wrap" Text="Kub :" FontFamily="Comfortaa" FontSize="25" VerticalAlignment="Top"/>
                     <TextBlock x:Name="textBlockhue" HorizontalAlignment="Left" Margin="15,390,0,0" TextWrapping="Wrap" Text="Hue :" FontFamily="Comfortaa" FontSize="25" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBoxkubstatus" HorizontalAlignment="Left" Margin="90,352,0,0" TextWrapping="Wrap" Text="Connected" FontFamily="Comfortaa" FontSize="20" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBoxkubstatus" HorizontalAlignment="Left" Margin="90,352,0,0" TextWrapping="Wrap" Text="" FontFamily="Comfortaa" FontSize="20" VerticalAlignment="Top"/>
                     <TextBlock x:Name="textBoxkhuestatus" HorizontalAlignment="Left" Margin="90,392,0,0" TextWrapping="Wrap" Text="Connected" FontFamily="Comfortaa" FontSize="20" VerticalAlignment="Top"/>
                 </Grid>
             </PivotItem>

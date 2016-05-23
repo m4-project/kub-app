@@ -18,6 +18,9 @@ using Windows.UI.Popups;
 using ZXing;
 using ZXing.Common;
 using ZXing.Mobile;
+using System.Collections;
+using Newtonsoft.Json.Linq;
+
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace KubApp
@@ -28,9 +31,13 @@ namespace KubApp
     /// 
     public sealed partial class newKub : Page
     {
+        ArrayList allKubs = new ArrayList();
+        string message;
+
         public newKub()
         {
             this.InitializeComponent();
+            ZXing.Net.Mobile.Forms.WindowsUniversal.ZXingScannerViewRenderer.Init();
         }
 
         private MobileBarcodeScanner _scanner;
@@ -52,6 +59,27 @@ namespace KubApp
             message = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
             var dialog = new MessageDialog(message);
             await dialog.ShowAsync();
+        }
+
+        public void kubID()
+        {
+            var json = message;
+
+            var objects = JArray.Parse(json); // parse as array  
+            foreach (JObject root in objects)
+            {
+                foreach (KeyValuePair<String, JToken> app in root)
+                {
+                    var id = app.Key;
+                    var kubSerial = (String)app.Value["KubSerial"];
+                }
+            }
+        }
+
+        private void addKub_Click(object sender, RoutedEventArgs e)
+        {
+            string newKub = message;
+            allKubs.Add(newKub);
         }
     }
 }

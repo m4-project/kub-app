@@ -20,7 +20,8 @@ using Windows.UI.Xaml.Navigation;
 namespace KubApp
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// PAGINA OP HET MOMENT OVERBODIG
+    /// BEWAAR DIT WEL!
     /// </summary>
     public sealed partial class TemperaturePage : Page
     {
@@ -48,7 +49,6 @@ namespace KubApp
             this.kub = (Kub)e.Parameter;
 
             Temperature();
-            setTemperatureKubStatus();
         }
 
         public void Temperature()

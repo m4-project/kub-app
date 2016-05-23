@@ -36,10 +36,14 @@ namespace KubApp_v0._1
         
         private Dictionary<string, Kub> kubs = new Dictionary<string, Kub>();
 
+        //private Kub kub;
+
         public MainPage()
         {
             this.InitializeComponent();
             Connect();
+            Temperature();
+            setKubStatus();
         }
 
         public void Connect()
@@ -50,6 +54,17 @@ namespace KubApp_v0._1
             //TODO: maak instellingenpagina om kubs te koppelen
             Kub kub = new Kub("1234", client);
             this.kubs.Add("1234",kub);
+
+            //Timer om de temperatuur te refreshen na 1 minuut zodat dit up to date blijft
+            DispatcherTimer dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += DispatcherTimer_Tick;
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 30);
+            dispatcherTimer.Start();
+        }
+
+        private void DispatcherTimer_Tick(object sender, object e)
+        {
+            Temperature();
         }
 
         private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
@@ -82,9 +97,66 @@ namespace KubApp_v0._1
             kub.PacketReceived(payload, parts[2]);
         }
 
+        public void Temperature()
+        {
+            //int value = 25;
+            //temperatureKub.Text = value.ToString();
+
+            //this.kub.RequestData(Kub.DataType.Temperature, delegate (int value)
+            //{
+                //System.Diagnostics.Debug.WriteLine("Temperature: " + value);
+
+                int value = 18;
+
+                //Zet de text van de textblock naar "Temperature Kub = " + value + " °C"
+                temperatureKub.Text = value.ToString();
+
+                //Kijkt naar de temperatuur van de Kub en bepaald daarmee de kleur van de achtergrond.
+                if (value >= 65)
+                {
+                    statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Red);
+                    textBlockStatus.Text = "Status: Feel the Heat";
+                }
+                else if (value < 60 && value > 48)
+                {
+                    statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Green);
+                    textBlockStatus.Text = "Status: Taste the Flavors";
+                }
+                else if (value < 48 && value > 20)
+                {
+                    statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Blue);
+                    textBlockStatus.Text = "Status: Enjoy the Sweetness";
+                }
+                else if(value < 20)
+                {
+                    statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.White);
+                    textBlockStatus.Text = "Status: Like Iced Coffee?";
+                }
+            //});
+        }
+
+        private void setKubStatus()
+        {
+            if (client.IsConnected)
+            {
+                textBoxkubstatus.Text = "Connected";
+            }
+            else
+            {
+                textBoxkubstatus.Text = "Disconnected";
+            }
+        }
+
+        public void addComboBoxItem()
+        {
+            //comboBox.Items.Clear();
+            //comboBox.Items.AddRange(allKubs);
+        }
+
         private void Info_Click(object sender, RoutedEventArgs e)
         {
             kubMenu.SelectedIndex = 1;
+            //this.kub = (Kub)e.Parameter;
             //this.Frame.Navigate(typeof(TemperaturePage), kubs["1234"]); // TODO: maak dit configureerbaar
         }
 

@@ -6,7 +6,8 @@
     "Microsoft.ApplicationInsights.PersistenceChannel": "1.2.3",
     "Microsoft.ApplicationInsights.WindowsApps": "1.1.1",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
-    "ZXing.Net.Mobile": "2.0.4.46"
+    "Newtonsoft.Json": "8.0.3",
+    "ZXing.Net.Mobile.Forms": "2.0.4.46"
   },
   "frameworks": {
     "uap10.0": {}
