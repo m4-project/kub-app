@@ -5,6 +5,16 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
+using System.Threading.Tasks;
+using Windows.Devices.Enumeration;
+using Windows.Devices.Sensors;
+using Windows.Graphics.Display;
+using Windows.Graphics.Imaging;
+using Windows.Media;
+using Windows.Media.Capture;
+using Windows.Media.MediaProperties;
+using Windows.Storage;
+using Windows.Storage.FileProperties;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -61,13 +71,6 @@ namespace KubApp
             ProcessScanResult(result);
         }
 
-        private async void ProcessScanResult(ZXing.Result result)
-        {
-            string message = string.Empty;
-            message = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
-            var dialog = new MessageDialog(message);
-            await dialog.ShowAsync();
-        }
 
         public void kubID()
         {
