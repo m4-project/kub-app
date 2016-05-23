@@ -42,23 +42,22 @@ namespace KubApp
 
         private MobileBarcodeScanner _scanner;
 
-        private async void ProcessScanResult(ZXing.Result result)
-        {
-            string message = string.Empty;
-            message = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
-            var dialog = new MessageDialog(message);
-            await dialog.ShowAsync();
-        }
-
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            _scanner = new MobileBarcodeScanner(this.Dispatcher);
-            _scanner.UseCustomOverlay = false;
-            _scanner.TopText = "Hold camera up to QR code";
-            _scanner.BottomText = "Camera will automatically scan QR code\r\n\rPress the 'Back' button to cancel";
+            try
+            {
+                _scanner = new MobileBarcodeScanner(this.Dispatcher);
+                _scanner.UseCustomOverlay = false;
+                _scanner.TopText = "Hold camera up to QR code";
+                _scanner.BottomText = "Camera will automatically scan QR code\r\n\rPress the 'Back' button to cancel";
 
-            var result = await _scanner.Scan();
-            ProcessScanResult(result);
+                var result = await _scanner.Scan();
+                ProcessScanResult(result);
+            }
+            catch (Exception error)
+            {
+               var errorMessage = new MessageDialog(error.ToString());
+            }
         }
 
         public void kubID()
