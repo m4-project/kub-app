@@ -141,6 +141,8 @@
     <Content Include="fb.png" />
     <Content Include="QRcode.png" />
     <Content Include="rockpaper.jpg" />
+    <Content Include="slowpoke.png" />
+    <Content Include="wrong.png" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -150,11 +152,20 @@
     <Compile Include="ColorMatchGame.xaml.cs">
       <DependentUpon>ColorMatchGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ColorMatchGetReady.xaml.cs">
+      <DependentUpon>ColorMatchGetReady.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ColorMatchHow.xaml.cs">
       <DependentUpon>ColorMatchHow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ColorMatchMenu.xaml.cs">
       <DependentUpon>ColorMatchMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorMatchSlow.xaml.cs">
+      <DependentUpon>ColorMatchSlow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorMatchWrong.xaml.cs">
+      <DependentUpon>ColorMatchWrong.xaml</DependentUpon>
     </Compile>
     <Compile Include="Kub.cs" />
     <Compile Include="LedPage.xaml.cs">
@@ -205,11 +216,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ColorMatchGetReady.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ColorMatchHow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ColorMatchMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorMatchSlow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorMatchWrong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

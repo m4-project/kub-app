@@ -237,5 +237,10 @@ namespace KubApp_v0._1
         {
             this.Frame.Navigate(typeof(newKub));
         }
+
+        private void Game2_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(ColorMatchMenu));
+        }
     }
 }

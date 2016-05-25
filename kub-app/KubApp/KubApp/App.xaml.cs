@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 namespace KubApp_v0._1
@@ -22,6 +23,7 @@ namespace KubApp_v0._1
     /// </summary>
     sealed partial class App : Application
     {
+        private TransitionCollection transitions;
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -80,6 +82,19 @@ namespace KubApp_v0._1
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
+            if (rootFrame.Content == null)
+            {
+                // Removes the turnstile navigation for startup.
+                if (rootFrame.ContentTransitions != null)
+                {
+                    this.transitions = new TransitionCollection();
+                    foreach (var c in rootFrame.ContentTransitions)
+                    {
+                        this.transitions.Add(c);
+                    }
+                }
+
+            }
         }
 
         /// <summary>
@@ -87,9 +102,17 @@ namespace KubApp_v0._1
         /// </summary>
         /// <param name="sender">The Frame which failed navigation</param>
         /// <param name="e">Details about the navigation failure</param>
-        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+        private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+        }
+
+        private void RootFrame_FirstNavigated(object sender, NavigationEventArgs e)
+        {
+            var rootFrame = sender as Frame;
+            // Do not add a transition to the collection to ensure that our partial and complex animations work
+            rootFrame.ContentTransitions = this.transitions ?? new TransitionCollection();// { new EdgeUIThemeTransition() };
+            rootFrame.Navigated -= this.RootFrame_FirstNavigated;
         }
 
         /// <summary>
