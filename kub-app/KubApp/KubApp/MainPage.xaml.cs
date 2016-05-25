@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.InteropServices;
+using System.Net;
+using System.Diagnostics;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -13,14 +16,11 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using System.Runtime.InteropServices;
+using Windows.Security.Cryptography;
+using ColorPicker;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
-using System.Net;
-using ColorPicker;
-using System.Diagnostics;
 using uPLibrary.Networking.M2Mqtt.Exceptions;
-using Windows.Security.Cryptography;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -34,7 +34,7 @@ namespace KubApp_v0._1
         //Maakt een nieuwe MqttClient aan
         private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
         
-        private Dictionary<string, Kub> kubs = new Dictionary<string, Kub>();
+        public Dictionary<string, Kub> kubs = new Dictionary<string, Kub>();
 
         //private Kub kub;
 
@@ -44,6 +44,7 @@ namespace KubApp_v0._1
             Connect();
             Temperature();
             setKubStatus();
+            setComboBox();
         }
 
         public void Connect()
@@ -106,7 +107,7 @@ namespace KubApp_v0._1
             //{
                 //System.Diagnostics.Debug.WriteLine("Temperature: " + value);
 
-                int value = 18;
+                int value = 70;
 
                 //Zet de text van de textblock naar "Temperature Kub = " + value + " °C"
                 temperatureKub.Text = value.ToString();
@@ -147,10 +148,12 @@ namespace KubApp_v0._1
             }
         }
 
-        public void addComboBoxItem()
+        private void setComboBox()
         {
-            //comboBox.Items.Clear();
-            //comboBox.Items.AddRange(allKubs);
+            foreach(KeyValuePair<string, Kub> kub in kubs)
+            {
+                comboBox.Items.Add(kub);
+            }
         }
 
         private void Info_Click(object sender, RoutedEventArgs e)
