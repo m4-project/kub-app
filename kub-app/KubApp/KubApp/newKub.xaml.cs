@@ -20,6 +20,10 @@ using ZXing.Common;
 using ZXing.Mobile;
 using System.Collections;
 using Newtonsoft.Json.Linq;
+using System.Runtime.Serialization.Json;
+using System.Text;
+using Newtonsoft.Json;
+using KubApp;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -31,55 +35,57 @@ namespace KubApp
     /// 
     public sealed partial class newKub : Page
     {
-        ArrayList allKubs = new ArrayList();
-        string message;
+        public string message;
 
         public newKub()
         {
             this.InitializeComponent();
             ZXing.Net.Mobile.Forms.WindowsUniversal.ZXingScannerViewRenderer.Init();
+            kubID();
         }
 
         private MobileBarcodeScanner _scanner;
 
-        private async void ProcessScanResult(ZXing.Result result)
-        {
-            string message = string.Empty;
-            message = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
-            var dialog = new MessageDialog(message);
-            await dialog.ShowAsync();
-        }
-
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            _scanner = new MobileBarcodeScanner(this.Dispatcher);
-            _scanner.UseCustomOverlay = false;
-            _scanner.TopText = "Hold camera up to QR code";
-            _scanner.BottomText = "Camera will automatically scan QR code\r\n\rPress the 'Back' button to cancel";
+            try
+            {
+                _scanner = new MobileBarcodeScanner(this.Dispatcher);
+                _scanner.UseCustomOverlay = false;
+                _scanner.TopText = "Hold camera up to QR code";
+                _scanner.BottomText = "Camera will automatically scan QR code\r\n\rPress the 'Back' button to cancel";
 
-            var result = await _scanner.Scan();
-            ProcessScanResult(result);
+                var result = await _scanner.Scan();
+                ProcessScanResult(result);
+            }
+            catch (Exception error)
+            {
+               var errorMessage = new MessageDialog(error.ToString());
+            }
         }
+
+        private async void ProcessScanResult(ZXing.Result result)
+         {
+             string message = string.Empty;
+             message = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
+             var dialog = new MessageDialog(message);
+             await dialog.ShowAsync();
+         }
 
         public void kubID()
         {
-            var json = message;
-
-            var objects = JArray.Parse(json); // parse as array  
-            foreach (JObject root in objects)
+            if (message != null)
             {
-                foreach (KeyValuePair<String, JToken> app in root)
+                var json = message;
+
+                Dictionary<string, Kub> kubs = JsonConvert.DeserializeObject<Dictionary<string, Kub>>(json);
+
+                foreach(KeyValuePair<string, Kub> kub in kubs)
                 {
-                    var id = app.Key;
-                    var kubSerial = (String)app.Value["KubSerial"];
+                    kubs.Add(kub.Key, kub.Value);
                 }
             }
         }
 
-        private void addKub_Click(object sender, RoutedEventArgs e)
-        {
-            string newKub = message;
-            allKubs.Add(newKub);
-        }
     }
 }

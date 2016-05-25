@@ -7,8 +7,5 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBox x:Name="textBoxAddKub" HorizontalAlignment="Left" Margin="139,84,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
-        <Button x:Name="addKub" Content="Add Kub" Click="addKub_Click" HorizontalAlignment="Left" Margin="139,174,0,0" VerticalAlignment="Top" Width="71"/>
-    </Grid>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
 </Page>
