@@ -136,6 +136,8 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="bgsky.jpg" />
+    <Content Include="colormatchlogo.png" />
     <Content Include="fb.png" />
     <Content Include="QRcode.png" />
     <Content Include="rockpaper.jpg" />
@@ -144,6 +146,15 @@
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorMatchGame.xaml.cs">
+      <DependentUpon>ColorMatchGame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorMatchHow.xaml.cs">
+      <DependentUpon>ColorMatchHow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorMatchMenu.xaml.cs">
+      <DependentUpon>ColorMatchMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Kub.cs" />
     <Compile Include="LedPage.xaml.cs">
@@ -190,6 +201,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ColorMatchGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorMatchHow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorMatchMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LedPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
