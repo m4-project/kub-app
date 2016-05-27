@@ -38,6 +38,7 @@ namespace KubApp_v0._1
 
         //private Kub kub;
 
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -178,6 +179,11 @@ namespace KubApp_v0._1
             kubMenu.SelectedIndex = 3;
         }
 
+        private void Game2_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(ColorMatchMenu));
+        }
+
         private void SETTINGS_Click(object sender, RoutedEventArgs e)
         {
             kubMenu.SelectedIndex = 4;
@@ -185,31 +191,47 @@ namespace KubApp_v0._1
 
         private void changeColor()
         {
-            curColor.Fill = colorp.SelectedColor;
+            if (toggleSwitchLed.IsOn)
+            {
+                curColor.Fill = colorp.SelectedColor;
 
-            //// geselecteerde kleur in hexadecimaal
-            //string hexColor = colorp.SelectedColor.Color.ToString();
+                // geselecteerde kleur in hexadecimaal
+                string hexColor = colorp.SelectedColor.Color.ToString();
 
-            //// geselecteerde kleur in RGB
-            //string hexColorSub = hexColor.Substring(3);
-            //int R = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
-            //int G = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
-            //int B = int.Parse(hexColorSub.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+                // geselecteerde kleur in RGB
+                string hexColorSub = hexColor.Substring(3);
+                int R = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
+                int G = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
+                int B = int.Parse(hexColorSub.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
+
+                //Kub kub = this.kubs["1234"];
+                //kub.SetLed(0, (byte)R, (byte)G, (byte)B);
+                //kub.SetLed(1, (byte)R, (byte)G, (byte)B);
+            }
         }
 
         private void colorp_PointerMoved(object sender, PointerRoutedEventArgs e)
         {
-            changeColor();
+            if (toggleSwitchLed.IsOn)
+            {
+                changeColor();
+            }
         }
 
         private void colorp_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            changeColor();
+            if (toggleSwitchLed.IsOn)
+            {
+                changeColor();
+            }
         }
 
         private void pickColorFlyout_Closed(object sender, object e)
         {
-            changeColor();
+            if (toggleSwitchLed.IsOn)
+            {
+                changeColor();
+            }
         }
 
         private void slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
@@ -229,6 +251,10 @@ namespace KubApp_v0._1
             double resultG = Math.Round(G * (sliderValue / 100));
             double resultB = Math.Round(B * (sliderValue / 100));
 
+            //Kub kub = this.kubs["1234"];
+            //kub.SetLed(0, (byte)resultR, (byte)resultG, (byte)resultB);
+            //kub.SetLed(1, (byte)resultR, (byte)resultG, (byte)resultB);
+
             SolidColorBrush brush = new SolidColorBrush(Windows.UI.Color.FromArgb(255, (byte)resultR, (byte)resultG, (byte)resultB));
             curColor.Fill = brush;
         }
@@ -238,9 +264,20 @@ namespace KubApp_v0._1
             this.Frame.Navigate(typeof(newKub));
         }
 
-        private void Game2_Click(object sender, RoutedEventArgs e)
+        private void toggleSwitchLed_Toggled(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ColorMatchMenu));
+            if (!toggleSwitchLed.IsOn)
+            {
+                colorp.IsEnabled = false;
+                curColor.Opacity = 0.3;
+                slider.IsEnabled = false;
+            }
+            else
+            {
+                colorp.IsEnabled = true;
+                curColor.Opacity = 1.0;
+                slider.IsEnabled = true;
+            }
         }
     }
 }
