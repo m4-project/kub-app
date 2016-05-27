@@ -129,6 +129,7 @@ namespace KubApp
                 highScore = currentScore;
                 scoreTextBlock.Text = currentScore.ToString();
                 bar.Value = 100;
+                timevar = 3;
                 dispatcherTimer.Start();
             }
             else
@@ -153,6 +154,7 @@ namespace KubApp
                 highScore = currentScore;
                 scoreTextBlock.Text = currentScore.ToString();
                 bar.Value = 100;
+                timevar = 3;
                 dispatcherTimer.Start();
             }
             else
@@ -176,6 +178,7 @@ namespace KubApp
                 currentScore = currentScore + 1;
                 highScore = currentScore;
                 bar.Value = 100;
+                timevar = 3;
                 scoreTextBlock.Text = currentScore.ToString();
                 dispatcherTimer.Start();
             }
@@ -200,6 +203,7 @@ namespace KubApp
                 currentScore = currentScore + 1;
                 highScore = currentScore;
                 scoreTextBlock.Text = currentScore.ToString();
+                timevar = 3;
                 bar.Value = 100;
                 dispatcherTimer.Start();
             }
