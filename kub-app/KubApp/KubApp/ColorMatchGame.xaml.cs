@@ -116,6 +116,7 @@ namespace KubApp
         }
 
         // Code below is for buttons, if clicked correctly, add 1 point to score
+        // and reset countdown bar to 100%
         // If clicked incorrectly, display message with highscore
 
 
@@ -127,6 +128,7 @@ namespace KubApp
                 currentScore = currentScore + 1;
                 highScore = currentScore;
                 scoreTextBlock.Text = currentScore.ToString();
+                bar.Value = 100;
                 dispatcherTimer.Start();
             }
             else
@@ -150,6 +152,7 @@ namespace KubApp
                 currentScore = currentScore + 1;
                 highScore = currentScore;
                 scoreTextBlock.Text = currentScore.ToString();
+                bar.Value = 100;
                 dispatcherTimer.Start();
             }
             else
@@ -172,6 +175,7 @@ namespace KubApp
             {
                 currentScore = currentScore + 1;
                 highScore = currentScore;
+                bar.Value = 100;
                 scoreTextBlock.Text = currentScore.ToString();
                 dispatcherTimer.Start();
             }
@@ -196,6 +200,7 @@ namespace KubApp
                 currentScore = currentScore + 1;
                 highScore = currentScore;
                 scoreTextBlock.Text = currentScore.ToString();
+                bar.Value = 100;
                 dispatcherTimer.Start();
             }
             else
