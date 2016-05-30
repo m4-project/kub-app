@@ -178,6 +178,9 @@
       <DependentUpon>newKub.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RockPaperMain.xaml.cs">
+      <DependentUpon>RockPaperMain.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TemperaturePage.xaml.cs">
       <DependentUpon>TemperaturePage.xaml</DependentUpon>
     </Compile>
@@ -245,6 +248,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="newKub.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RockPaperMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
