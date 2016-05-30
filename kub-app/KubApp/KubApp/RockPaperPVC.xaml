@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="KubApp.RockPaperPVC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KubApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="Transparent">
+        <Grid Background="Transparent">
+            <Image Stretch="Fill" Source="backgroundmetkub.png" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        </Grid>
+        <TextBlock Name="result" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,250,0,0" Text="Choose wisely." Height="50" Width="auto" FontFamily="Rockwell" FontSize="30" Foreground="White" />
+        <TextBlock Name="scoretext" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,430,0,0" Text="Score:" Height="50" Width="auto" FontFamily="Rockwell" FontSize="25" Foreground="White" />
+        <TextBlock Name="highscoretext" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,430,0,0" Text="High Score:" Height="50" Width="auto" FontFamily="Rockwell" FontSize="25" Foreground="White" />
+        <TextBlock Name="score" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,470,0,0" Text="0" Height="50" Width="auto" FontFamily="Rockwell" FontSize="25" Foreground="White" />
+        <TextBlock Name="highscore" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,470,0,0" Text="0" Height="50" Width="auto" FontFamily="Rockwell" FontSize="25" Foreground="White" />
+        <Button
+            Name="Back" Content="Next round!" HorizontalAlignment="Center" Margin="0,550,0,0" VerticalAlignment="Top" Width="240" Height="40" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" FontSize="22" Foreground="White" Background="#3348221C" Click="Back_Click">
+        </Button>
+        <Button x:Name="rock" Click="rock_Click" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Height="100" Width="100">
+            <Grid Background="Transparent" BorderBrush="Black" BorderThickness="0">
+                <Image Stretch="Fill" Source="steen.jpg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
+            </Grid>
+        </Button>
+        <Button x:Name="paper" Click="paper_Click" HorizontalAlignment="Left" Margin="120,300,0,0" VerticalAlignment="Top" Height="100" Width="100">
+            <Grid Background="Transparent" BorderBrush="Black" BorderThickness="0">
+                <Image Stretch="Fill" Source="papier.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
+            </Grid>
+        </Button>
+        <Button x:Name="scicor" Click="scicor_Click" HorizontalAlignment="Left" Margin="230,300,0,0" VerticalAlignment="Top" Height="100" Width="100">
+            <Grid Background="Transparent" BorderBrush="Black" BorderThickness="0">
+                <Image Stretch="Fill" Source="schaar.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
+            </Grid>
+        </Button>
+    </Grid>
+</Page>

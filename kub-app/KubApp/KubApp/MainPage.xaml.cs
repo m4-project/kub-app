@@ -274,5 +274,10 @@ namespace KubApp_v0._1
                 slider.IsEnabled = true;
             }
         }
+
+        private void RockPaper_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(RockPaperMain));
+        }
     }
 }

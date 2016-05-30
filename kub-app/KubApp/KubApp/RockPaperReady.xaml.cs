@@ -20,21 +20,21 @@ namespace KubApp
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class RockPaperMain : Page
+    public sealed partial class RockPaperReady : Page
     {
-        public RockPaperMain()
+        public RockPaperReady()
         {
             this.InitializeComponent();
         }
 
-        private void PVC_Click(object sender, RoutedEventArgs e)
+        private void PVCStart_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(RockPaperReady));
+            this.Frame.Navigate(typeof(RockPaperPVC));
         }
 
-        private void PVP_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(RockPaperMain));
         }
     }
 }
