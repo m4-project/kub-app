@@ -24,20 +24,21 @@ namespace KubApp
     public sealed partial class ColorMatchGetReady : Page
     {
         private DispatcherTimer dispatcherTimer = new DispatcherTimer();
-        private int timevar=3;
+        private int timevar = 3;
+        private string highpass = "";
 
         public ColorMatchGetReady()
         {
             this.InitializeComponent();
         }
 
-        public  void Countdown()
+        public void Countdown()
         {
             // initializes dispatcherTimer
             this.dispatcherTimer.Tick += DispatcherTimer_Tick;
             this.dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             this.dispatcherTimer.Start();
-            
+
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -55,9 +56,14 @@ namespace KubApp
             else
             {
                 dispatcherTimer.Stop();
-                this.Frame.Navigate(typeof(ColorMatchGame));
+                this.Frame.Navigate(typeof(ColorMatchGame), highpass);
             }
-           
+
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var high = e.Parameter as string;
+            this.highpass = high;
         }
     }
 }

@@ -23,6 +23,7 @@ namespace KubApp
     /// </summary>
     public sealed partial class ColorMatchWrong : Page
     {
+        private string highpass = "";
         public ColorMatchWrong()
         {
             this.InitializeComponent();
@@ -30,12 +31,13 @@ namespace KubApp
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ColorMatchGetReady));
+            this.Frame.Navigate(typeof(ColorMatchGetReady), highpass);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var high = e.Parameter as string;
+            this.highpass = high;
             textBlock2.Text = high;
         }
     }

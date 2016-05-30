@@ -55,7 +55,7 @@ namespace KubApp
       
         private  void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            // Executed on opening the page, wait for user input ( close button ) to start game
+            // Executed when page is loaded
             randomcolor();
             DispatcherTimerSetup();
         }
@@ -65,8 +65,6 @@ namespace KubApp
             // initializes dispatcherTimer
             this.dispatcherTimer.Tick += DispatcherTimer_Tick;
             this.dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-            startTime = DateTimeOffset.Now;
-            lastTime = startTime;
             this.dispatcherTimer.Start();
         }
 
@@ -113,6 +111,20 @@ namespace KubApp
             // fill rect with random color from list
             currentColor.Fill = new SolidColorBrush(rndColor);
             this.colorNow = rndColor;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var high = e.Parameter as string;
+            if (high == null)
+            {
+                this.highScore = 0;
+            }
+            else
+            {
+                this.highScore = Int32.Parse(high);
+                highscoreTextBlock.Text = highScore.ToString();
+            }
         }
 
         // Code below is for buttons, if clicked correctly, add 1 point to score

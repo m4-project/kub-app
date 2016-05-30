@@ -23,6 +23,7 @@ namespace KubApp
     /// </summary>
     public sealed partial class ColorMatchSlow : Page
     {
+        private string highpass = "";
         public ColorMatchSlow()
         {
             this.InitializeComponent();
@@ -30,7 +31,8 @@ namespace KubApp
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ColorMatchGetReady));
+            
+            this.Frame.Navigate(typeof(ColorMatchGetReady), highpass);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -41,6 +43,7 @@ namespace KubApp
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             var high = e.Parameter as string;
+            this.highpass = high;
             textBlock2.Text = high;
         }
     }
