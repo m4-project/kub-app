@@ -12,8 +12,8 @@
         <Button Name="GoToMainPage" Content="Mainpage" Click="GoToMainPage_Click" HorizontalAlignment="Left" Margin="117,550,0,0" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="117,420,0,0" TextWrapping="Wrap" Text="Status" VerticalAlignment="Top"/>
         <TextBlock Name="TemperatureKubStatus" HorizontalAlignment="Left" Margin="117,445,0,0" TextWrapping="Wrap" Text="Kub: Disconnected" VerticalAlignment="Top"/>
-        <Button Name="backButton" Content="Back" Click="backButton_Click" HorizontalAlignment="Left" Margin="61,550,0,0" VerticalAlignment="Top"/>
-        <Button Name="toLedPage" Content="Ledpage" Click="toLedPage_Click" HorizontalAlignment="Left" Margin="209,550,0,0" VerticalAlignment="Top"/>
+        <!--<Button Name="backButton" Content="Back" Click="backButton_Click" HorizontalAlignment="Left" Margin="61,550,0,0" VerticalAlignment="Top"/>
+        <Button Name="toLedPage" Content="Ledpage" Click="toLedPage_Click" HorizontalAlignment="Left" Margin="209,550,0,0" VerticalAlignment="Top"/>-->
 
     </Grid>
 </Page>

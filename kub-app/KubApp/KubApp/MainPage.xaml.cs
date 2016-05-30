@@ -164,11 +164,6 @@ namespace KubApp_v0._1
             //this.Frame.Navigate(typeof(TemperaturePage), kubs["1234"]); // TODO: maak dit configureerbaar
         }
 
-        private void Led_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(LedPage));
-        }
-
         private void LED_Click_1(object sender, RoutedEventArgs e)
         {
             kubMenu.SelectedIndex = 2;

@@ -75,9 +75,20 @@
                             <Image Stretch="Fill" Source="colormap.gif" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-12,-8,-12,-8"/>
                         </Grid>
                         <Button.Flyout>
-                            <Flyout x:Name="pickColorFlyout" Closed="pickColorFlyout_Closed">
-                                <ColorPicker:ColorPicker x:Name="colorp" Height="258" VerticalAlignment="Top" Background="White" Width="277" PointerMoved="colorp_PointerMoved" PointerPressed="colorp_PointerPressed" IsEnabled="False"/>
+                            <Flyout Placement="Bottom">
+                                <Flyout.FlyoutPresenterStyle>
+                                    <Style TargetType="FlyoutPresenter">
+                                        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"></Setter>
+                                        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled"></Setter>
+                                    </Style>
+                                </Flyout.FlyoutPresenterStyle>
+                                <Grid Height="260" Width="260">
+                                    <ColorPicker:ColorPicker x:Name="colorp" VerticalAlignment="Top" Background="White" PointerMoved="colorp_PointerMoved" PointerPressed="colorp_PointerPressed" IsEnabled="False" Width="260" Height="260"/>
+                                </Grid>
                             </Flyout>
+                            <!--<Flyout x:Name="pickColorFlyout" Closed="pickColorFlyout_Closed" Placement="Top">
+                                <ColorPicker:ColorPicker x:Name="colorp" VerticalAlignment="Top" Background="White" PointerMoved="colorp_PointerMoved" PointerPressed="colorp_PointerPressed" IsEnabled="False" Width="180" Height="180"/>
+                            </Flyout>-->
                         </Button.Flyout>
                     </Button>
                     <TextBlock x:Name="textBoxBrightness" HorizontalAlignment="Left" Margin="0,240,0,0" TextWrapping="Wrap" Text="Brightness" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>

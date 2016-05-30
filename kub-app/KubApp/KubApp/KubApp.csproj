@@ -157,9 +157,6 @@
       <DependentUpon>ColorMatchMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Kub.cs" />
-    <Compile Include="LedPage.xaml.cs">
-      <DependentUpon>LedPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -210,10 +207,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ColorMatchMenu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="LedPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
