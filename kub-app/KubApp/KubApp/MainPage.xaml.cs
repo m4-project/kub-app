@@ -174,6 +174,11 @@ namespace KubApp_v0._1
             kubMenu.SelectedIndex = 3;
         }
 
+        private void Game2_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(ColorMatchMenu));
+        }
+
         private void SETTINGS_Click(object sender, RoutedEventArgs e)
         {
             kubMenu.SelectedIndex = 4;

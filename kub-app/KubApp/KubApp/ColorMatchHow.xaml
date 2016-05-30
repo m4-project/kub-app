@@ -7,6 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.Transitions>
+        <TransitionCollection>
+            <PaneThemeTransition Edge="Bottom" />
+        </TransitionCollection>
+    </Page.Transitions>
+
     <Grid  x:Name="LayoutRoot" Background="Transparent">
         <Grid Background="Transparent">
             <Image Stretch="Fill" Source="bgsky.jpg" VerticalAlignment="Top" HorizontalAlignment="Left"/>

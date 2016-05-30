@@ -12,9 +12,12 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using System.Threading;
+using System.Threading.Tasks;
 using Windows.UI;
 using Windows.UI.Popups;
+using WinRTXamlToolkit;
+using WinRTXamlToolkit.AwaitableUI;
+using Windows.UI.Xaml.Media.Animation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -39,7 +42,9 @@ namespace KubApp
         private Color green = Color.FromArgb(255, 41, 255, 41);
         // Track Score Variables
         private int currentScore = 0;
-        private int highScore = 0;
+        public int highScore = 0;
+        // Timevar for countdown
+        private int timevar = 3;
 
         public SolidColorBrush fillColor { get; set; }
 
@@ -47,12 +52,10 @@ namespace KubApp
         {
             this.InitializeComponent();
         }
-
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
+      
+        private  void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            // Executed on opening the page, wait for user input ( close button ) to start game
-            var dialog = new MessageDialog("Press the corect color! \r\n\r Ready? Press oke!");
-            await dialog.ShowAsync();
+            // Executed when page is loaded
             randomcolor();
             DispatcherTimerSetup();
         }
@@ -61,17 +64,37 @@ namespace KubApp
         {
             // initializes dispatcherTimer
             this.dispatcherTimer.Tick += DispatcherTimer_Tick;
-            this.dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
-            startTime = DateTimeOffset.Now;
-            lastTime = startTime;
+            this.dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             this.dispatcherTimer.Start();
         }
 
-        private async void DispatcherTimer_Tick(object sender, object e)
+
+        private void DispatcherTimer_Tick(object sender, object e)
         {
             // Executed when timer runs out
-            var dialog = new MessageDialog("To slow bitch! \r\n\r HighScore: " + highScore);
-            await dialog.ShowAsync();
+            if (this.timevar == 3)
+            {
+                timevar--;
+                bar.Value = 100;
+            }
+            else if (this.timevar == 2)
+            {
+                timevar--;
+                bar.Value = 66;
+            }
+            else if (this.timevar == 1)
+            {
+                timevar--;
+                bar.Value = 33;
+            }
+            else
+            {
+                bar.Value = 0;
+                dispatcherTimer.Stop();
+                string hs = this.highScore.ToString();
+                this.Frame.Navigate(typeof(ColorMatchSlow), hs);
+            }
+            
         }
 
         private void randomcolor()
@@ -90,11 +113,26 @@ namespace KubApp
             this.colorNow = rndColor;
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var high = e.Parameter as string;
+            if (high == null)
+            {
+                this.highScore = 0;
+            }
+            else
+            {
+                this.highScore = Int32.Parse(high);
+                highscoreTextBlock.Text = highScore.ToString();
+            }
+        }
+
         // Code below is for buttons, if clicked correctly, add 1 point to score
+        // and reset countdown bar to 100%
         // If clicked incorrectly, display message with highscore
 
 
-        private async void buttonblue_Click(object sender, RoutedEventArgs e)
+        private void buttonblue_Click(object sender, RoutedEventArgs e)
         {
             colorPressed = colorList[0];
             if (this.colorNow == colorPressed)
@@ -102,21 +140,24 @@ namespace KubApp
                 currentScore = currentScore + 1;
                 highScore = currentScore;
                 scoreTextBlock.Text = currentScore.ToString();
+                bar.Value = 100;
+                timevar = 3;
+                dispatcherTimer.Start();
             }
             else
             {
                 highScore = currentScore;
                 currentScore = 0;
                 scoreTextBlock.Text = currentScore.ToString();
-                var dialog = new MessageDialog("Wrong!\r\n\rHighScore: " + highScore);
-                await dialog.ShowAsync();
+                string hs = highScore.ToString();
+                this.Frame.Navigate(typeof(ColorMatchWrong), hs);
+                dispatcherTimer.Stop();
             }
             highscoreTextBlock.Text = highScore.ToString();
-            dispatcherTimer.Start();
             randomcolor();
         }
 
-        private async void buttonred_Click(object sender, RoutedEventArgs e)
+        private void buttonred_Click(object sender, RoutedEventArgs e)
         {
             colorPressed = colorList[1];
             if (this.colorNow == colorPressed)
@@ -124,43 +165,49 @@ namespace KubApp
                 currentScore = currentScore + 1;
                 highScore = currentScore;
                 scoreTextBlock.Text = currentScore.ToString();
+                bar.Value = 100;
+                timevar = 3;
+                dispatcherTimer.Start();
             }
             else
             {
                 highScore = currentScore;
                 currentScore = 0;
                 scoreTextBlock.Text = currentScore.ToString();
-                var dialog = new MessageDialog("Wrong!\r\n\rHighScore: " + highScore);
-                await dialog.ShowAsync();
+                string hs = highScore.ToString();
+                this.Frame.Navigate(typeof(ColorMatchWrong), hs);
+                dispatcherTimer.Stop();
             }
             highscoreTextBlock.Text = highScore.ToString();
-            dispatcherTimer.Start();
             randomcolor();
         }
 
-        private async void buttongreen_Click(object sender, RoutedEventArgs e)
+        private void buttongreen_Click(object sender, RoutedEventArgs e)
         {
             colorPressed = colorList[3];
             if (this.colorNow == colorPressed)
             {
                 currentScore = currentScore + 1;
                 highScore = currentScore;
+                bar.Value = 100;
+                timevar = 3;
                 scoreTextBlock.Text = currentScore.ToString();
+                dispatcherTimer.Start();
             }
             else
             {
                 highScore = currentScore;
                 currentScore = 0;
                 scoreTextBlock.Text = currentScore.ToString();
-                var dialog = new MessageDialog("Wrong!\r\n\rHighScore: " + highScore);
-                await dialog.ShowAsync();
+                string hs = highScore.ToString();
+                this.Frame.Navigate(typeof(ColorMatchWrong), hs);
+                dispatcherTimer.Stop();
             }
             highscoreTextBlock.Text = highScore.ToString();
-            dispatcherTimer.Start();
             randomcolor();
         }
 
-        private async void buttonyellow_Click(object sender, RoutedEventArgs e)
+        private void buttonyellow_Click(object sender, RoutedEventArgs e)
         {
             colorPressed = colorList[2];
             if (this.colorNow == colorPressed)
@@ -168,17 +215,20 @@ namespace KubApp
                 currentScore = currentScore + 1;
                 highScore = currentScore;
                 scoreTextBlock.Text = currentScore.ToString();
+                timevar = 3;
+                bar.Value = 100;
+                dispatcherTimer.Start();
             }
             else
             {
                 highScore = currentScore;
                 currentScore = 0;
                 scoreTextBlock.Text = currentScore.ToString();
-                var dialog = new MessageDialog("Wrong!\r\n\rHighScore: " + highScore);
-                await dialog.ShowAsync();
+                string hs = highScore.ToString();
+                this.Frame.Navigate(typeof(ColorMatchWrong), hs);
+                dispatcherTimer.Stop();
             }
             highscoreTextBlock.Text = highScore.ToString();
-            dispatcherTimer.Start();
             randomcolor();
         }
 

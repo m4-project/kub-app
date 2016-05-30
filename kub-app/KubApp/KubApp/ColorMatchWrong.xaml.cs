@@ -11,8 +11,8 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Media.Animation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -21,21 +21,24 @@ namespace KubApp
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ColorMatchMenu : Page
+    public sealed partial class ColorMatchWrong : Page
     {
-        public ColorMatchMenu()
+        private string highpass = "";
+        public ColorMatchWrong()
         {
             this.InitializeComponent();
         }
 
-        private void play_Click(object sender, RoutedEventArgs e)
+        private void back_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(ColorMatchGetReady));
+            this.Frame.Navigate(typeof(ColorMatchGetReady), highpass);
         }
 
-        private void howtoplay_Click(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            this.Frame.Navigate(typeof(ColorMatchHow));
+            var high = e.Parameter as string;
+            this.highpass = high;
+            textBlock2.Text = high;
         }
     }
 }
