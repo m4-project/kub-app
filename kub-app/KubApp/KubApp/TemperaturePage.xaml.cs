@@ -90,11 +90,6 @@ namespace KubApp
             this.Frame.Navigate(typeof(MainPage));
         }
 
-        private void toLedPage_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(LedPage));
-        }
-
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
             if(Frame.CanGoBack)

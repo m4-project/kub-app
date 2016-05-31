@@ -69,36 +69,48 @@
                             <CompositeTransform ScaleY="-1"/>
                         </Rectangle.RenderTransform>
                     </Rectangle>
-                    <Rectangle x:Name="curColor" HorizontalAlignment="Left" Height="30" Margin="160,-175,0,0" Width="30" Fill="White" Stroke="Black"/>
+                    <Rectangle x:Name="curColor" Opacity="0.2" HorizontalAlignment="Left" Height="30" Margin="160,-175,0,0" Width="30" Stroke="Black" Fill="White"/>
                     <Button x:Name="PickColor" HorizontalAlignment="Left" Margin="220,140,0,0" VerticalAlignment="Top" Height="50" Width="60" Background="Transparent">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="colormap.gif" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-12,-8,-12,-8"/>
                         </Grid>
                         <Button.Flyout>
-                            <Flyout x:Name="pickColorFlyout" Closed="pickColorFlyout_Closed">
-                                <ColorPicker:ColorPicker x:Name="colorp" Height="258" VerticalAlignment="Top" Background="White" Width="277" PointerMoved="colorp_PointerMoved" PointerPressed="colorp_PointerPressed"/>
+                            <Flyout Placement="Bottom">
+                                <Flyout.FlyoutPresenterStyle>
+                                    <Style TargetType="FlyoutPresenter">
+                                        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"></Setter>
+                                        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled"></Setter>
+                                    </Style>
+                                </Flyout.FlyoutPresenterStyle>
+                                <Grid Height="260" Width="260">
+                                    <ColorPicker:ColorPicker x:Name="colorp" VerticalAlignment="Top" Background="White" PointerMoved="colorp_PointerMoved" PointerPressed="colorp_PointerPressed" IsEnabled="False" Width="260" Height="260"/>
+                                </Grid>
                             </Flyout>
+                            <!--<Flyout x:Name="pickColorFlyout" Closed="pickColorFlyout_Closed" Placement="Top">
+                                <ColorPicker:ColorPicker x:Name="colorp" VerticalAlignment="Top" Background="White" PointerMoved="colorp_PointerMoved" PointerPressed="colorp_PointerPressed" IsEnabled="False" Width="180" Height="180"/>
+                            </Flyout>-->
                         </Button.Flyout>
                     </Button>
                     <TextBlock x:Name="textBoxBrightness" HorizontalAlignment="Left" Margin="0,240,0,0" TextWrapping="Wrap" Text="Brightness" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
-                    <Slider x:Name="slider" Minimum="0" Maximum="100" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Width="300" ValueChanged="slider_ValueChanged" Value="100"/>
-                    <TextBlock x:Name="textBoxPower" HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Power" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
-                    <ToggleSwitch x:Name="toggleSwitchLed" HorizontalAlignment="Left" Margin="220,50,0,0" VerticalAlignment="Top"/>
+                    <Slider x:Name="slider" Minimum="0" Maximum="100" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Width="300" ValueChanged="slider_ValueChanged" Value="100" IsEnabled="False"/>
+                    <TextBlock x:Name="textBoxPower" HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Manual LED control" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
+                    <ToggleSwitch x:Name="toggleSwitchLed" HorizontalAlignment="Left" Margin="229,50,-23,0" VerticalAlignment="Top" Toggled="toggleSwitchLed_Toggled"/>
                     <Rectangle Fill="#FFF42413" HorizontalAlignment="Left" Height="4" Margin="10,100,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.5,0.5">
                         <Rectangle.RenderTransform>
                             <CompositeTransform ScaleY="-1"/>
                         </Rectangle.RenderTransform>
                     </Rectangle>
+                    <StackPanel HorizontalAlignment="Left" Height="100" Margin="177,166,0,0" VerticalAlignment="Top" Width="100"/>
                 </Grid>
             </PivotItem>
             <PivotItem Header="GAMES">
                 <Grid>
-                    <Button x:Name="RockPaper" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                    <Button x:Name="RockPaper" Click="RockPaper_Click" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="rockpaper.jpg" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="Game2" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                    <Button x:Name="Game2"  Click="Game2_Click" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="Assets/game.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>

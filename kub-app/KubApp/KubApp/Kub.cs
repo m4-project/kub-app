@@ -71,13 +71,13 @@ namespace KubApp
 
         public void SetLed(byte led, byte r, byte g, byte b)
         {
-            byte[] payload = new byte[4] { led, r, g, b };
+            byte[] payload = new byte[9] { 1, 0, 0, 0, 4, led, r, g, b };
             mqttClient.Publish("kub/" + this.id + "/setled", payload);
         }
 
         public void SetMode(Mode mode)
         {
-            byte[] payload = new byte[1] { (byte) mode };
+            byte[] payload = new byte[6] { 1, 0, 0, 0, 1, (byte) mode };
             mqttClient.Publish("kub/" + this.id + "/setmode", payload);
         }
     }

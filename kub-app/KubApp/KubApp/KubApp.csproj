@@ -136,20 +136,46 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="BackgroundMetKub.png" />
+    <Content Include="bgsky.jpg" />
+    <Content Include="colormatchlogo.png" />
     <Content Include="fb.png" />
+    <Content Include="Papier.png" />
     <Content Include="QRcode.png" />
     <Content Include="rockpaper.jpg" />
+    <Content Include="Schaar.png" />
+    <Content Include="slowpoke.png" />
+    <Content Include="Steen.jpg" />
+    <Content Include="wrong.png" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ColorMatchGame.xaml.cs">
+      <DependentUpon>ColorMatchGame.xaml</DependentUpon>
     <Compile Include="ConnectKub.cs" />
     <Compile Include="Kub.cs" />
     <Compile Include="LedPage.xaml.cs">
       <DependentUpon>LedPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ColorMatchGetReady.xaml.cs">
+      <DependentUpon>ColorMatchGetReady.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorMatchHow.xaml.cs">
+      <DependentUpon>ColorMatchHow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorMatchMenu.xaml.cs">
+      <DependentUpon>ColorMatchMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorMatchSlow.xaml.cs">
+      <DependentUpon>ColorMatchSlow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ColorMatchWrong.xaml.cs">
+      <DependentUpon>ColorMatchWrong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Kub.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -157,6 +183,18 @@
       <DependentUpon>newKub.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RockPaperMain.xaml.cs">
+      <DependentUpon>RockPaperMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RockPaperPVC.xaml.cs">
+      <DependentUpon>RockPaperPVC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RockPaperPVCResult.xaml.cs">
+      <DependentUpon>RockPaperPVCResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RockPaperReady.xaml.cs">
+      <DependentUpon>RockPaperReady.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TemperaturePage.xaml.cs">
       <DependentUpon>TemperaturePage.xaml</DependentUpon>
     </Compile>
@@ -191,7 +229,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="LedPage.xaml">
+    <Page Include="ColorMatchGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorMatchGetReady.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorMatchHow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorMatchMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorMatchSlow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ColorMatchWrong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -200,6 +258,22 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="newKub.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RockPaperMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RockPaperPVC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RockPaperPVCResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RockPaperReady.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
