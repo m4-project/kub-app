@@ -156,6 +156,8 @@
     <Compile Include="ColorMatchGame.xaml.cs">
       <DependentUpon>ColorMatchGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConnectKub.cs" />
+    <Compile Include="Kub.cs" />
     <Compile Include="ColorMatchGetReady.xaml.cs">
       <DependentUpon>ColorMatchGetReady.xaml</DependentUpon>
     </Compile>
@@ -171,7 +173,6 @@
     <Compile Include="ColorMatchWrong.xaml.cs">
       <DependentUpon>ColorMatchWrong.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Kub.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -190,9 +191,6 @@
     </Compile>
     <Compile Include="RockPaperReady.xaml.cs">
       <DependentUpon>RockPaperReady.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TemperaturePage.xaml.cs">
-      <DependentUpon>TemperaturePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -270,10 +268,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RockPaperReady.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TemperaturePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
