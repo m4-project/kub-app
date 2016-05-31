@@ -193,6 +193,9 @@ namespace KubApp_v0._1
             kubMenu.SelectedIndex = 4;
         }
 
+        /// <summary>
+        /// Methode om kleur te veranderen. Haalt kleur uit de colorpicker, zet deze om in hex kleur en vervolgens naar rgb.
+        /// </summary>
         private void changeColor()
         {
             if (toggleSwitchLed.IsOn)
@@ -213,6 +216,11 @@ namespace KubApp_v0._1
             }
         }
 
+        /// <summary>
+        /// Verander kleur op basis van bewegen met pointer.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void colorp_PointerMoved(object sender, PointerRoutedEventArgs e)
         {
             if (toggleSwitchLed.IsOn)
@@ -221,6 +229,11 @@ namespace KubApp_v0._1
             }
         }
 
+        /// <summary>
+        /// Verandert kleur naar de kleur waar op geklikt wordt binnen de colorpicker.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void colorp_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             if (toggleSwitchLed.IsOn)
@@ -229,6 +242,11 @@ namespace KubApp_v0._1
             }
         }
 
+        /// <summary>
+        /// Verandert kleur naar de huidige geselecteerde kleur wanneer flyout wordt gesloten.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pickColorFlyout_Closed(object sender, object e)
         {
             if (toggleSwitchLed.IsOn)
@@ -237,6 +255,11 @@ namespace KubApp_v0._1
             }
         }
 
+        /// <summary>
+        /// Brightness aanpassen van de huidig geselecteerde kleur.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
             // geselecteerde kleur in hexadecimaal
@@ -269,6 +292,11 @@ namespace KubApp_v0._1
             this.Frame.Navigate(typeof(newKub));
         }
 
+        /// <summary>
+        /// Zorgt ervoor dat er geen manual led controls kunnen worden uitgevoerd wanneer toggle switch op OFF staat.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toggleSwitchLed_Toggled(object sender, RoutedEventArgs e)
         {
             if (!toggleSwitchLed.IsOn)
