@@ -32,36 +32,38 @@ namespace KubApp_v0._1
     public sealed partial class MainPage : Page
     {
         //Maakt een nieuwe MqttClient aan
-        private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
-        
+        private MqttClient client = new MqttClient("mqtt.jk-5.nl", 1883, false, MqttSslProtocols.None);
+
+        //Dictionary voor alle kubs
         public Dictionary<string, Kub> kubs = new Dictionary<string, Kub>();
 
-        //private Kub kub;
-
+        private Kub selectedKub;
+        private DispatcherTimer timer = new DispatcherTimer();
+        private DispatcherTimer threadSafeTimer = new DispatcherTimer();
+        private bool connected = false;
+        private bool wasConnected = false;
+        private uint threadSafeTemperature = 0;
 
         public MainPage()
         {
             this.InitializeComponent();
             Connect();
-            Temperature();
-            setKubStatus();
-            setComboBox();
+
+            threadSafeTimer.Interval = new TimeSpan(0, 0, 1);
+            threadSafeTimer.Start();
+            threadSafeTimer.Tick += ThreadSafeEntry;
         }
 
         public void Connect()
         {
             client.Connect("kub-app");
             client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
+            client.MqttMsgSubscribed += client_MqttSubscribed;
+            client.ConnectionClosed += client_ConnectionClosed;
 
             //TODO: maak instellingenpagina om kubs te koppelen
-            Kub kub = new Kub("1234", client);
-            this.kubs.Add("1234",kub);
-
-            //Timer om de temperatuur te refreshen na 1 minuut zodat dit up to date blijft
-            DispatcherTimer dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Tick += DispatcherTimer_Tick;
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 30);
-            dispatcherTimer.Start();
+            this.selectedKub = new Kub("1234", client);
+            this.kubs.Add("1234", selectedKub);
         }
 
         private void DispatcherTimer_Tick(object sender, object e)
@@ -69,27 +71,84 @@ namespace KubApp_v0._1
             Temperature();
         }
 
+        private void ThreadSafeEntry(object sender, object args)
+        {
+            if(!this.wasConnected && this.connected)
+            {
+                if (!timer.IsEnabled)
+                {
+                    //Timer om de temperatuur te refreshen na 1 minuut zodat dit up to date blijft
+                    timer.Tick += DispatcherTimer_Tick;
+                    timer.Interval = new TimeSpan(0, 0, 10); //TODO: restore to 30
+                    timer.Start();
+                    Temperature();
+                }
+            }else if(this.wasConnected && !this.connected)
+            {
+                this.timer.Stop();
+            }
+            textBoxkubstatus.Text = this.connected ? "Connected" : "Disconnected";
+            
+            //Zet de text van de textblock naar "Temperature Kub = " + value + " °C"
+            temperatureKub.Text = this.threadSafeTemperature.ToString();
+
+            //Kijkt naar de temperatuur van de Kub en bepaald daarmee de kleur van de achtergrond.
+            if (this.threadSafeTemperature >= 65)
+            {
+                statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Red);
+                textBlockStatus.Text = "Status: Feel the Heat";
+            }
+            else if (this.threadSafeTemperature < 60 && this.threadSafeTemperature > 48)
+            {
+                statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Green);
+                textBlockStatus.Text = "Status: Taste the Flavors";
+            }
+            else if (this.threadSafeTemperature < 48 && this.threadSafeTemperature > 20)
+            {
+                statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Blue);
+                textBlockStatus.Text = "Status: Enjoy the Sweetness";
+            }
+            else if (this.threadSafeTemperature < 20)
+            {
+                statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.White);
+                textBlockStatus.Text = "Status: Like Iced Coffee?";
+            }
+
+            this.wasConnected = this.connected;
+        }
+
+        private void client_ConnectionClosed(object sender, object args)
+        {
+            this.connected = false;
+        }
+
+        private void client_MqttSubscribed(object sender, MqttMsgSubscribedEventArgs e)
+        {
+            connected = true;
+        }
+
         private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
             string[] parts = e.Topic.Split('/');
 
-            if(parts.Length != 3 || parts[0] != "kub")
+            if (parts.Length != 3 || parts[0] != "kub")
             {
                 return;
             }
 
             string kid = parts[1];
 
-            if(e.Message.Length < 5)
+            if (e.Message.Length < 5)
             {
                 return;
             }
 
             byte protocolVersion = e.Message[0];
 
-            int payloadLength = BitConverter.ToInt32(e.Message, 1);
+            byte[] payloadData = new byte[4] { e.Message[4], e.Message[3], e.Message[2], e.Message[1] };
+            uint payloadLength = BitConverter.ToUInt32(payloadData, 0);
 
-            if(e.Message.Length < payloadLength + 5)
+            if (e.Message.Length < payloadLength + 5)
             {
                 return;
             }
@@ -101,60 +160,10 @@ namespace KubApp_v0._1
 
         public void Temperature()
         {
-            //int value = 25;
-            //temperatureKub.Text = value.ToString();
-
-            //this.kub.RequestData(Kub.DataType.Temperature, delegate (int value)
-            //{
-                //System.Diagnostics.Debug.WriteLine("Temperature: " + value);
-
-                int value = 70;
-
-                //Zet de text van de textblock naar "Temperature Kub = " + value + " °C"
-                temperatureKub.Text = value.ToString();
-
-                //Kijkt naar de temperatuur van de Kub en bepaald daarmee de kleur van de achtergrond.
-                if (value >= 65)
-                {
-                    statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Red);
-                    textBlockStatus.Text = "Status: Feel the Heat";
-                }
-                else if (value < 60 && value > 48)
-                {
-                    statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Green);
-                    textBlockStatus.Text = "Status: Taste the Flavors";
-                }
-                else if (value < 48 && value > 20)
-                {
-                    statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Blue);
-                    textBlockStatus.Text = "Status: Enjoy the Sweetness";
-                }
-                else if(value < 20)
-                {
-                    statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.White);
-                    textBlockStatus.Text = "Status: Like Iced Coffee?";
-                }
-            //});
-        }
-
-        private void setKubStatus()
-        {
-            if (client.IsConnected)
+            this.selectedKub.RequestData(Kub.DataType.Temperature, delegate (uint value)
             {
-                textBoxkubstatus.Text = "Connected";
-            }
-            else
-            {
-                textBoxkubstatus.Text = "Disconnected";
-            }
-        }
-
-        private void setComboBox()
-        {
-            foreach(KeyValuePair<string, Kub> kub in kubs)
-            {
-                comboBox.Items.Add(kub);
-            }
+                threadSafeTemperature = value;
+            });
         }
 
         private void Info_Click(object sender, RoutedEventArgs e)
@@ -201,10 +210,9 @@ namespace KubApp_v0._1
                 int R = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
                 int G = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
                 int B = int.Parse(hexColorSub.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
-
-                //Kub kub = this.kubs["1234"];
-                //kub.SetLed(0, (byte)R, (byte)G, (byte)B);
-                //kub.SetLed(1, (byte)R, (byte)G, (byte)B);
+                
+                selectedKub.SetLed(0, (byte)R, (byte)G, (byte)B);
+                selectedKub.SetLed(1, (byte)R, (byte)G, (byte)B);
             }
         }
 
@@ -268,10 +276,12 @@ namespace KubApp_v0._1
             double resultR = Math.Round(R * (sliderValue / 100));
             double resultG = Math.Round(G * (sliderValue / 100));
             double resultB = Math.Round(B * (sliderValue / 100));
-
-            //Kub kub = this.kubs["1234"];
-            //kub.SetLed(0, (byte)resultR, (byte)resultG, (byte)resultB);
-            //kub.SetLed(1, (byte)resultR, (byte)resultG, (byte)resultB);
+            
+            if(selectedKub != null)
+            {
+                selectedKub.SetLed(0, (byte)resultR, (byte)resultG, (byte)resultB);
+                selectedKub.SetLed(1, (byte)resultR, (byte)resultG, (byte)resultB);
+            } 
 
             SolidColorBrush brush = new SolidColorBrush(Windows.UI.Color.FromArgb(255, (byte)resultR, (byte)resultG, (byte)resultB));
             curColor.Fill = brush;
@@ -294,13 +304,20 @@ namespace KubApp_v0._1
                 colorp.IsEnabled = false;
                 curColor.Opacity = 0.3;
                 slider.IsEnabled = false;
+                selectedKub.SetMode(Kub.Mode.Temperature);
             }
             else
             {
                 colorp.IsEnabled = true;
                 curColor.Opacity = 1.0;
                 slider.IsEnabled = true;
+                selectedKub.SetMode(Kub.Mode.Manual);
             }
+        }
+
+        private void RockPaper_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(RockPaperMain));
         }
     }
 }

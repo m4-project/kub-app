@@ -38,7 +38,9 @@ namespace KubApp
     {
         public string message;
 
-        private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
+        public string QRresult;
+
+        //private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
 
         public newKub()
         {
@@ -67,26 +69,27 @@ namespace KubApp
         }
 
         private async void ProcessScanResult(ZXing.Result result)
-         {
-             string message = string.Empty;
-             message = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
-             var dialog = new MessageDialog(message);
-             await dialog.ShowAsync();
-             kubID();
+        {
+            QRresult = result.Text;
+            string newMessage = string.Empty;
+            newMessage = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
+            var dialog = new MessageDialog(newMessage);
+            kubID();
+            await dialog.ShowAsync();          
         }
 
         public void kubID()
         {
-            if (message != null)
+            if (QRresult != null)
             {
-                var json = message;
+                //De uitgelezen QR code
+                var json = QRresult;
 
-                Dictionary<string, Kub> kubs = JsonConvert.DeserializeObject<Dictionary<string, Kub>>(json);
+                //Zet de JSON string om
+                //kubs = JsonConvert.DeserializeObject<Dictionary<string, Kub>>(json);
 
-                foreach(KeyValuePair<string, Kub> kub in kubs)
-                {
-                    kubs.Add(kub.Key, kub.Value);
-                }
+                //Voegt nieuwe Kubs too aan de dictionary
+                //kubs.Add(QRresult, client);
             }
         }
     }
