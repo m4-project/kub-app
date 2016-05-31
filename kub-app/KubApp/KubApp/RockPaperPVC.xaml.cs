@@ -91,11 +91,5 @@ namespace KubApp
             passlist.Add(currenthighscore.ToString());
             this.Frame.Navigate(typeof(RockPaperPVCResult), passlist);
         }
-
-        private void Back_Click(object sender, RoutedEventArgs e)
-        {
-            string highscore = currentscore.ToString();
-            this.Frame.Navigate(typeof(RockPaperPVC), highscore);
-        }
     }
 }
