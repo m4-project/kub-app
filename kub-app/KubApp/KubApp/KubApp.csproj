@@ -145,6 +145,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConnectKub.cs" />
     <Compile Include="Kub.cs" />
     <Compile Include="LedPage.xaml.cs">
       <DependentUpon>LedPage.xaml</DependentUpon>

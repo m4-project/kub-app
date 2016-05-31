@@ -24,6 +24,7 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using Newtonsoft.Json;
 using KubApp;
+using uPLibrary.Networking.M2Mqtt;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -37,11 +38,14 @@ namespace KubApp
     {
         public string message;
 
+        public string QRresult;
+
+        private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
+
         public newKub()
         {
             this.InitializeComponent();
             ZXing.Net.Mobile.Forms.WindowsUniversal.ZXingScannerViewRenderer.Init();
-            kubID();
         }
 
         private MobileBarcodeScanner _scanner;
@@ -65,27 +69,28 @@ namespace KubApp
         }
 
         private async void ProcessScanResult(ZXing.Result result)
-         {
-             string message = string.Empty;
-             message = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
-             var dialog = new MessageDialog(message);
-             await dialog.ShowAsync();
-         }
+        {
+            QRresult = result.Text;
+            string newMessage = string.Empty;
+            newMessage = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
+            var dialog = new MessageDialog(newMessage);
+            kubID();
+            await dialog.ShowAsync();          
+        }
 
         public void kubID()
         {
-            if (message != null)
+            if (QRresult != null)
             {
-                var json = message;
+                //De uitgelezen QR code
+                var json = QRresult;
 
-                Dictionary<string, Kub> kubs = JsonConvert.DeserializeObject<Dictionary<string, Kub>>(json);
+                //Zet de JSON string om
+                //kubs = JsonConvert.DeserializeObject<Dictionary<string, Kub>>(json);
 
-                foreach(KeyValuePair<string, Kub> kub in kubs)
-                {
-                    kubs.Add(kub.Key, kub.Value);
-                }
+                //Voegt nieuwe Kubs too aan de dictionary
+                //kubs.Add(QRresult, client);
             }
         }
-
     }
 }

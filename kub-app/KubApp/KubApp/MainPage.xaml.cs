@@ -32,29 +32,30 @@ namespace KubApp_v0._1
     public sealed partial class MainPage : Page
     {
         //Maakt een nieuwe MqttClient aan
-        private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
+        //private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
         
-        public Dictionary<string, Kub> kubs = new Dictionary<string, Kub>();
+        //Dictionary voor alle kubs
+        //public Dictionary<string, Kub> kubs = new Dictionary<string, Kub>();
 
         //private Kub kub;
 
         public MainPage()
         {
             this.InitializeComponent();
-            Connect();
+            Timer();
             Temperature();
             setKubStatus();
             setComboBox();
         }
 
-        public void Connect()
+        public void Timer()
         {
-            client.Connect("kub-app");
-            client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
+            //client.Connect("kub-app");
+            //client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
 
             //TODO: maak instellingenpagina om kubs te koppelen
-            Kub kub = new Kub("1234", client);
-            this.kubs.Add("1234",kub);
+            //Kub kub = new Kub("1234", client);
+            //this.kubs.Add("1234",kub);
 
             //Timer om de temperatuur te refreshen na 1 minuut zodat dit up to date blijft
             DispatcherTimer dispatcherTimer = new DispatcherTimer();
@@ -68,35 +69,35 @@ namespace KubApp_v0._1
             Temperature();
         }
 
-        private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
-        {
-            string[] parts = e.Topic.Split('/');
+        //private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
+        //{
+        //    string[] parts = e.Topic.Split('/');
 
-            if(parts.Length != 3 || parts[0] != "kub")
-            {
-                return;
-            }
+        //    if(parts.Length != 3 || parts[0] != "kub")
+        //    {
+        //        return;
+        //    }
 
-            string kid = parts[1];
+        //    string kid = parts[1];
 
-            if(e.Message.Length < 5)
-            {
-                return;
-            }
+        //    if(e.Message.Length < 5)
+        //    {
+        //        return;
+        //    }
 
-            byte protocolVersion = e.Message[0];
+        //    byte protocolVersion = e.Message[0];
 
-            int payloadLength = BitConverter.ToInt32(e.Message, 1);
+        //    int payloadLength = BitConverter.ToInt32(e.Message, 1);
 
-            if(e.Message.Length < payloadLength + 5)
-            {
-                return;
-            }
+        //    if(e.Message.Length < payloadLength + 5)
+        //    {
+        //        return;
+        //    }
 
-            byte[] payload = e.Message.Skip(5).ToArray();
-            Kub kub = kubs[kid];
-            kub.PacketReceived(payload, parts[2]);
-        }
+        //    byte[] payload = e.Message.Skip(5).ToArray();
+        //    Kub kub = kubs[kid];
+        //    kub.PacketReceived(payload, parts[2]);
+        //}
 
         public void Temperature()
         {
@@ -138,22 +139,19 @@ namespace KubApp_v0._1
 
         private void setKubStatus()
         {
-            if (client.IsConnected)
-            {
-                textBoxkubstatus.Text = "Connected";
-            }
-            else
-            {
-                textBoxkubstatus.Text = "Disconnected";
-            }
+            //if (client.IsConnected)
+            //{
+            //    textBoxkubstatus.Text = "Connected";
+            //}
+            //else
+            //{
+            //    textBoxkubstatus.Text = "Disconnected";
+            //}
         }
 
         private void setComboBox()
         {
-            foreach(KeyValuePair<string, Kub> kub in kubs)
-            {
-                comboBox.Items.Add(kub);
-            }
+            
         }
 
         private void Info_Click(object sender, RoutedEventArgs e)
