@@ -40,7 +40,7 @@ namespace KubApp
 
         public string QRresult;
 
-        private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
+        //private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
 
         public newKub()
         {
