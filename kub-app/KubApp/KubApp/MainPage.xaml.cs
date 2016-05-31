@@ -32,7 +32,7 @@ namespace KubApp_v0._1
     public sealed partial class MainPage : Page
     {
         //Maakt een nieuwe MqttClient aan
-        private MqttClient client = new MqttClient("mqtt.jk-5.nl", 1883, false, MqttSslProtocols.None);
+        private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
 
         //Dictionary voor alle kubs
         public Dictionary<string, Kub> kubs = new Dictionary<string, Kub>();
