@@ -162,7 +162,6 @@
     <Compile Include="ColorMatchGame.xaml.cs">
       <DependentUpon>ColorMatchGame.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ConnectKub.cs" />
     <Compile Include="Kub.cs" />
     <Compile Include="ColorMatchGetReady.xaml.cs">
       <DependentUpon>ColorMatchGetReady.xaml</DependentUpon>

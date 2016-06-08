@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KubApp_v0._1;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -32,9 +34,10 @@ namespace KubApp
             this.Frame.Navigate(typeof(RockPaperReady));
         }
 
-        private void PVP_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void exit_Click(object sender, object e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }
