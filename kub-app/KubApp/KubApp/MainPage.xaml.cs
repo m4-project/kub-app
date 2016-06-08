@@ -31,10 +31,10 @@ namespace KubApp_v0._1
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        //Maakt een nieuwe MqttClient aan
+        //Creates a new MqttClient.
         private MqttClient client = new MqttClient("mqtt.jk-5.nl", 1883, false, MqttSslProtocols.None);
 
-        //Dictionary voor alle kubs
+        //Dictionary for all Kubs.
         public Dictionary<string, Kub> kubs = new Dictionary<string, Kub>();
 
         private Kub selectedKub;
@@ -77,9 +77,9 @@ namespace KubApp_v0._1
             {
                 if (!timer.IsEnabled)
                 {
-                    //Timer om de temperatuur te refreshen na 1 minuut zodat dit up to date blijft
+                    //Timer to refresh temperature every 10 seconds.
                     timer.Tick += DispatcherTimer_Tick;
-                    timer.Interval = new TimeSpan(0, 0, 10); //TODO: restore to 30
+                    timer.Interval = new TimeSpan(0, 0, 10);
                     timer.Start();
                     Temperature();
                 }
@@ -89,10 +89,10 @@ namespace KubApp_v0._1
             }
             textBoxkubstatus.Text = this.connected ? "Connected" : "Disconnected";
             
-            //Zet de text van de textblock naar "Temperature Kub = " + value + " °C"
+            //Puts the temperature into the textbox.
             temperatureKub.Text = this.threadSafeTemperature.ToString();
 
-            //Kijkt naar de temperatuur van de Kub en bepaald daarmee de kleur van de achtergrond.
+            //Changes the Status and Color if the temperature is higher, between or lower then a certain value.
             if (this.threadSafeTemperature >= 65)
             {
                 statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Red);
