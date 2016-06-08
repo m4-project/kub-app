@@ -10,9 +10,12 @@
     <Grid Background="Transparent">
         <Grid Background="Transparent">
             <Image Stretch="Fill" Source="backgroundmetkub.png" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        </Grid>
+            </Grid>
         <Button 
-            Name="PVC" Content="Play!" HorizontalAlignment="Left" Margin="60,380,0,0" VerticalAlignment="Top" Width="240" Height="40" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" FontSize="22" Foreground="White" Background="#3348221C" Click="PVC_Click">
+            Name="PVC" Content="Play!" HorizontalAlignment="Center" Margin="0,380,0,0" VerticalAlignment="Top" Width="240" Height="40" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" FontSize="22" Foreground="White" Background="#3348221C" Click="PVC_Click">
         </Button>
-    </Grid>
+        <Button 
+            Name="exit" Content="Quit Game" HorizontalAlignment="Center" Margin="0,500,0,0" VerticalAlignment="Top" Width="240" Height="40" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" FontSize="22" Foreground="White" Background="#3348221C" Click="exit_Click">
+        </Button>
+     </Grid>
 </Page>
