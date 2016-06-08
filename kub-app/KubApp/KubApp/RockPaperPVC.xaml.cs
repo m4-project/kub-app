@@ -36,28 +36,31 @@ namespace KubApp
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            string pointstoadd = e.Parameter as string;
-            if (pointstoadd == null)
+            List<string> passedlist = new List<string>();
+            passedlist = e.Parameter as List<string>;
+            if (passedlist == null)
             {
-                currentscore = 0;
                 currenthighscore = 0;
+                currentscore = 0;
             }
             else
             {
-                if (pointstoadd == "0")
+                int returnedscore = Int32.Parse(passedlist[0]);
+                int returnedhighscore = Int32.Parse(passedlist[1]);
+
+                if (returnedscore < returnedhighscore)
                 {
-                    currenthighscore = currentscore;
-                    highscore.Text = currenthighscore.ToString();
-                    score.Text = "0";
-                    currentscore = 0;
-                    
+                    currenthighscore = returnedhighscore;
+                    currentscore = returnedscore;
+                    highscore.Text = returnedhighscore.ToString();
+                    score.Text = currentscore.ToString();
                 }
                 else
                 {
-                    currentscore = currentscore + Int32.Parse(pointstoadd);
-                    currenthighscore = currentscore;
+                    currentscore = returnedscore;
+                    currenthighscore = returnedscore;
                     score.Text = currentscore.ToString();
-                    highscore.Text = currentscore.ToString();
+                    highscore.Text = currenthighscore.ToString();
                 }
             }
         }
@@ -67,6 +70,7 @@ namespace KubApp
             passlist.Clear();
             passlist.Add(rockpass);
             passlist.Add(currentscore.ToString());
+            passlist.Add(currenthighscore.ToString());
             this.Frame.Navigate(typeof(RockPaperPVCResult), passlist);
         }
 
@@ -75,6 +79,7 @@ namespace KubApp
             passlist.Clear();
             passlist.Add(paperpass);
             passlist.Add(currentscore.ToString());
+            passlist.Add(currenthighscore.ToString());
             this.Frame.Navigate(typeof(RockPaperPVCResult), passlist);
         }
 
@@ -83,13 +88,8 @@ namespace KubApp
             passlist.Clear();
             passlist.Add(scicorpass);
             passlist.Add(currentscore.ToString());
+            passlist.Add(currenthighscore.ToString());
             this.Frame.Navigate(typeof(RockPaperPVCResult), passlist);
-        }
-
-        private void Back_Click(object sender, RoutedEventArgs e)
-        {
-            string highscore = currentscore.ToString();
-            this.Frame.Navigate(typeof(RockPaperPVC), highscore);
         }
     }
 }

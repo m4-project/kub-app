@@ -31,10 +31,10 @@ namespace KubApp_v0._1
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        //Creates a new MqttClient.
-        private MqttClient client = new MqttClient("mqtt.jk-5.nl", 1883, false, MqttSslProtocols.None);
+        //Maakt een nieuwe MqttClient aan
+        private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
 
-        //Dictionary for all Kubs.
+        //Dictionary voor alle kubs
         public Dictionary<string, Kub> kubs = new Dictionary<string, Kub>();
 
         private Kub selectedKub;
@@ -77,9 +77,9 @@ namespace KubApp_v0._1
             {
                 if (!timer.IsEnabled)
                 {
-                    //Timer to refresh temperature every 10 seconds.
+                    //Timer om de temperatuur te refreshen na 1 minuut zodat dit up to date blijft
                     timer.Tick += DispatcherTimer_Tick;
-                    timer.Interval = new TimeSpan(0, 0, 10);
+                    timer.Interval = new TimeSpan(0, 0, 10); //TODO: restore to 30
                     timer.Start();
                     Temperature();
                 }
@@ -89,10 +89,10 @@ namespace KubApp_v0._1
             }
             textBoxkubstatus.Text = this.connected ? "Connected" : "Disconnected";
             
-            //Puts the temperature into the textbox.
+            //Zet de text van de textblock naar "Temperature Kub = " + value + " °C"
             temperatureKub.Text = this.threadSafeTemperature.ToString();
 
-            //Changes the Status and Color if the temperature is higher, between or lower then a certain value.
+            //Kijkt naar de temperatuur van de Kub en bepaald daarmee de kleur van de achtergrond.
             if (this.threadSafeTemperature >= 65)
             {
                 statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Red);
@@ -193,6 +193,9 @@ namespace KubApp_v0._1
             kubMenu.SelectedIndex = 4;
         }
 
+        /// <summary>
+        /// Methode om kleur te veranderen. Haalt kleur uit de colorpicker, zet deze om in hex kleur en vervolgens naar rgb.
+        /// </summary>
         private void changeColor()
         {
             if (toggleSwitchLed.IsOn)
@@ -213,6 +216,11 @@ namespace KubApp_v0._1
             }
         }
 
+        /// <summary>
+        /// Verander kleur op basis van bewegen met pointer.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void colorp_PointerMoved(object sender, PointerRoutedEventArgs e)
         {
             if (toggleSwitchLed.IsOn)
@@ -221,6 +229,11 @@ namespace KubApp_v0._1
             }
         }
 
+        /// <summary>
+        /// Verandert kleur naar de kleur waar op geklikt wordt binnen de colorpicker.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void colorp_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             if (toggleSwitchLed.IsOn)
@@ -229,6 +242,11 @@ namespace KubApp_v0._1
             }
         }
 
+        /// <summary>
+        /// Verandert kleur naar de huidige geselecteerde kleur wanneer flyout wordt gesloten.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pickColorFlyout_Closed(object sender, object e)
         {
             if (toggleSwitchLed.IsOn)
@@ -237,6 +255,11 @@ namespace KubApp_v0._1
             }
         }
 
+        /// <summary>
+        /// Brightness aanpassen van de huidig geselecteerde kleur.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
             // geselecteerde kleur in hexadecimaal
@@ -269,6 +292,11 @@ namespace KubApp_v0._1
             this.Frame.Navigate(typeof(newKub));
         }
 
+        /// <summary>
+        /// Zorgt ervoor dat er geen manual led controls kunnen worden uitgevoerd wanneer toggle switch op OFF staat.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toggleSwitchLed_Toggled(object sender, RoutedEventArgs e)
         {
             if (!toggleSwitchLed.IsOn)

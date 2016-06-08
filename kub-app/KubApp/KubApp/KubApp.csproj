@@ -140,11 +140,17 @@
     <Content Include="bgsky.jpg" />
     <Content Include="colormatchlogo.png" />
     <Content Include="fb.png" />
+    <Content Include="mind game.png" />
+    <Content Include="mindgame.png" />
     <Content Include="Papier.png" />
     <Content Include="QRcode.png" />
     <Content Include="rockpaper.jpg" />
+    <Content Include="rockpaper.png" />
+    <Content Include="RockPaperScisorsButton.png" />
     <Content Include="Schaar.png" />
     <Content Include="slowpoke.png" />
+    <None Include="snapgame" />
+    <Content Include="snapgame.png" />
     <Content Include="Steen.jpg" />
     <Content Include="wrong.png" />
     <None Include="project.json" />

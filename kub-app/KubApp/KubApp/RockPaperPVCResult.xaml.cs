@@ -26,6 +26,8 @@ namespace KubApp
         private int PlayerInt = 0;
         private int PcInt = 0;
         public int roundscore = 0;
+        public int highscore = 0;
+        public List<string> passlist = new List<string>();
 
         public RockPaperPVCResult()
         {
@@ -39,6 +41,7 @@ namespace KubApp
             List<string> passedlist = new List<string>();
             passedlist = e.Parameter as List<string>;
             this.roundscore = Int32.Parse(passedlist[1]);
+            this.highscore = Int32.Parse(passedlist[2]);
             if (passedlist[0] == "rock")
             {
                 imageSteen.Opacity = 100;
@@ -92,40 +95,46 @@ namespace KubApp
             {
                 // tie
                 result.Text = "Tie!";
-                roundscore = roundscore + 1;
+                this.roundscore = roundscore + 1;
+                this.highscore = roundscore;
+
             }
             else if (PlayerInt == 1 && PcInt == 3)
             {
                 // win
                 result.Text = "You Win!";
-                roundscore = roundscore + 3;
+                this.roundscore = roundscore + 3;
             }
             else if (PlayerInt == 2 && PcInt == 1)
             {
                 // win
                 result.Text = "You Win!";
-                roundscore = roundscore + 3;
+                this.roundscore = roundscore + 3;
             }
             else if (PlayerInt == 3 && PcInt == 2)
             {
                 // win
                 result.Text = "You Win!";
-                roundscore = roundscore + 3;
+                this.roundscore = roundscore + 3;
             }
             else
             {
                 // lose
                 result.Text = "You Lost!";
-                roundscore = roundscore + 0;
+                this.highscore = roundscore;
+                this.roundscore = 0;
+
             }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             // code for back button,
-            // passes roundscore to rockpaperPVC.xaml
-            string pass = roundscore.ToString();
-            this.Frame.Navigate(typeof(RockPaperPVC), pass);
+            // passes roundscore and highscore to rockpaperPVC.xaml
+
+                passlist.Add(roundscore.ToString());
+                passlist.Add(highscore.ToString());
+                this.Frame.Navigate(typeof(RockPaperPVC), passlist);
         }
     }
 }
