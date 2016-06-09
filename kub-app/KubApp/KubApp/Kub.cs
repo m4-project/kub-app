@@ -9,7 +9,7 @@ namespace KubApp
 {
     public class Kub
     {
-        public delegate void OnResponse(int value);
+        public delegate void OnResponse(uint value);
 
         public enum DataType
         {
@@ -38,14 +38,14 @@ namespace KubApp
 
         public void PacketReceived(byte[] payload, string packetType)
         {
-            switch(packetType)
+            switch (packetType)
             {
                 case "kubres":
-                    //Handle
-                    short resId = BitConverter.ToInt16(payload, 0);
-                    int value = BitConverter.ToInt32(payload, 2);
+                    //Correct endianness for payload bytes
+                    ushort resId = BitConverter.ToUInt16(payload, 0);
+                    uint value = BitConverter.ToUInt32(new byte[4] {payload[5], payload[4], payload[3], payload[2] }, 0);
                     OnResponse callback = this.requests[resId];
-                    if(callback == null)
+                    if (callback == null)
                     {
                         return;
                     }
@@ -59,11 +59,8 @@ namespace KubApp
         public void RequestData(DataType type, OnResponse callback)
         {
             short reqId = nextRequestId++;
-            byte[] reqPayload = new byte[3];
-            reqPayload[0] = (byte) type;
             byte[] idPayload = BitConverter.GetBytes(reqId);
-            reqPayload[1] = idPayload[0];
-            reqPayload[2] = idPayload[1];
+            byte[] reqPayload = new byte[8] { 1, 0, 0, 0, 3, (byte)type , idPayload[0], idPayload[1]};
 
             this.requests.Add(reqId, callback);
             mqttClient.Publish("kub/" + this.id + "/kubreq", reqPayload);
@@ -71,13 +68,13 @@ namespace KubApp
 
         public void SetLed(byte led, byte r, byte g, byte b)
         {
-            byte[] payload = new byte[4] { led, r, g, b };
+            byte[] payload = new byte[9] { 1, 0, 0, 0, 4, led, r, g, b };
             mqttClient.Publish("kub/" + this.id + "/setled", payload);
         }
 
         public void SetMode(Mode mode)
         {
-            byte[] payload = new byte[1] { (byte) mode };
+            byte[] payload = new byte[6] { 1, 0, 0, 0, 1, (byte)mode };
             mqttClient.Publish("kub/" + this.id + "/setmode", payload);
         }
     }

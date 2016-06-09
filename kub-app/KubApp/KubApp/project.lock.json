@@ -12,6 +12,15 @@
           "lib/portable-win81+wpa81/ColorPicker.dll": {}
         }
       },
+      "Facebook/7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/win8/Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/win8/Facebook.dll": {}
+        }
+      },
       "M2Mqtt/4.3.0": {
         "type": "package",
         "compile": {
@@ -76,6 +85,38 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
+      "Microsoft.Azure.Mobile.Client/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl": "1.1.10",
+          "Microsoft.Bcl.Build": "1.0.21",
+          "Microsoft.Net.Http": "2.2.29",
+          "Newtonsoft.Json": "6.0.4"
+        },
+        "compile": {
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.dll": {},
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.dll": {},
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.dll": {}
+        }
+      },
+      "Microsoft.Bcl/1.1.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.Build": "1.0.14"
+        },
+        "compile": {
+          "lib/win8/_._": {}
+        },
+        "runtime": {
+          "lib/win8/_._": {}
+        }
+      },
+      "Microsoft.Bcl.Build/1.0.21": {
+        "type": "package"
+      },
       "Microsoft.CSharp/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -101,6 +142,21 @@
         },
         "runtime": {
           "lib/netcore50/Microsoft.CSharp.dll": {}
+        }
+      },
+      "Microsoft.Net.Http/2.2.29": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl": "1.1.10",
+          "Microsoft.Bcl.Build": "1.0.14"
+        },
+        "compile": {
+          "lib/win8/System.Net.Http.Extensions.dll": {},
+          "lib/win8/System.Net.Http.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/win8/System.Net.Http.Extensions.dll": {},
+          "lib/win8/System.Net.Http.Primitives.dll": {}
         }
       },
       "Microsoft.NETCore/5.0.0": {
@@ -349,6 +405,15 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -1950,6 +2015,58 @@
             "rid": "win8-aot"
           }
         }
+      },
+      "WinRTXamlToolkit.UWP/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/WinRTXamlToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WinRTXamlToolkit.dll": {}
+        }
+      },
+      "Xamarin.Forms/2.0.0.6490": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Xamarin.Forms.Core.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Xamarin.Forms.Core.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile/2.0.4.46": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile.Forms/2.0.4.46": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6490",
+          "ZXing.Net.Mobile": "2.0.4.46"
+        },
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll": {},
+          "lib/UAP10/ZXing.Net.Mobile.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll": {},
+          "lib/UAP10/ZXing.Net.Mobile.Forms.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
@@ -1960,6 +2077,15 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        }
+      },
+      "Facebook/7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/win8/Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/win8/Facebook.dll": {}
         }
       },
       "M2Mqtt/4.3.0": {
@@ -2026,6 +2152,38 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
+      "Microsoft.Azure.Mobile.Client/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl": "1.1.10",
+          "Microsoft.Bcl.Build": "1.0.21",
+          "Microsoft.Net.Http": "2.2.29",
+          "Newtonsoft.Json": "6.0.4"
+        },
+        "compile": {
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.dll": {},
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.dll": {},
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.dll": {}
+        }
+      },
+      "Microsoft.Bcl/1.1.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.Build": "1.0.14"
+        },
+        "compile": {
+          "lib/win8/_._": {}
+        },
+        "runtime": {
+          "lib/win8/_._": {}
+        }
+      },
+      "Microsoft.Bcl.Build/1.0.21": {
+        "type": "package"
+      },
       "Microsoft.CSharp/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -2051,6 +2209,21 @@
         },
         "runtime": {
           "lib/netcore50/Microsoft.CSharp.dll": {}
+        }
+      },
+      "Microsoft.Net.Http/2.2.29": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl": "1.1.10",
+          "Microsoft.Bcl.Build": "1.0.14"
+        },
+        "compile": {
+          "lib/win8/System.Net.Http.Extensions.dll": {},
+          "lib/win8/System.Net.Http.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/win8/System.Net.Http.Extensions.dll": {},
+          "lib/win8/System.Net.Http.Primitives.dll": {}
         }
       },
       "Microsoft.NETCore/5.0.0": {
@@ -2248,6 +2421,15 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -3766,6 +3948,58 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WinRTXamlToolkit.UWP/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/WinRTXamlToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WinRTXamlToolkit.dll": {}
+        }
+      },
+      "Xamarin.Forms/2.0.0.6490": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Xamarin.Forms.Core.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Xamarin.Forms.Core.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile/2.0.4.46": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile.Forms/2.0.4.46": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6490",
+          "ZXing.Net.Mobile": "2.0.4.46"
+        },
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll": {},
+          "lib/UAP10/ZXing.Net.Mobile.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll": {},
+          "lib/UAP10/ZXing.Net.Mobile.Forms.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-arm-aot": {
@@ -3776,6 +4010,15 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        }
+      },
+      "Facebook/7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/win8/Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/win8/Facebook.dll": {}
         }
       },
       "M2Mqtt/4.3.0": {
@@ -3842,6 +4085,38 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
+      "Microsoft.Azure.Mobile.Client/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl": "1.1.10",
+          "Microsoft.Bcl.Build": "1.0.21",
+          "Microsoft.Net.Http": "2.2.29",
+          "Newtonsoft.Json": "6.0.4"
+        },
+        "compile": {
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.dll": {},
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.dll": {},
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.dll": {}
+        }
+      },
+      "Microsoft.Bcl/1.1.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.Build": "1.0.14"
+        },
+        "compile": {
+          "lib/win8/_._": {}
+        },
+        "runtime": {
+          "lib/win8/_._": {}
+        }
+      },
+      "Microsoft.Bcl.Build/1.0.21": {
+        "type": "package"
+      },
       "Microsoft.CSharp/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -3867,6 +4142,21 @@
         },
         "runtime": {
           "lib/netcore50/Microsoft.CSharp.dll": {}
+        }
+      },
+      "Microsoft.Net.Http/2.2.29": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl": "1.1.10",
+          "Microsoft.Bcl.Build": "1.0.14"
+        },
+        "compile": {
+          "lib/win8/System.Net.Http.Extensions.dll": {},
+          "lib/win8/System.Net.Http.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/win8/System.Net.Http.Extensions.dll": {},
+          "lib/win8/System.Net.Http.Primitives.dll": {}
         }
       },
       "Microsoft.NETCore/5.0.0": {
@@ -4062,6 +4352,15 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
@@ -5539,6 +5838,58 @@
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WinRTXamlToolkit.UWP/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/WinRTXamlToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WinRTXamlToolkit.dll": {}
+        }
+      },
+      "Xamarin.Forms/2.0.0.6490": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Xamarin.Forms.Core.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Xamarin.Forms.Core.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile/2.0.4.46": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile.Forms/2.0.4.46": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6490",
+          "ZXing.Net.Mobile": "2.0.4.46"
+        },
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll": {},
+          "lib/UAP10/ZXing.Net.Mobile.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll": {},
+          "lib/UAP10/ZXing.Net.Mobile.Forms.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64": {
@@ -5549,6 +5900,15 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        }
+      },
+      "Facebook/7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/win8/Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/win8/Facebook.dll": {}
         }
       },
       "M2Mqtt/4.3.0": {
@@ -5615,6 +5975,38 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
+      "Microsoft.Azure.Mobile.Client/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl": "1.1.10",
+          "Microsoft.Bcl.Build": "1.0.21",
+          "Microsoft.Net.Http": "2.2.29",
+          "Newtonsoft.Json": "6.0.4"
+        },
+        "compile": {
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.dll": {},
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.dll": {},
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.dll": {}
+        }
+      },
+      "Microsoft.Bcl/1.1.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.Build": "1.0.14"
+        },
+        "compile": {
+          "lib/win8/_._": {}
+        },
+        "runtime": {
+          "lib/win8/_._": {}
+        }
+      },
+      "Microsoft.Bcl.Build/1.0.21": {
+        "type": "package"
+      },
       "Microsoft.CSharp/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -5640,6 +6032,21 @@
         },
         "runtime": {
           "lib/netcore50/Microsoft.CSharp.dll": {}
+        }
+      },
+      "Microsoft.Net.Http/2.2.29": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl": "1.1.10",
+          "Microsoft.Bcl.Build": "1.0.14"
+        },
+        "compile": {
+          "lib/win8/System.Net.Http.Extensions.dll": {},
+          "lib/win8/System.Net.Http.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/win8/System.Net.Http.Extensions.dll": {},
+          "lib/win8/System.Net.Http.Primitives.dll": {}
         }
       },
       "Microsoft.NETCore/5.0.0": {
@@ -5843,6 +6250,15 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -7364,6 +7780,58 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WinRTXamlToolkit.UWP/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/WinRTXamlToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WinRTXamlToolkit.dll": {}
+        }
+      },
+      "Xamarin.Forms/2.0.0.6490": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Xamarin.Forms.Core.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Xamarin.Forms.Core.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile/2.0.4.46": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile.Forms/2.0.4.46": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6490",
+          "ZXing.Net.Mobile": "2.0.4.46"
+        },
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll": {},
+          "lib/UAP10/ZXing.Net.Mobile.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll": {},
+          "lib/UAP10/ZXing.Net.Mobile.Forms.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x64-aot": {
@@ -7374,6 +7842,15 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        }
+      },
+      "Facebook/7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/win8/Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/win8/Facebook.dll": {}
         }
       },
       "M2Mqtt/4.3.0": {
@@ -7440,6 +7917,38 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
+      "Microsoft.Azure.Mobile.Client/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl": "1.1.10",
+          "Microsoft.Bcl.Build": "1.0.21",
+          "Microsoft.Net.Http": "2.2.29",
+          "Newtonsoft.Json": "6.0.4"
+        },
+        "compile": {
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.dll": {},
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.dll": {},
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.dll": {}
+        }
+      },
+      "Microsoft.Bcl/1.1.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.Build": "1.0.14"
+        },
+        "compile": {
+          "lib/win8/_._": {}
+        },
+        "runtime": {
+          "lib/win8/_._": {}
+        }
+      },
+      "Microsoft.Bcl.Build/1.0.21": {
+        "type": "package"
+      },
       "Microsoft.CSharp/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -7465,6 +7974,21 @@
         },
         "runtime": {
           "lib/netcore50/Microsoft.CSharp.dll": {}
+        }
+      },
+      "Microsoft.Net.Http/2.2.29": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl": "1.1.10",
+          "Microsoft.Bcl.Build": "1.0.14"
+        },
+        "compile": {
+          "lib/win8/System.Net.Http.Extensions.dll": {},
+          "lib/win8/System.Net.Http.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/win8/System.Net.Http.Extensions.dll": {},
+          "lib/win8/System.Net.Http.Primitives.dll": {}
         }
       },
       "Microsoft.NETCore/5.0.0": {
@@ -7660,6 +8184,15 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
@@ -9137,6 +9670,58 @@
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WinRTXamlToolkit.UWP/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/WinRTXamlToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WinRTXamlToolkit.dll": {}
+        }
+      },
+      "Xamarin.Forms/2.0.0.6490": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Xamarin.Forms.Core.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Xamarin.Forms.Core.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile/2.0.4.46": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile.Forms/2.0.4.46": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6490",
+          "ZXing.Net.Mobile": "2.0.4.46"
+        },
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll": {},
+          "lib/UAP10/ZXing.Net.Mobile.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll": {},
+          "lib/UAP10/ZXing.Net.Mobile.Forms.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86": {
@@ -9147,6 +9732,15 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        }
+      },
+      "Facebook/7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/win8/Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/win8/Facebook.dll": {}
         }
       },
       "M2Mqtt/4.3.0": {
@@ -9213,6 +9807,38 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
+      "Microsoft.Azure.Mobile.Client/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl": "1.1.10",
+          "Microsoft.Bcl.Build": "1.0.21",
+          "Microsoft.Net.Http": "2.2.29",
+          "Newtonsoft.Json": "6.0.4"
+        },
+        "compile": {
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.dll": {},
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.dll": {},
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.dll": {}
+        }
+      },
+      "Microsoft.Bcl/1.1.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.Build": "1.0.14"
+        },
+        "compile": {
+          "lib/win8/_._": {}
+        },
+        "runtime": {
+          "lib/win8/_._": {}
+        }
+      },
+      "Microsoft.Bcl.Build/1.0.21": {
+        "type": "package"
+      },
       "Microsoft.CSharp/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -9238,6 +9864,21 @@
         },
         "runtime": {
           "lib/netcore50/Microsoft.CSharp.dll": {}
+        }
+      },
+      "Microsoft.Net.Http/2.2.29": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl": "1.1.10",
+          "Microsoft.Bcl.Build": "1.0.14"
+        },
+        "compile": {
+          "lib/win8/System.Net.Http.Extensions.dll": {},
+          "lib/win8/System.Net.Http.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/win8/System.Net.Http.Extensions.dll": {},
+          "lib/win8/System.Net.Http.Primitives.dll": {}
         }
       },
       "Microsoft.NETCore/5.0.0": {
@@ -9441,6 +10082,15 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -10962,6 +11612,58 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WinRTXamlToolkit.UWP/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/WinRTXamlToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WinRTXamlToolkit.dll": {}
+        }
+      },
+      "Xamarin.Forms/2.0.0.6490": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Xamarin.Forms.Core.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Xamarin.Forms.Core.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile/2.0.4.46": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile.Forms/2.0.4.46": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6490",
+          "ZXing.Net.Mobile": "2.0.4.46"
+        },
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll": {},
+          "lib/UAP10/ZXing.Net.Mobile.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll": {},
+          "lib/UAP10/ZXing.Net.Mobile.Forms.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0/win10-x86-aot": {
@@ -10972,6 +11674,15 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        }
+      },
+      "Facebook/7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/win8/Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/win8/Facebook.dll": {}
         }
       },
       "M2Mqtt/4.3.0": {
@@ -11038,6 +11749,38 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
+      "Microsoft.Azure.Mobile.Client/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl": "1.1.10",
+          "Microsoft.Bcl.Build": "1.0.21",
+          "Microsoft.Net.Http": "2.2.29",
+          "Newtonsoft.Json": "6.0.4"
+        },
+        "compile": {
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.dll": {},
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.dll": {}
+        },
+        "runtime": {
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.dll": {},
+          "lib/netcore45/Microsoft.WindowsAzure.Mobile.dll": {}
+        }
+      },
+      "Microsoft.Bcl/1.1.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl.Build": "1.0.14"
+        },
+        "compile": {
+          "lib/win8/_._": {}
+        },
+        "runtime": {
+          "lib/win8/_._": {}
+        }
+      },
+      "Microsoft.Bcl.Build/1.0.21": {
+        "type": "package"
+      },
       "Microsoft.CSharp/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -11063,6 +11806,21 @@
         },
         "runtime": {
           "lib/netcore50/Microsoft.CSharp.dll": {}
+        }
+      },
+      "Microsoft.Net.Http/2.2.29": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Bcl": "1.1.10",
+          "Microsoft.Bcl.Build": "1.0.14"
+        },
+        "compile": {
+          "lib/win8/System.Net.Http.Extensions.dll": {},
+          "lib/win8/System.Net.Http.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/win8/System.Net.Http.Extensions.dll": {},
+          "lib/win8/System.Net.Http.Primitives.dll": {}
         }
       },
       "Microsoft.NETCore/5.0.0": {
@@ -11258,6 +12016,15 @@
         },
         "runtime": {
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
@@ -12735,6 +13502,58 @@
         "runtime": {
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "WinRTXamlToolkit.UWP/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/WinRTXamlToolkit.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/WinRTXamlToolkit.dll": {}
+        }
+      },
+      "Xamarin.Forms/2.0.0.6490": {
+        "type": "package",
+        "compile": {
+          "lib/uap10.0/Xamarin.Forms.Core.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Xamarin.Forms.Core.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Platform.dll": {},
+          "lib/uap10.0/Xamarin.Forms.Xaml.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile/2.0.4.46": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Core.dll": {},
+          "lib/UAP10/ZXingNetMobile.dll": {},
+          "lib/UAP10/zxing.portable.dll": {}
+        }
+      },
+      "ZXing.Net.Mobile.Forms/2.0.4.46": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.0.0.6490",
+          "ZXing.Net.Mobile": "2.0.4.46"
+        },
+        "compile": {
+          "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll": {},
+          "lib/UAP10/ZXing.Net.Mobile.Forms.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll": {},
+          "lib/UAP10/ZXing.Net.Mobile.Forms.dll": {}
+        }
       }
     }
   },
@@ -12750,6 +13569,35 @@
         "lib/portable-win81+wpa81/ColorPicker/ColorPicker.xr.xml",
         "lib/portable-win81+wpa81/ColorPicker/Themes/Generic.xbf",
         "lib/portable-win81+wpa81/ColorPicker/colors.jpg"
+      ]
+    },
+    "Facebook/7.0.6": {
+      "sha512": "D9nlWZb88S4U+eh1pUDQ+AkSkiht6m0eFpxKFddZnQSSFTnncvDMBEnNODy4fOIOjWQIiOXRVbuY04jCPyWqkw==",
+      "type": "package",
+      "files": [
+        "Facebook.7.0.6.nupkg.sha512",
+        "Facebook.nuspec",
+        "LICENSE.txt",
+        "lib/net35-client/Facebook.dll",
+        "lib/net35-client/Facebook.xml",
+        "lib/net40-client/Facebook.dll",
+        "lib/net40-client/Facebook.xml",
+        "lib/net45/Facebook.dll",
+        "lib/net45/Facebook.xml",
+        "lib/portable-win81+wpa81/Facebook.dll",
+        "lib/portable-win81+wpa81/Facebook.xml",
+        "lib/sl5/Facebook.dll",
+        "lib/sl5/Facebook.xml",
+        "lib/win8/Facebook.dll",
+        "lib/win8/Facebook.xml",
+        "lib/wp71/Facebook.dll",
+        "lib/wp71/Facebook.xml",
+        "lib/wp8/Facebook.dll",
+        "lib/wp8/Facebook.xml",
+        "lib/wp81/Facebook.dll",
+        "lib/wp81/Facebook.xml",
+        "readme.txt",
+        "serializers/JsonNetSerializer.cs"
       ]
     },
     "M2Mqtt/4.3.0": {
@@ -12836,6 +13684,147 @@
         "lib/wpa81/Microsoft.ApplicationInsights.Extensibility.Windows.dll"
       ]
     },
+    "Microsoft.Azure.Mobile.Client/2.0.1": {
+      "sha512": "WUvdvcoa4GRahbAgQ3VzHl6YDCs95Cmnde8fPdKYqMSAcAueZM8k2aVPWCtj6iIRKdV0WzYCjGthW5NkkOtheA==",
+      "type": "package",
+      "files": [
+        "Microsoft.Azure.Mobile.Client.2.0.1.nupkg.sha512",
+        "Microsoft.Azure.Mobile.Client.nuspec",
+        "lib/Xamarin.iOS10/Microsoft.WindowsAzure.Mobile.Ext.dll",
+        "lib/Xamarin.iOS10/Microsoft.WindowsAzure.Mobile.Ext.xml",
+        "lib/Xamarin.iOS10/Microsoft.WindowsAzure.Mobile.dll",
+        "lib/Xamarin.iOS10/Microsoft.WindowsAzure.Mobile.xml",
+        "lib/monoandroid/Microsoft.WindowsAzure.Mobile.Ext.dll",
+        "lib/monoandroid/Microsoft.WindowsAzure.Mobile.Ext.xml",
+        "lib/monoandroid/Microsoft.WindowsAzure.Mobile.dll",
+        "lib/monoandroid/Microsoft.WindowsAzure.Mobile.xml",
+        "lib/monotouch/Microsoft.WindowsAzure.Mobile.Ext.dll",
+        "lib/monotouch/Microsoft.WindowsAzure.Mobile.Ext.xml",
+        "lib/monotouch/Microsoft.WindowsAzure.Mobile.dll",
+        "lib/monotouch/Microsoft.WindowsAzure.Mobile.xml",
+        "lib/net45/Microsoft.WindowsAzure.Mobile.Ext.XML",
+        "lib/net45/Microsoft.WindowsAzure.Mobile.Ext.dll",
+        "lib/net45/Microsoft.WindowsAzure.Mobile.dll",
+        "lib/net45/Microsoft.WindowsAzure.Mobile.xml",
+        "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.dll",
+        "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.pri",
+        "lib/netcore45/Microsoft.WindowsAzure.Mobile.Ext.xml",
+        "lib/netcore45/Microsoft.WindowsAzure.Mobile.dll",
+        "lib/netcore45/Microsoft.WindowsAzure.Mobile.xml",
+        "lib/portable-win+net45+wp8+wpa81+monotouch+monoandroid/Microsoft.WindowsAzure.Mobile.dll",
+        "lib/portable-win+net45+wp8+wpa81+monotouch+monoandroid/Microsoft.WindowsAzure.Mobile.xml",
+        "lib/wp8/Microsoft.WindowsAzure.Mobile.Ext.dll",
+        "lib/wp8/Microsoft.WindowsAzure.Mobile.Ext.xml",
+        "lib/wp8/Microsoft.WindowsAzure.Mobile.UI.dll",
+        "lib/wp8/Microsoft.WindowsAzure.Mobile.UI.xml",
+        "lib/wp8/Microsoft.WindowsAzure.Mobile.dll",
+        "lib/wp8/Microsoft.WindowsAzure.Mobile.xml",
+        "lib/wpa81/Microsoft.WindowsAzure.Mobile.Ext.dll",
+        "lib/wpa81/Microsoft.WindowsAzure.Mobile.Ext.xml",
+        "lib/wpa81/Microsoft.WindowsAzure.Mobile.dll",
+        "lib/wpa81/Microsoft.WindowsAzure.Mobile.xml"
+      ]
+    },
+    "Microsoft.Bcl/1.1.10": {
+      "sha512": "+tTqoh/M1pyL8El3qLy30EcwnAtyvFoDZJtdG9Cbg/WdFbh4N8kyrq198XHuEL7lnJbeD0DRO8jcX5IIOh05cQ==",
+      "type": "package",
+      "files": [
+        "License-Stable.rtf",
+        "Microsoft.Bcl.1.1.10.nupkg.sha512",
+        "Microsoft.Bcl.nuspec",
+        "lib/Xamarin.iOS10/_._",
+        "lib/monoandroid/_._",
+        "lib/monotouch/_._",
+        "lib/net40/System.IO.dll",
+        "lib/net40/System.IO.xml",
+        "lib/net40/System.Runtime.dll",
+        "lib/net40/System.Runtime.xml",
+        "lib/net40/System.Threading.Tasks.dll",
+        "lib/net40/System.Threading.Tasks.xml",
+        "lib/net40/ensureRedirect.xml",
+        "lib/net45/_._",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.IO.dll",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.IO.xml",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Runtime.dll",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Runtime.xml",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Threading.Tasks.dll",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Threading.Tasks.xml",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/ensureRedirect.xml",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/System.IO.dll",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/System.IO.xml",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/System.Runtime.dll",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/System.Runtime.xml",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/System.Threading.Tasks.dll",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/System.Threading.Tasks.xml",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/ensureRedirect.xml",
+        "lib/portable-net40+sl4+win8/System.IO.dll",
+        "lib/portable-net40+sl4+win8/System.IO.xml",
+        "lib/portable-net40+sl4+win8/System.Runtime.dll",
+        "lib/portable-net40+sl4+win8/System.Runtime.xml",
+        "lib/portable-net40+sl4+win8/System.Threading.Tasks.dll",
+        "lib/portable-net40+sl4+win8/System.Threading.Tasks.xml",
+        "lib/portable-net40+sl4+win8/ensureRedirect.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/System.IO.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/System.IO.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/System.Runtime.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/System.Runtime.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/System.Threading.Tasks.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/System.Threading.Tasks.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/ensureRedirect.xml",
+        "lib/portable-net40+win8+wp8+wpa81/System.IO.dll",
+        "lib/portable-net40+win8+wp8+wpa81/System.IO.xml",
+        "lib/portable-net40+win8+wp8+wpa81/System.Runtime.dll",
+        "lib/portable-net40+win8+wp8+wpa81/System.Runtime.xml",
+        "lib/portable-net40+win8+wp8+wpa81/System.Threading.Tasks.dll",
+        "lib/portable-net40+win8+wp8+wpa81/System.Threading.Tasks.xml",
+        "lib/portable-net40+win8+wp8+wpa81/ensureRedirect.xml",
+        "lib/portable-net40+win8/System.IO.dll",
+        "lib/portable-net40+win8/System.IO.xml",
+        "lib/portable-net40+win8/System.Runtime.dll",
+        "lib/portable-net40+win8/System.Runtime.xml",
+        "lib/portable-net40+win8/System.Threading.Tasks.dll",
+        "lib/portable-net40+win8/System.Threading.Tasks.xml",
+        "lib/portable-net40+win8/ensureRedirect.xml",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/portable-net45+win8+wpa81/_._",
+        "lib/portable-net451+win81+wpa81/_._",
+        "lib/portable-net451+win81/_._",
+        "lib/portable-win81+wp81+wpa81/_._",
+        "lib/sl4-windowsphone71/System.IO.dll",
+        "lib/sl4-windowsphone71/System.IO.xml",
+        "lib/sl4-windowsphone71/System.Runtime.dll",
+        "lib/sl4-windowsphone71/System.Runtime.xml",
+        "lib/sl4-windowsphone71/System.Threading.Tasks.dll",
+        "lib/sl4-windowsphone71/System.Threading.Tasks.xml",
+        "lib/sl4-windowsphone71/ensureRedirect.xml",
+        "lib/sl4/System.IO.dll",
+        "lib/sl4/System.IO.xml",
+        "lib/sl4/System.Runtime.dll",
+        "lib/sl4/System.Runtime.xml",
+        "lib/sl4/System.Threading.Tasks.dll",
+        "lib/sl4/System.Threading.Tasks.xml",
+        "lib/sl5/System.IO.dll",
+        "lib/sl5/System.IO.xml",
+        "lib/sl5/System.Runtime.dll",
+        "lib/sl5/System.Runtime.xml",
+        "lib/sl5/System.Threading.Tasks.dll",
+        "lib/sl5/System.Threading.Tasks.xml",
+        "lib/win8/_._",
+        "lib/wp8/_._",
+        "lib/wpa81/_._"
+      ]
+    },
+    "Microsoft.Bcl.Build/1.0.21": {
+      "sha512": "sgHu4mIt0+NVGyI12Bj4hLPypNK55UOH+ologj2LqDCjxq3EbIxe/uAtHjY+fEwbE1dtsAHG8SXHf+V/EYbKTg==",
+      "type": "package",
+      "files": [
+        "License-Stable.rtf",
+        "Microsoft.Bcl.Build.1.0.21.nupkg.sha512",
+        "Microsoft.Bcl.Build.nuspec",
+        "build/Microsoft.Bcl.Build.Tasks.dll",
+        "build/Microsoft.Bcl.Build.targets"
+      ]
+    },
     "Microsoft.CSharp/4.0.0": {
       "sha512": "oWqeKUxHXdK6dL2CFjgMcaBISbkk+AqEg+yvJHE4DElNzS4QaTsCflgkkqZwVlWby1Dg9zo9n+iCAMFefFdJ/A==",
       "type": "package",
@@ -12873,6 +13862,72 @@
         "ref/wpa81/_._",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._"
+      ]
+    },
+    "Microsoft.Net.Http/2.2.29": {
+      "sha512": "fc4CPEewJ30Xgal+fSq1lYIBt582A7eKlAL7O4HXiYAiTp2VTnA4osSvk7T2n8aS4xTCPVJusQk3yKLT0XSpkg==",
+      "type": "package",
+      "files": [
+        "License-Stable.rtf",
+        "Microsoft.Net.Http.2.2.29.nupkg.sha512",
+        "Microsoft.Net.Http.nuspec",
+        "lib/Xamarin.iOS10/System.Net.Http.Extensions.XML",
+        "lib/Xamarin.iOS10/System.Net.Http.Extensions.dll",
+        "lib/Xamarin.iOS10/System.Net.Http.Primitives.dll",
+        "lib/Xamarin.iOS10/System.Net.Http.Primitives.xml",
+        "lib/monoandroid/System.Net.Http.Extensions.XML",
+        "lib/monoandroid/System.Net.Http.Extensions.dll",
+        "lib/monoandroid/System.Net.Http.Primitives.dll",
+        "lib/monoandroid/System.Net.Http.Primitives.xml",
+        "lib/monotouch/System.Net.Http.Extensions.XML",
+        "lib/monotouch/System.Net.Http.Extensions.dll",
+        "lib/monotouch/System.Net.Http.Primitives.dll",
+        "lib/monotouch/System.Net.Http.Primitives.xml",
+        "lib/net40/System.Net.Http.Extensions.XML",
+        "lib/net40/System.Net.Http.Extensions.dll",
+        "lib/net40/System.Net.Http.Primitives.dll",
+        "lib/net40/System.Net.Http.Primitives.xml",
+        "lib/net40/System.Net.Http.WebRequest.dll",
+        "lib/net40/System.Net.Http.WebRequest.xml",
+        "lib/net40/System.Net.Http.dll",
+        "lib/net40/System.Net.Http.xml",
+        "lib/net40/ensureRedirect.xml",
+        "lib/net45/System.Net.Http.Extensions.XML",
+        "lib/net45/System.Net.Http.Extensions.dll",
+        "lib/net45/System.Net.Http.Primitives.dll",
+        "lib/net45/System.Net.Http.Primitives.xml",
+        "lib/net45/ensureRedirect.xml",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.Extensions.XML",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.Extensions.dll",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.Primitives.XML",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.Primitives.dll",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.dll",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.xml",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/ensureRedirect.xml",
+        "lib/portable-net45+win8+wpa81/System.Net.Http.Extensions.XML",
+        "lib/portable-net45+win8+wpa81/System.Net.Http.Extensions.dll",
+        "lib/portable-net45+win8+wpa81/System.Net.Http.Primitives.dll",
+        "lib/portable-net45+win8+wpa81/System.Net.Http.Primitives.xml",
+        "lib/portable-net45+win8+wpa81/ensureRedirect.xml",
+        "lib/portable-net45+win8/System.Net.Http.Extensions.XML",
+        "lib/portable-net45+win8/System.Net.Http.Extensions.dll",
+        "lib/portable-net45+win8/System.Net.Http.Primitives.dll",
+        "lib/portable-net45+win8/System.Net.Http.Primitives.xml",
+        "lib/portable-net45+win8/ensureRedirect.xml",
+        "lib/sl4-windowsphone71/System.Net.Http.Extensions.XML",
+        "lib/sl4-windowsphone71/System.Net.Http.Extensions.dll",
+        "lib/sl4-windowsphone71/System.Net.Http.Primitives.XML",
+        "lib/sl4-windowsphone71/System.Net.Http.Primitives.dll",
+        "lib/sl4-windowsphone71/System.Net.Http.dll",
+        "lib/sl4-windowsphone71/System.Net.Http.xml",
+        "lib/win8/System.Net.Http.Extensions.XML",
+        "lib/win8/System.Net.Http.Extensions.dll",
+        "lib/win8/System.Net.Http.Primitives.dll",
+        "lib/win8/System.Net.Http.Primitives.xml",
+        "lib/wpa81/System.Net.Http.Extensions.XML",
+        "lib/wpa81/System.Net.Http.Extensions.dll",
+        "lib/wpa81/System.Net.Http.Primitives.dll",
+        "lib/wpa81/System.Net.Http.Primitives.xml"
       ]
     },
     "Microsoft.NETCore/5.0.0": {
@@ -13418,6 +14473,27 @@
         "ref/net46/Microsoft.Win32.Primitives.dll",
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._"
+      ]
+    },
+    "Newtonsoft.Json/8.0.3": {
+      "sha512": "KGsYQdS2zLH+H8x2cZaSI7e+YZ4SFIbyy1YJQYl6GYBWjf5o4H1A68nxyq+WTyVSOJQ4GqS/DiPE+UseUizgMg==",
+      "type": "package",
+      "files": [
+        "Newtonsoft.Json.8.0.3.nupkg.sha512",
+        "Newtonsoft.Json.nuspec",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
+        "tools/install.ps1"
       ]
     },
     "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -16101,16 +17177,635 @@
         "runtime.json",
         "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
+    },
+    "WinRTXamlToolkit.UWP/2.0.0": {
+      "sha512": "aO7uISAWUNJojXOf36YpruZz1YPIC8l/vH5q5diPNaRpR8VuYRCOMw3tHq8VzaGj64w/a22bwVSon5elHAsj4Q==",
+      "type": "package",
+      "files": [
+        "WinRTXamlToolkit.UWP.2.0.0.nupkg.sha512",
+        "WinRTXamlToolkit.UWP.nuspec",
+        "lib/uap10.0/WinRTXamlToolkit.dll",
+        "lib/uap10.0/WinRTXamlToolkit.pri",
+        "lib/uap10.0/WinRTXamlToolkit/Async/_._",
+        "lib/uap10.0/WinRTXamlToolkit/AwaitableUI/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Common/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/AlternativeFrame/AlternativeFrame.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/AlternativeFrame/AlternativeFrame.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/AnimatingContainer/AnimatingContainer.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/AnimatingContainer/AnimatingContainer.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/AutoCompleteTextBox/Algorithm/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/AutoCompleteTextBox/AutoCompleteTextBox.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/AutoCompleteTextBox/AutoCompleteTextBox.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/AutoOrientingStackPanel/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/Behaviors/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/CameraCaptureControl/CameraCaptureControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/CameraCaptureControl/CameraCaptureControl.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/CascadingImageControl/CascadingImageControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/CascadingImageControl/CascadingImageControl.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/CascadingTextBlock/CascadingTextBlock.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/CascadingTextBlock/CascadingTextBlock.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/ColorPicker/ColorPicker.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/ColorPicker/ColorPicker.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/Common/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/CountdownControl/CountdownControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/CountdownControl/CountdownControl.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/CustomAppBar/CustomAppBar.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/CustomAppBar/CustomAppBar.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/CustomGridSplitter/CustomGridSplitter.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/CustomGridSplitter/CustomGridSplitter.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/Data/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/DelayedLoadControl/DelayedLoadControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/DelayedLoadControl/DelayedLoadControl.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/DockPanel/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/Extensions/Forms/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/FocusVisualizer/FocusVisualizer.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/FocusVisualizer/FocusVisualizer.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/FxContentControl/FxContentControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/FxContentControl/FxContentControl.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/HeaderedItemsControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/ImageButton/ImageButton.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/ImageButton/ImageButton.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/ImageToggleButton/ImageToggleButton.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/ImageToggleButton/ImageToggleButton.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/InputDialog/InputDialog.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/InputDialog/InputDialog.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/LayoutTransformControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/ListItemButton/ListItemButton.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/ListItemButton/ListItemButton.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/NumericUpDown/NumericUpDown.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/NumericUpDown/NumericUpDown.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/PieSlice/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/RingSlice/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/SquareGrid/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/ToolStrip/ToolStrip.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/ToolStrip/ToolStrip.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/ToolWindow/ToolWindow.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/ToolWindow/ToolWindow.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/TreeView/TreeView.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/TreeView/TreeView.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/TreeView/TreeViewItem.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/TreeView/TreeViewItem.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/TreeView/TreeViewMouse.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/TreeView/TreeViewMouse.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/TreeView/TreeViewTouch.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/TreeView/TreeViewTouch.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/UniformGrid/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/WatermarkPasswordBox/WatermarkPasswordBox.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/WatermarkPasswordBox/WatermarkPasswordBox.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/WatermarkTextBox/WatermarkTextBox.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/WatermarkTextBox/WatermarkTextBox.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/WebBrowser/WebBrowser.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/WebBrowser/WebBrowser.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Controls/WrapPanel/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Converters/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Device/_._",
+        "lib/uap10.0/WinRTXamlToolkit/IO/Extensions/_._",
+        "lib/uap10.0/WinRTXamlToolkit/IO/Serialization/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Imaging/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Input/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Interactivity/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Licensing/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Net/_._",
+        "lib/uap10.0/WinRTXamlToolkit/Properties/WinRTXamlToolkit.UWP.rd.xml",
+        "lib/uap10.0/WinRTXamlToolkit/Themes/Generic.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/Themes/Generic.xbf",
+        "lib/uap10.0/WinRTXamlToolkit/Tools/_._",
+        "lib/uap10.0/WinRTXamlToolkit/WinRTXamlToolkit.xr.xml",
+        "lib/uap10.0/WinRTXamlToolkit/bin/ARM/Debug/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/ARM/Release/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Debug/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/AlternativeFrame/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/AnimatingContainer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/AutoCompleteTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/CameraCaptureControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/CascadingImageControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/CascadingTextBlock/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/ColorPicker/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/CountdownControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/CustomAppBar/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/CustomGridSplitter/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/DelayedLoadControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/FocusVisualizer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/FxContentControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/ImageButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/ImageToggleButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/InputDialog/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/ListItemButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/NumericUpDown/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/ToolStrip/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/ToolWindow/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/TreeView/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/WatermarkPasswordBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/WatermarkTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Controls/WebBrowser/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/Release/Themes/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/AlternativeFrame/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/AnimatingContainer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/AutoCompleteTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/CameraCaptureControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/CascadingImageControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/CascadingTextBlock/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/ColorPicker/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/CountdownControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/CustomAppBar/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/CustomGridSplitter/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/DelayedLoadControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/FocusVisualizer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/FxContentControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/ImageButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/ImageToggleButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/InputDialog/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/ListItemButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/NumericUpDown/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/ToolStrip/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/ToolWindow/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/TreeView/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/WatermarkPasswordBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/WatermarkTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Controls/WebBrowser/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Debug/Themes/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/AlternativeFrame/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/AnimatingContainer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/AutoCompleteTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/CameraCaptureControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/CascadingImageControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/CascadingTextBlock/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/ColorPicker/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/CountdownControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/CustomAppBar/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/CustomGridSplitter/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/DelayedLoadControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/FocusVisualizer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/FxContentControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/ImageButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/ImageToggleButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/InputDialog/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/ListItemButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/NumericUpDown/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/ToolStrip/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/ToolWindow/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/TreeView/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/WatermarkPasswordBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/WatermarkTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Controls/WebBrowser/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x64/Release/Themes/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/AlternativeFrame/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/AnimatingContainer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/AutoCompleteTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/CameraCaptureControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/CascadingImageControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/CascadingTextBlock/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/ColorPicker/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/CountdownControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/CustomAppBar/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/CustomGridSplitter/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/DelayedLoadControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/FocusVisualizer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/FxContentControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/ImageButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/ImageToggleButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/InputDialog/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/ListItemButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/NumericUpDown/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/ToolStrip/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/ToolWindow/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/TreeView/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/WatermarkPasswordBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/WatermarkTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Controls/WebBrowser/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Debug/Themes/_._",
+        "lib/uap10.0/WinRTXamlToolkit/bin/x86/Release/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/AlternativeFrame/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/AnimatingContainer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/AutoCompleteTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/CameraCaptureControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/CascadingImageControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/CascadingTextBlock/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/ColorPicker/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/CountdownControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/CustomAppBar/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/CustomGridSplitter/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/DelayedLoadControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/FocusVisualizer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/FxContentControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/ImageButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/ImageToggleButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/InputDialog/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/ListItemButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/NumericUpDown/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/ToolStrip/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/ToolWindow/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/TreeView/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/WatermarkPasswordBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/WatermarkTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Controls/WebBrowser/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/TempPE/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/Themes/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/ARM/Debug/intermediatexaml/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/AlternativeFrame/AlternativeFrame.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/AnimatingContainer/AnimatingContainer.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/AutoCompleteTextBox/AutoCompleteTextBox.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/CameraCaptureControl/CameraCaptureControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/CascadingImageControl/CascadingImageControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/CascadingTextBlock/CascadingTextBlock.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/ColorPicker/ColorPicker.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/CountdownControl/CountdownControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/CustomAppBar/CustomAppBar.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/CustomGridSplitter/CustomGridSplitter.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/DelayedLoadControl/DelayedLoadControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/FocusVisualizer/FocusVisualizer.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/FxContentControl/FxContentControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/ImageButton/ImageButton.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/ImageToggleButton/ImageToggleButton.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/InputDialog/InputDialog.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/ListItemButton/ListItemButton.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/NumericUpDown/NumericUpDown.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/ToolStrip/ToolStrip.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/ToolWindow/ToolWindow.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/TreeView/TreeView.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/TreeView/TreeViewItem.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/TreeView/TreeViewMouse.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/TreeView/TreeViewTouch.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/WatermarkPasswordBox/WatermarkPasswordBox.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/WatermarkTextBox/WatermarkTextBox.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Controls/WebBrowser/WebBrowser.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/Themes/Generic.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/AlternativeFrame/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/AnimatingContainer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/AutoCompleteTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/CameraCaptureControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/CascadingImageControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/CascadingTextBlock/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/ColorPicker/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/CountdownControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/CustomAppBar/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/CustomGridSplitter/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/DelayedLoadControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/FocusVisualizer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/FxContentControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/ImageButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/ImageToggleButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/InputDialog/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/ListItemButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/NumericUpDown/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/ToolStrip/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/ToolWindow/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/TreeView/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/WatermarkPasswordBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/WatermarkTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Controls/WebBrowser/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/WinRTXamlToolkit/Themes/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/Release/intermediatexaml/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/AlternativeFrame/AlternativeFrame.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/AnimatingContainer/AnimatingContainer.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/AutoCompleteTextBox/AutoCompleteTextBox.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/CameraCaptureControl/CameraCaptureControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/CascadingImageControl/CascadingImageControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/CascadingTextBlock/CascadingTextBlock.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/ColorPicker/ColorPicker.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/CountdownControl/CountdownControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/CustomAppBar/CustomAppBar.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/CustomGridSplitter/CustomGridSplitter.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/DelayedLoadControl/DelayedLoadControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/FocusVisualizer/FocusVisualizer.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/FxContentControl/FxContentControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/ImageButton/ImageButton.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/ImageToggleButton/ImageToggleButton.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/InputDialog/InputDialog.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/ListItemButton/ListItemButton.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/NumericUpDown/NumericUpDown.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/ToolStrip/ToolStrip.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/ToolWindow/ToolWindow.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/TreeView/TreeView.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/TreeView/TreeViewItem.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/TreeView/TreeViewMouse.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/TreeView/TreeViewTouch.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/WatermarkPasswordBox/WatermarkPasswordBox.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/WatermarkTextBox/WatermarkTextBox.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Controls/WebBrowser/WebBrowser.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/TempPE/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/Themes/Generic.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/AlternativeFrame/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/AnimatingContainer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/AutoCompleteTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/CameraCaptureControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/CascadingImageControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/CascadingTextBlock/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/ColorPicker/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/CountdownControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/CustomAppBar/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/CustomGridSplitter/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/DelayedLoadControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/FocusVisualizer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/FxContentControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/ImageButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/ImageToggleButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/InputDialog/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/ListItemButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/NumericUpDown/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/ToolStrip/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/ToolWindow/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/TreeView/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/WatermarkPasswordBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/WatermarkTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Controls/WebBrowser/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/WinRTXamlToolkit/Themes/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Debug/intermediatexaml/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/AlternativeFrame/AlternativeFrame.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/AnimatingContainer/AnimatingContainer.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/AutoCompleteTextBox/AutoCompleteTextBox.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/CameraCaptureControl/CameraCaptureControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/CascadingImageControl/CascadingImageControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/CascadingTextBlock/CascadingTextBlock.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/ColorPicker/ColorPicker.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/CountdownControl/CountdownControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/CustomAppBar/CustomAppBar.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/CustomGridSplitter/CustomGridSplitter.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/DelayedLoadControl/DelayedLoadControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/FocusVisualizer/FocusVisualizer.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/FxContentControl/FxContentControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/ImageButton/ImageButton.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/ImageToggleButton/ImageToggleButton.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/InputDialog/InputDialog.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/ListItemButton/ListItemButton.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/NumericUpDown/NumericUpDown.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/ToolStrip/ToolStrip.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/ToolWindow/ToolWindow.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/TreeView/TreeView.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/TreeView/TreeViewItem.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/TreeView/TreeViewMouse.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/TreeView/TreeViewTouch.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/WatermarkPasswordBox/WatermarkPasswordBox.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/WatermarkTextBox/WatermarkTextBox.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Controls/WebBrowser/WebBrowser.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/TempPE/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/Themes/Generic.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/AlternativeFrame/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/AnimatingContainer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/AutoCompleteTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/CameraCaptureControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/CascadingImageControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/CascadingTextBlock/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/ColorPicker/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/CountdownControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/CustomAppBar/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/CustomGridSplitter/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/DelayedLoadControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/FocusVisualizer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/FxContentControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/ImageButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/ImageToggleButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/InputDialog/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/ListItemButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/NumericUpDown/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/ToolStrip/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/ToolWindow/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/TreeView/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/WatermarkPasswordBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/WatermarkTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Controls/WebBrowser/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/WinRTXamlToolkit/Themes/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x64/Release/intermediatexaml/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/AlternativeFrame/AlternativeFrame.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/AnimatingContainer/AnimatingContainer.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/AutoCompleteTextBox/AutoCompleteTextBox.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/CameraCaptureControl/CameraCaptureControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/CascadingImageControl/CascadingImageControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/CascadingTextBlock/CascadingTextBlock.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/ColorPicker/ColorPicker.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/CountdownControl/CountdownControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/CustomAppBar/CustomAppBar.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/CustomGridSplitter/CustomGridSplitter.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/DelayedLoadControl/DelayedLoadControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/FocusVisualizer/FocusVisualizer.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/FxContentControl/FxContentControl.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/ImageButton/ImageButton.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/ImageToggleButton/ImageToggleButton.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/InputDialog/InputDialog.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/ListItemButton/ListItemButton.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/NumericUpDown/NumericUpDown.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/ToolStrip/ToolStrip.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/ToolWindow/ToolWindow.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/TreeView/TreeView.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/TreeView/TreeViewItem.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/TreeView/TreeViewMouse.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/TreeView/TreeViewTouch.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/WatermarkPasswordBox/WatermarkPasswordBox.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/WatermarkTextBox/WatermarkTextBox.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Controls/WebBrowser/WebBrowser.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/TempPE/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/Themes/Generic.xaml",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/AlternativeFrame/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/AnimatingContainer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/AutoCompleteTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/CameraCaptureControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/CascadingImageControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/CascadingTextBlock/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/ColorPicker/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/CountdownControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/CustomAppBar/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/CustomGridSplitter/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/DelayedLoadControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/FocusVisualizer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/FxContentControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/ImageButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/ImageToggleButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/InputDialog/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/ListItemButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/NumericUpDown/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/ToolStrip/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/ToolWindow/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/TreeView/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/WatermarkPasswordBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/WatermarkTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Controls/WebBrowser/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/WinRTXamlToolkit/Themes/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Debug/intermediatexaml/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/AlternativeFrame/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/AnimatingContainer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/AutoCompleteTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/CameraCaptureControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/CascadingImageControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/CascadingTextBlock/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/ColorPicker/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/CountdownControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/CustomAppBar/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/CustomGridSplitter/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/DelayedLoadControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/FocusVisualizer/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/FxContentControl/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/ImageButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/ImageToggleButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/InputDialog/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/ListItemButton/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/NumericUpDown/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/ToolStrip/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/ToolWindow/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/TreeView/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/WatermarkPasswordBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/WatermarkTextBox/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Controls/WebBrowser/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/TempPE/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/Themes/_._",
+        "lib/uap10.0/WinRTXamlToolkit/obj/x86/Release/intermediatexaml/_._"
+      ]
+    },
+    "Xamarin.Forms/2.0.0.6490": {
+      "sha512": "jTQp/dIlAT2J3dvFwr+UsP0COsTmkTuPQ2ySnYnrLyoHV0gbUueMt1oPmBnFEDedoUxhEQIhMFbzGRKuiS+Wvw==",
+      "type": "package",
+      "files": [
+        "Xamarin.Forms.2.0.0.6490.nupkg.sha512",
+        "Xamarin.Forms.nuspec",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/ICSharpCode.Decompiler.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/ICSharpCode.NRefactory.CSharp.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/ICSharpCode.NRefactory.Cecil.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/ICSharpCode.NRefactory.Xml.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/ICSharpCode.NRefactory.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Mono.Cecil.Mdb.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Mono.Cecil.Pdb.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Mono.Cecil.Rocks.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Mono.Cecil.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Build.Tasks.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Core.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Xaml.dll",
+        "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.targets",
+        "lib/MonoAndroid10/FormsViewGroup.dll",
+        "lib/MonoAndroid10/Xamarin.Forms.Core.dll",
+        "lib/MonoAndroid10/Xamarin.Forms.Core.xml",
+        "lib/MonoAndroid10/Xamarin.Forms.Platform.Android.dll",
+        "lib/MonoAndroid10/Xamarin.Forms.Platform.dll",
+        "lib/MonoAndroid10/Xamarin.Forms.Xaml.dll",
+        "lib/MonoAndroid10/Xamarin.Forms.Xaml.xml",
+        "lib/MonoTouch10/Xamarin.Forms.Core.dll",
+        "lib/MonoTouch10/Xamarin.Forms.Core.xml",
+        "lib/MonoTouch10/Xamarin.Forms.Platform.dll",
+        "lib/MonoTouch10/Xamarin.Forms.Platform.iOS.Classic.dll",
+        "lib/MonoTouch10/Xamarin.Forms.Xaml.dll",
+        "lib/MonoTouch10/Xamarin.Forms.Xaml.xml",
+        "lib/WP80/Xamarin.Forms.Core.dll",
+        "lib/WP80/Xamarin.Forms.Core.xml",
+        "lib/WP80/Xamarin.Forms.Platform.WP8.dll",
+        "lib/WP80/Xamarin.Forms.Platform.dll",
+        "lib/WP80/Xamarin.Forms.Xaml.dll",
+        "lib/WP80/Xamarin.Forms.Xaml.xml",
+        "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.Core.xml",
+        "lib/Xamarin.iOS10/Xamarin.Forms.Platform.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll",
+        "lib/Xamarin.iOS10/Xamarin.Forms.Xaml.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Core.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Core.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Platform.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Xaml.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Xamarin.Forms.Xaml.xml",
+        "lib/uap10.0/Xamarin.Forms.Core.dll",
+        "lib/uap10.0/Xamarin.Forms.Core.xml",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP.dll",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP.pri",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP/FormsTextBox.xbf",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP/PageControl.xbf",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP/Properties/Xamarin.Forms.Platform.UAP.rd.xml",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP/Resources.xbf",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP/Xamarin.Forms.Platform.UAP.xr.xml",
+        "lib/uap10.0/Xamarin.Forms.Platform.dll",
+        "lib/uap10.0/Xamarin.Forms.Xaml.dll",
+        "lib/uap10.0/Xamarin.Forms.Xaml.xml",
+        "lib/win81/Xamarin.Forms.Core.dll",
+        "lib/win81/Xamarin.Forms.Core.xml",
+        "lib/win81/Xamarin.Forms.Platform.WinRT.Tablet.dll",
+        "lib/win81/Xamarin.Forms.Platform.WinRT.Tablet.pri",
+        "lib/win81/Xamarin.Forms.Platform.WinRT.Tablet/Resources.xbf",
+        "lib/win81/Xamarin.Forms.Platform.WinRT.Tablet/TabletResources.xbf",
+        "lib/win81/Xamarin.Forms.Platform.WinRT.Tablet/Xamarin.Forms.Platform.WinRT.Tablet.xr.xml",
+        "lib/win81/Xamarin.Forms.Platform.WinRT.dll",
+        "lib/win81/Xamarin.Forms.Platform.WinRT.pri",
+        "lib/win81/Xamarin.Forms.Platform.WinRT/FormsTextBox.xbf",
+        "lib/win81/Xamarin.Forms.Platform.WinRT/PageControl.xbf",
+        "lib/win81/Xamarin.Forms.Platform.WinRT/StepperControl.xbf",
+        "lib/win81/Xamarin.Forms.Platform.WinRT/Xamarin.Forms.Platform.WinRT.xr.xml",
+        "lib/win81/Xamarin.Forms.Platform.dll",
+        "lib/win81/Xamarin.Forms.Xaml.dll",
+        "lib/win81/Xamarin.Forms.Xaml.xml",
+        "lib/wpa81/Xamarin.Forms.Core.dll",
+        "lib/wpa81/Xamarin.Forms.Core.xml",
+        "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone.dll",
+        "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone.pri",
+        "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone/PhoneResources.xbf",
+        "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone/Resources.xbf",
+        "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone/SearchBox.xbf",
+        "lib/wpa81/Xamarin.Forms.Platform.WinRT.Phone/Xamarin.Forms.Platform.WinRT.Phone.xr.xml",
+        "lib/wpa81/Xamarin.Forms.Platform.WinRT.dll",
+        "lib/wpa81/Xamarin.Forms.Platform.WinRT.pri",
+        "lib/wpa81/Xamarin.Forms.Platform.WinRT/FormsTextBox.xbf",
+        "lib/wpa81/Xamarin.Forms.Platform.WinRT/PageControl.xbf",
+        "lib/wpa81/Xamarin.Forms.Platform.WinRT/StepperControl.xbf",
+        "lib/wpa81/Xamarin.Forms.Platform.WinRT/Xamarin.Forms.Platform.WinRT.xr.xml",
+        "lib/wpa81/Xamarin.Forms.Platform.dll",
+        "lib/wpa81/Xamarin.Forms.Xaml.dll",
+        "lib/wpa81/Xamarin.Forms.Xaml.xml",
+        "tools/Xamarin.Forms.Core.Design.dll",
+        "tools/Xamarin.Forms.Xaml.Design.dll",
+        "tools/init.ps1"
+      ]
+    },
+    "ZXing.Net.Mobile/2.0.4.46": {
+      "sha512": "LcYr/k+MysS6dmQlH36OyoAK3fAzVSHydFwPMFWJ+oYqdvGJRJwRDBhfpBwkdn0wETGO77eMY6HtSbDAeVPQOw==",
+      "type": "package",
+      "files": [
+        "ZXing.Net.Mobile.2.0.4.46.nupkg.sha512",
+        "ZXing.Net.Mobile.nuspec",
+        "lib/MonoAndroid403/ZXing.Net.Mobile.Core.dll",
+        "lib/MonoAndroid403/ZXingNetMobile.dll",
+        "lib/MonoAndroid403/zxing.portable.dll",
+        "lib/UAP10/ZXing.Net.Mobile.Core.dll",
+        "lib/UAP10/ZXingNetMobile.dll",
+        "lib/UAP10/ZXingNetMobile.pri",
+        "lib/UAP10/ZXingNetMobile/ZXingNetMobile.xr.xml",
+        "lib/UAP10/zxing.portable.dll",
+        "lib/Xamarin.iOS10/ZXing.Net.Mobile.Core.dll",
+        "lib/Xamarin.iOS10/ZXingNetMobile.dll",
+        "lib/Xamarin.iOS10/zxing.portable.dll",
+        "lib/portable-net45+netcore45+wp8+UAP10+MonoAndroid403+MonoTouch10+Xamarin.iOS10/ZXing.Net.Mobile.Core.dll",
+        "lib/portable-net45+netcore45+wp8+UAP10+MonoAndroid403+MonoTouch10+Xamarin.iOS10/ZXingNetMobile.dll",
+        "lib/portable-net45+netcore45+wp8+UAP10+MonoAndroid403+MonoTouch10+Xamarin.iOS10/zxing.portable.dll",
+        "lib/wp8/ZXing.Net.Mobile.Core.dll",
+        "lib/wp8/ZXingNetMobile.dll",
+        "lib/wp8/zxing.portable.dll"
+      ]
+    },
+    "ZXing.Net.Mobile.Forms/2.0.4.46": {
+      "sha512": "f8zvHyu1iqOvrTaFgPbcGjyS+xPxIej7eRTnl7X8EbTvqAxyA3k9BT8zmg0mKweJvkldeXnN/vNECB/TU3Cdwg==",
+      "type": "package",
+      "files": [
+        "ZXing.Net.Mobile.Forms.2.0.4.46.nupkg.sha512",
+        "ZXing.Net.Mobile.Forms.nuspec",
+        "lib/MonoAndroid403/ZXing.Net.Mobile.Forms.Android.dll",
+        "lib/MonoAndroid403/ZXing.Net.Mobile.Forms.dll",
+        "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.dll",
+        "lib/UAP10/ZXing.Net.Mobile.Forms.WindowsUniversal.pri",
+        "lib/UAP10/ZXing.Net.Mobile.Forms.dll",
+        "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll",
+        "lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll",
+        "lib/portable-net45+netcore45+wp8+UAP10.0+MonoAndroid403+MonoTouch10+Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll",
+        "lib/wp8/ZXing.Net.Mobile.Forms.WindowsPhone.dll",
+        "lib/wp8/ZXing.Net.Mobile.Forms.dll"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "": [
       "ColorPicker >= 1.0.2",
+      "Facebook >= 7.0.6",
       "M2Mqtt >= 4.3.0",
       "Microsoft.ApplicationInsights >= 2.0.1",
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.2.3",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.1.1",
-      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.1.0"
+      "Microsoft.Azure.Mobile.Client >= 2.0.1",
+      "Microsoft.NETCore.UniversalWindowsPlatform >= 5.1.0",
+      "Newtonsoft.Json >= 8.0.3",
+      "WinRTXamlToolkit.UWP >= 2.0.0",
+      "ZXing.Net.Mobile.Forms >= 2.0.4.46"
     ],
     "UAP,Version=v10.0": []
   }
