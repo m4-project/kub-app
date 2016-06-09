@@ -23,9 +23,9 @@ namespace KubApp_v0._1
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application
+    public sealed partial class App : Application
     {
-
+        
         private TransitionCollection transitions;
         public static MobileServiceClient MobileService = new MobileServiceClient("https://mykub.azurewebsites.net");
         /// <summary>

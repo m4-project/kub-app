@@ -21,6 +21,8 @@ using ColorPicker;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 using uPLibrary.Networking.M2Mqtt.Exceptions;
+using System.Threading.Tasks;
+using Windows.Security.Authentication.Web;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -318,6 +320,31 @@ namespace KubApp_v0._1
         private void RockPaper_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(RockPaperMain));
+        }
+
+        private async Task Login()
+        {
+            //Facebook app id
+            var clientId = "1269278043097270";
+            //Facebook permissions
+            var scope = "public_profile, email";
+
+            var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
+            var fb = new Facebook.FacebookClient();
+            Uri loginUrl = fb.GetLoginUrl(new { client_id = clientId, redirect_uri = redirectUri, response_type = "token", scope = scope });
+
+            Uri startUri = loginUrl;
+            Uri endUri = new Uri(redirectUri, UriKind.Absolute);
+
+#if WINDOWS_PHONE_APP
+            WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri, null, WebAuthenticationOptions.None);
+#endif
+
+#if WINDOWS_APP
+            WebAuthenticationResult result = await WebAuthenticationBroker.AuthenticateAsync(WebAuthenticationOptions.None, startUri, endUri);
+            await ParseAuthenticationResult(result);
+#endif
+
         }
     }
 }

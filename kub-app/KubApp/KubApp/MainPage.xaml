@@ -21,7 +21,7 @@
                     <TextBlock Text="{Binding}" FontSize="40" FontFamily="comfortaa"/>
                 </DataTemplate>
             </Pivot.HeaderTemplate>
-            <PivotItem x:Name="PivotMainpage" Header="MAIN" FontFamily="comfortaa">
+            <PivotItem x:Name="PivotMainpage" Header="MAIN" FontFamily="comfortaa" Margin="10,-48,14,13">
                 <Grid>
                     <Button x:Name="INFO" Click="Info_Click" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="122" Width="122">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
@@ -56,9 +56,7 @@
                         </Rectangle.RenderTransform>
                     </Rectangle>
                     <TextBlock x:Name="textBlockkub" HorizontalAlignment="Left" Margin="15,350,0,0" TextWrapping="Wrap" Text="Kub :" FontFamily="Comfortaa" FontSize="25" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlockhue" HorizontalAlignment="Left" Margin="15,390,0,0" TextWrapping="Wrap" Text="Hue :" FontFamily="Comfortaa" FontSize="25" VerticalAlignment="Top"/>
                     <TextBlock x:Name="textBoxkubstatus" HorizontalAlignment="Left" Margin="90,352,0,0" TextWrapping="Wrap" Text="" FontFamily="Comfortaa" FontSize="20" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBoxkhuestatus" HorizontalAlignment="Left" Margin="90,392,0,0" TextWrapping="Wrap" Text="Connected" FontFamily="Comfortaa" FontSize="20" VerticalAlignment="Top"/>
                 </Grid>
             </PivotItem>
             <PivotItem Header="LED-CONTROL">
@@ -103,7 +101,7 @@
                     <StackPanel HorizontalAlignment="Left" Height="100" Margin="177,166,0,0" VerticalAlignment="Top" Width="100"/>
                 </Grid>
             </PivotItem>
-            <PivotItem Header="GAMES">
+            <PivotItem Header="GAMES" Margin="12,-36,12,36">
                 <Grid>
                     <Button x:Name="RockPaper" Click="RockPaper_Click" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">

@@ -12,6 +12,15 @@
           "lib/portable-win81+wpa81/ColorPicker.dll": {}
         }
       },
+      "Facebook/7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/win8/Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/win8/Facebook.dll": {}
+        }
+      },
       "M2Mqtt/4.3.0": {
         "type": "package",
         "compile": {
@@ -2070,6 +2079,15 @@
           "lib/portable-win81+wpa81/ColorPicker.dll": {}
         }
       },
+      "Facebook/7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/win8/Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/win8/Facebook.dll": {}
+        }
+      },
       "M2Mqtt/4.3.0": {
         "type": "package",
         "compile": {
@@ -3994,6 +4012,15 @@
           "lib/portable-win81+wpa81/ColorPicker.dll": {}
         }
       },
+      "Facebook/7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/win8/Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/win8/Facebook.dll": {}
+        }
+      },
       "M2Mqtt/4.3.0": {
         "type": "package",
         "compile": {
@@ -5873,6 +5900,15 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        }
+      },
+      "Facebook/7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/win8/Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/win8/Facebook.dll": {}
         }
       },
       "M2Mqtt/4.3.0": {
@@ -7808,6 +7844,15 @@
           "lib/portable-win81+wpa81/ColorPicker.dll": {}
         }
       },
+      "Facebook/7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/win8/Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/win8/Facebook.dll": {}
+        }
+      },
       "M2Mqtt/4.3.0": {
         "type": "package",
         "compile": {
@@ -9687,6 +9732,15 @@
         },
         "runtime": {
           "lib/portable-win81+wpa81/ColorPicker.dll": {}
+        }
+      },
+      "Facebook/7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/win8/Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/win8/Facebook.dll": {}
         }
       },
       "M2Mqtt/4.3.0": {
@@ -11622,6 +11676,15 @@
           "lib/portable-win81+wpa81/ColorPicker.dll": {}
         }
       },
+      "Facebook/7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/win8/Facebook.dll": {}
+        },
+        "runtime": {
+          "lib/win8/Facebook.dll": {}
+        }
+      },
       "M2Mqtt/4.3.0": {
         "type": "package",
         "compile": {
@@ -13506,6 +13569,35 @@
         "lib/portable-win81+wpa81/ColorPicker/ColorPicker.xr.xml",
         "lib/portable-win81+wpa81/ColorPicker/Themes/Generic.xbf",
         "lib/portable-win81+wpa81/ColorPicker/colors.jpg"
+      ]
+    },
+    "Facebook/7.0.6": {
+      "sha512": "D9nlWZb88S4U+eh1pUDQ+AkSkiht6m0eFpxKFddZnQSSFTnncvDMBEnNODy4fOIOjWQIiOXRVbuY04jCPyWqkw==",
+      "type": "package",
+      "files": [
+        "Facebook.7.0.6.nupkg.sha512",
+        "Facebook.nuspec",
+        "LICENSE.txt",
+        "lib/net35-client/Facebook.dll",
+        "lib/net35-client/Facebook.xml",
+        "lib/net40-client/Facebook.dll",
+        "lib/net40-client/Facebook.xml",
+        "lib/net45/Facebook.dll",
+        "lib/net45/Facebook.xml",
+        "lib/portable-win81+wpa81/Facebook.dll",
+        "lib/portable-win81+wpa81/Facebook.xml",
+        "lib/sl5/Facebook.dll",
+        "lib/sl5/Facebook.xml",
+        "lib/win8/Facebook.dll",
+        "lib/win8/Facebook.xml",
+        "lib/wp71/Facebook.dll",
+        "lib/wp71/Facebook.xml",
+        "lib/wp8/Facebook.dll",
+        "lib/wp8/Facebook.xml",
+        "lib/wp81/Facebook.dll",
+        "lib/wp81/Facebook.xml",
+        "readme.txt",
+        "serializers/JsonNetSerializer.cs"
       ]
     },
     "M2Mqtt/4.3.0": {
@@ -17704,6 +17796,7 @@
   "projectFileDependencyGroups": {
     "": [
       "ColorPicker >= 1.0.2",
+      "Facebook >= 7.0.6",
       "M2Mqtt >= 4.3.0",
       "Microsoft.ApplicationInsights >= 2.0.1",
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.2.3",
