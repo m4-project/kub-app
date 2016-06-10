@@ -23,9 +23,8 @@ namespace KubApp_v0._1
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application
+    public sealed partial class App : Application
     {
-
         private TransitionCollection transitions;
         public static MobileServiceClient MobileService = new MobileServiceClient("https://mykub.azurewebsites.net");
         /// <summary>
@@ -39,8 +38,6 @@ namespace KubApp_v0._1
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-
-
         }
         private void App_BackRequested(object sender,
     Windows.UI.Core.BackRequestedEventArgs e)
@@ -58,6 +55,18 @@ namespace KubApp_v0._1
             }
         }
 
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            if(args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
+            {
+                var continuationEventArgs = args as IContinuationActivatedEventArgs;
+                if(continuationEventArgs != null)
+                {
+                    MainPage.continuationManager.Continue(continuationEventArgs);
+                    MainPage.continuationManager.MarkAsStale();
+                }
+            }
+        }
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -167,6 +176,7 @@ namespace KubApp_v0._1
         {
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
+            MainPage.continuationManager.MarkAsStale();
             deferral.Complete();
         }
 

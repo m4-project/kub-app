@@ -21,7 +21,7 @@
                     <TextBlock Text="{Binding}" FontSize="40" FontFamily="comfortaa"/>
                 </DataTemplate>
             </Pivot.HeaderTemplate>
-            <PivotItem x:Name="PivotMainpage" Header="MAIN" FontFamily="comfortaa">
+            <PivotItem x:Name="PivotMainpage" Header="MAIN" FontFamily="comfortaa" Margin="10,-48,14,13">
                 <Grid>
                     <Button x:Name="INFO" Click="Info_Click" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="122" Width="122">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
@@ -56,9 +56,7 @@
                         </Rectangle.RenderTransform>
                     </Rectangle>
                     <TextBlock x:Name="textBlockkub" HorizontalAlignment="Left" Margin="15,350,0,0" TextWrapping="Wrap" Text="Kub :" FontFamily="Comfortaa" FontSize="25" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlockhue" HorizontalAlignment="Left" Margin="15,390,0,0" TextWrapping="Wrap" Text="Hue :" FontFamily="Comfortaa" FontSize="25" VerticalAlignment="Top"/>
                     <TextBlock x:Name="textBoxkubstatus" HorizontalAlignment="Left" Margin="90,352,0,0" TextWrapping="Wrap" Text="" FontFamily="Comfortaa" FontSize="20" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBoxkhuestatus" HorizontalAlignment="Left" Margin="90,392,0,0" TextWrapping="Wrap" Text="Connected" FontFamily="Comfortaa" FontSize="20" VerticalAlignment="Top"/>
                 </Grid>
             </PivotItem>
             <PivotItem Header="LED-CONTROL">
@@ -103,7 +101,7 @@
                     <StackPanel HorizontalAlignment="Left" Height="100" Margin="177,166,0,0" VerticalAlignment="Top" Width="100"/>
                 </Grid>
             </PivotItem>
-            <PivotItem Header="GAMES">
+            <PivotItem Header="GAMES" Margin="12,-36,12,36">
                 <Grid>
                     <Button x:Name="RockPaper" Click="RockPaper_Click" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
@@ -132,12 +130,14 @@
                             <Image Stretch="Fill" Source="Qrcode.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="connectFB" Click="ScanQR_Click" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top" Height="70" Width="70" Background="Transparent">
+                    <Button x:Name="connectFB" Click="FBlogin_Click" HorizontalAlignment="Left" Margin="200,180,0,0" VerticalAlignment="Top" Height="70" Width="70" Background="Transparent">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="fb.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-15,-10,-15,-10"/>
                         </Grid>
                     </Button>
+                    
                     <TextBlock x:Name="textBoxConnectFB" HorizontalAlignment="Left" Margin="0,200,0,0" TextWrapping="Wrap" Text="Login with:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
+                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="68,235,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" RenderTransformOrigin="-0.263,1.385"/>
                 </Grid>
             </PivotItem>
         </Pivot>

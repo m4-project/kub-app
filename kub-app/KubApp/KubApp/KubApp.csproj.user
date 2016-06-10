@@ -13,4 +13,7 @@
     <UseEmulator>true</UseEmulator>
     <UseSimulator>false</UseSimulator>
   </PropertyGroup>
+  <PropertyGroup>
+    <AppxShowAllApps>False</AppxShowAllApps>
+  </PropertyGroup>
 </Project>
