@@ -23,6 +23,10 @@ using uPLibrary.Networking.M2Mqtt.Messages;
 using uPLibrary.Networking.M2Mqtt.Exceptions;
 using System.Threading.Tasks;
 using Windows.Security.Authentication.Web;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Activation;
+using System.Text.RegularExpressions;
+
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -31,8 +35,10 @@ namespace KubApp_v0._1
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Page, IWebAuthenticationContinuable
     {
+        
+        public static ContinuationManager continuationManager { get; private set; }
         //Maakt een nieuwe MqttClient aan
         private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
 
@@ -46,6 +52,9 @@ namespace KubApp_v0._1
         private bool wasConnected = false;
         private uint threadSafeTemperature = 0;
 
+        private string AccessToken;
+        private DateTime TokenExpiry;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -54,8 +63,49 @@ namespace KubApp_v0._1
             threadSafeTimer.Interval = new TimeSpan(0, 0, 1);
             threadSafeTimer.Start();
             threadSafeTimer.Tick += ThreadSafeEntry;
+
+            continuationManager = new ContinuationManager();
+
+            this.NavigationCacheMode = NavigationCacheMode.Required;
         }
 
+        public async Task ParseAuthenticationResult(WebAuthenticationResult result)
+        {
+            switch (result.ResponseStatus)
+            {
+                case WebAuthenticationStatus.ErrorHttp:
+                    Debug.WriteLine("Error");
+                    break;
+                case WebAuthenticationStatus.Success:
+                    var pattern = string.Format("{0}#access_token={1}&expires_in={2}", WebAuthenticationBroker.GetCurrentApplicationCallbackUri(), "(?<access_token>.+)", "(?<expires_in>.+)");
+                    var match = Regex.Match(result.ResponseData, pattern);
+
+                    var access_token = match.Groups["access_token"];
+                    var expires_in = match.Groups["expires_in"];
+
+                    AccessToken = access_token.Value;
+                    TokenExpiry = DateTime.Now.AddSeconds(double.Parse(expires_in.Value));
+
+                    break;
+                case WebAuthenticationStatus.UserCancel:
+                    Debug.WriteLine("Operation aborted");
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        async void IWebAuthenticationContinuable.ContinueWebAuthentication(WebAuthenticationBrokerContinuationEventArgs args)
+        {
+            await ParseAuthenticationResult(args.WebAuthenticationResult);
+        }
+
+        private async Task showUserInfo()
+        {
+            Facebook.FacebookClient client = new Facebook.FacebookClient(AccessToken);
+            dynamic user = await client.GetTaskAsync("me");
+            textBox.Text = user.name;
+        }
         public void Connect()
         {
             client.Connect("kub-app");
@@ -336,15 +386,20 @@ namespace KubApp_v0._1
             Uri startUri = loginUrl;
             Uri endUri = new Uri(redirectUri, UriKind.Absolute);
 
-#if WINDOWS_PHONE_APP
+//#if WINDOWS_PHONE_APP
             WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri, null, WebAuthenticationOptions.None);
-#endif
+            //#endif
 
-#if WINDOWS_APP
-            WebAuthenticationResult result = await WebAuthenticationBroker.AuthenticateAsync(WebAuthenticationOptions.None, startUri, endUri);
-            await ParseAuthenticationResult(result);
-#endif
+            //#if WINDOWS_APP
+            //            WebAuthenticationResult result = await WebAuthenticationBroker.AuthenticateAsync(WebAuthenticationOptions.None, startUri, endUri);
+            //            await ParseAuthenticationResult(result);
+            //#endif
+        }
 
+        private async void FBlogin_Click(object sender, RoutedEventArgs e)
+        {
+            await Login();
+            
         }
     }
 }
