@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="690a5f2a-6871-4a1b-ac68-a8fbedf1d51f" Publisher="CN=basva" Version="1.0.0.0" />
+  <Identity Name="3055StendenInformaticaTem.MyKub" Publisher="CN=81803248-5EBC-4A5E-BCCD-1D83A98BA815" Version="1.1.0.0" />
   <mp:PhoneIdentity PhoneProductId="690a5f2a-6871-4a1b-ac68-a8fbedf1d51f" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>KubApp_v0.1</DisplayName>
-    <PublisherDisplayName>basva</PublisherDisplayName>
+    <DisplayName>MyKub</DisplayName>
+    <PublisherDisplayName>Stenden Informatica Temp</PublisherDisplayName>
     <Logo>Assets\NewStoreLogo.png</Logo>
   </Properties>
   <Dependencies>
