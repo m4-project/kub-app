@@ -21,24 +21,24 @@
                     <TextBlock Text="{Binding}" FontSize="40" FontFamily="comfortaa"/>
                 </DataTemplate>
             </Pivot.HeaderTemplate>
-            <PivotItem x:Name="PivotMainpage" Header="MAIN" FontFamily="comfortaa" Margin="10,-48,14,13">
+            <PivotItem x:Name="PivotMainpage" Header="MAIN" FontFamily="comfortaa" Margin="10,0,14,13">
                 <Grid>
-                    <Button x:Name="INFO" Click="Info_Click" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="122" Width="122">
+                    <Button x:Name="INFO" Click="Info_Click" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Height="122" Width="122">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="Assets/info.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="LED" Click="LED_Click_1" HorizontalAlignment="Left" Margin="168,50,0,0" VerticalAlignment="Top" Height="122" Width="122">
+                    <Button x:Name="LED" Click="LED_Click_1" HorizontalAlignment="Left" Margin="168,20,0,0" VerticalAlignment="Top" Height="122" Width="122">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="Assets/led.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-7"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="GAMES" Click="GAMES_Click" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                    <Button x:Name="GAMES" Click="GAMES_Click" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="Assets/game.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="SETTINGS" Click="SETTINGS_Click" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                    <Button x:Name="SETTINGS" Click="SETTINGS_Click" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="Assets/settings.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
@@ -101,19 +101,19 @@
                     <StackPanel HorizontalAlignment="Left" Height="100" Margin="177,166,0,0" VerticalAlignment="Top" Width="100"/>
                 </Grid>
             </PivotItem>
-            <PivotItem Header="GAMES" Margin="12,-36,12,36">
+            <PivotItem Header="GAMES" Margin="12,0,12,36">
                 <Grid>
-                    <Button x:Name="RockPaper" Click="RockPaper_Click" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                    <Button x:Name="RockPaper" Click="RockPaper_Click" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="rockpaper.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="Game2"  Click="Game2_Click" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                    <Button x:Name="Game2"  Click="Game2_Click" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="snapgame.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="Game3" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                    <Button x:Name="Game3" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="mindgame.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>

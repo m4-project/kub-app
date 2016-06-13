@@ -21,9 +21,11 @@
         <Grid Background="Transparent">
             <Image Stretch="Fill" Source="bgsky.jpg" VerticalAlignment="Top" HorizontalAlignment="Left"/>
             <Image x:Name="logoimage" Source="colormatchlogo.png" HorizontalAlignment="Left" Height="181" Margin="10,71,0,0" VerticalAlignment="Top" Width="340"/>
-            <Button x:Name="play" Content="PLAY!" FontFamily="Comfortaa" FontSize="40" Background="Transparent" BorderBrush="Black" BorderThickness="5" Click="play_Click" HorizontalAlignment="Left" Margin="64,297,0,0" VerticalAlignment="Top" Height="86" Width="216">
+            <Button x:Name="play" Content="PLAY!" FontFamily="Comfortaa" FontSize="40" Background="Transparent" BorderBrush="Black" BorderThickness="5" Click="play_Click" HorizontalAlignment="Left" Margin="64,250,0,0" VerticalAlignment="Top" Height="86" Width="216">
             </Button>
-            <Button x:Name="howtoplay" Content="HOW TO?" FontFamily="Comfortaa" FontSize="35" Background="Transparent" BorderBrush="Black" BorderThickness="5" Click="howtoplay_Click" HorizontalAlignment="Left" Margin="64,434,0,0" VerticalAlignment="Top" Height="86" Width="216">
+            <Button x:Name="howtoplay" Content="HOW TO?" FontFamily="Comfortaa" FontSize="35" Background="Transparent" BorderBrush="Black" BorderThickness="5" Click="howtoplay_Click" HorizontalAlignment="Left" Margin="64,350,0,0" VerticalAlignment="Top" Height="86" Width="216">
+            </Button>
+            <Button x:Name="quitGame" Content="QUIT GAME!" FontFamily="Comfortaa" FontSize="35" Background="Transparent" BorderBrush="Black" BorderThickness="5" Click="quitGame_Click" HorizontalAlignment="Left" Margin="64,450,0,0" VerticalAlignment="Top" Height="86" Width="216">
             </Button>
         </Grid>
     </Grid>

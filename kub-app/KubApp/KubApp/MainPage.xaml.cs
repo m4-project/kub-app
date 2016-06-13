@@ -36,8 +36,7 @@ namespace KubApp_v0._1
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainPage : Page, IWebAuthenticationContinuable
-    {
-        
+    {     
         public static ContinuationManager continuationManager { get; private set; }
         //Maakt een nieuwe MqttClient aan
         private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
@@ -386,7 +385,7 @@ namespace KubApp_v0._1
             Uri startUri = loginUrl;
             Uri endUri = new Uri(redirectUri, UriKind.Absolute);
 
-//#if WINDOWS_PHONE_APP
+            //#if WINDOWS_PHONE_APP
             WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri, null, WebAuthenticationOptions.None);
             //#endif
 

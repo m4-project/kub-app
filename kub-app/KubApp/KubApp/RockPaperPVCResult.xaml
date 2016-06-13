@@ -12,18 +12,21 @@
             <Grid Background="Transparent">
                 <Image Stretch="Fill" Source="backgroundmetkub.png" VerticalAlignment="Top" HorizontalAlignment="Left"/>
             </Grid>
-        <Image Name="imageSteen" Source="Steen.jpg" HorizontalAlignment="Left" Height="100" Margin="37,342,0,0" VerticalAlignment="Top" Width="100" Opacity="0"/>
-        <Image Name="imagePapier" Source="Papier.png" HorizontalAlignment="Left" Height="100" Margin="37,342,0,0" VerticalAlignment="Top" Width="100" Opacity="0"/>
-        <Image Name="imageSchaar" Source="Schaar.png" HorizontalAlignment="Left" Height="100" Margin="37,342,0,0" VerticalAlignment="Top" Width="100" Opacity="0"/>
-        <TextBlock Margin="162,374,163,230" FontFamily="Rockwell" FontSize="30" FontStyle="Italic" Foreground="White">
+        <Image Name="imageSteen" Source="Steen.jpg" HorizontalAlignment="Left" Height="100" Margin="37,312,0,0" VerticalAlignment="Top" Width="100" Opacity="0"/>
+        <Image Name="imagePapier" Source="Papier.png" HorizontalAlignment="Left" Height="100" Margin="37,312,0,0" VerticalAlignment="Top" Width="100" Opacity="0"/>
+        <Image Name="imageSchaar" Source="Schaar.png" HorizontalAlignment="Left" Height="100" Margin="37,312,0,0" VerticalAlignment="Top" Width="100" Opacity="0"/>
+        <TextBlock Margin="162,344,163,230" FontFamily="Rockwell" FontSize="30" FontStyle="Italic" Foreground="White">
             VS
         </TextBlock>
-        <TextBlock Name="result" Text="You won!" Width="auto" HorizontalAlignment="Center" Height="50" Margin="0,0,0,0" FontFamily="Rockwell" FontSize="30" FontStyle="Italic" Foreground="White"/>
-        <Image Name="imageSteenPC" Source="Steen.jpg" HorizontalAlignment="Left" Height="100" Margin="222,342,0,0" VerticalAlignment="Top" Width="100" Opacity="0"/>
-        <Image Name="imagePapierPC" Source="Papier.png" HorizontalAlignment="Left" Height="100" Margin="222,342,0,0" VerticalAlignment="Top" Width="100" Opacity="0"/>
-        <Image Name="imageSchaarPC" Source="Schaar.png" HorizontalAlignment="Left" Height="100" Margin="222,342,0,0" VerticalAlignment="Top" Width="100" Opacity="0"/>
+        <TextBlock Name="result" Text="You won!" Width="auto" HorizontalAlignment="Center" Height="50" Margin="0,-35,0,0" FontFamily="Rockwell" FontSize="30" FontStyle="Italic" Foreground="White"/>
+        <Image Name="imageSteenPC" Source="Steen.jpg" HorizontalAlignment="Left" Height="100" Margin="222,312,0,0" VerticalAlignment="Top" Width="100" Opacity="0"/>
+        <Image Name="imagePapierPC" Source="Papier.png" HorizontalAlignment="Left" Height="100" Margin="222,312,0,0" VerticalAlignment="Top" Width="100" Opacity="0"/>
+        <Image Name="imageSchaarPC" Source="Schaar.png" HorizontalAlignment="Left" Height="100" Margin="222,312,0,0" VerticalAlignment="Top" Width="100" Opacity="0"/>
         <Button
-            Name="Back" Content="Play Again" HorizontalAlignment="Center" Margin="0,550,0,0" VerticalAlignment="Top" Width="240" Height="40" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" FontSize="22" Foreground="White" Background="#3348221C" Click="Back_Click">
+            Name="Back" Content="Play Again" HorizontalAlignment="Center" Margin="0,450,0,0" VerticalAlignment="Top" Width="240" Height="40" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" FontSize="22" Foreground="White" Background="#3348221C" Click="Back_Click">
+        </Button>
+        <Button 
+            Name="exit" Content="Quit Game" HorizontalAlignment="Center" Margin="60,510,60,0" VerticalAlignment="Top" Width="240" Height="40" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" FontSize="22" Foreground="White" Background="#3348221C" Click="exit_Click">
         </Button>
     </Grid>
 </Page>
