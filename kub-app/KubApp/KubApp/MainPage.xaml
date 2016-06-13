@@ -84,9 +84,6 @@
                                     <ColorPicker:ColorPicker x:Name="colorp" VerticalAlignment="Top" Background="White" PointerMoved="colorp_PointerMoved" PointerPressed="colorp_PointerPressed" IsEnabled="False" Width="260" Height="260"/>
                                 </Grid>
                             </Flyout>
-                            <!--<Flyout x:Name="pickColorFlyout" Closed="pickColorFlyout_Closed" Placement="Top">
-                                <ColorPicker:ColorPicker x:Name="colorp" VerticalAlignment="Top" Background="White" PointerMoved="colorp_PointerMoved" PointerPressed="colorp_PointerPressed" IsEnabled="False" Width="180" Height="180"/>
-                            </Flyout>-->
                         </Button.Flyout>
                     </Button>
                     <TextBlock x:Name="textBoxBrightness" HorizontalAlignment="Left" Margin="0,240,0,0" TextWrapping="Wrap" Text="Brightness" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
@@ -135,9 +132,9 @@
                             <Image Stretch="Fill" Source="fb.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-15,-10,-15,-10"/>
                         </Grid>
                     </Button>
-                    
+                    <Button x:Name="btnFBPost" Content="Post on FB" HorizontalAlignment="Left" Margin="208,260,0,0" VerticalAlignment="Top" Click="FBPost" RenderTransformOrigin="1.922,-0.542"/>
+                    <Button x:Name="btnFBLogout" Content="Logout from FB" HorizontalAlignment="Left" Margin="16,260,0,0" VerticalAlignment="Top" Click="FBLogout_Click"/>
                     <TextBlock x:Name="textBoxConnectFB" HorizontalAlignment="Left" Margin="0,200,0,0" TextWrapping="Wrap" Text="Login with:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
-                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="68,235,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" RenderTransformOrigin="-0.263,1.385"/>
                 </Grid>
             </PivotItem>
         </Pivot>
