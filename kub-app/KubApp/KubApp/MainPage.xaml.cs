@@ -28,6 +28,7 @@ using Windows.ApplicationModel.Activation;
 using System.Text.RegularExpressions;
 using Windows.Web;
 using Windows.UI.WebUI;
+using Windows.UI.Xaml.Media.Imaging;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -102,6 +103,11 @@ namespace KubApp_v0._1
 
                 fbClient = new Facebook.FacebookClient(AccessToken);
                 fbUser = await fbClient.GetTaskAsync("me");
+
+                WebRequest profilePicRequest = HttpWebRequest.Create(string.Format("https://graph.facebook.com/{0}/picture", fbUser.id));
+                WebResponse response = await profilePicRequest.GetResponseAsync();
+                var pictureUrl = response.ResponseUri.ToString();
+                image1.Source = new BitmapImage(new Uri(pictureUrl, UriKind.Absolute));
 
                 fbInfo.Values["token"] = AccessToken;
             }

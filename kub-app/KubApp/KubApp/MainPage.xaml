@@ -135,6 +135,7 @@
                     <Button x:Name="btnFBPost" Content="Post on FB" HorizontalAlignment="Left" Margin="208,260,0,0" VerticalAlignment="Top" Click="FBPost" RenderTransformOrigin="1.922,-0.542"/>
                     <Button x:Name="btnFBLogout" Content="Logout from FB" HorizontalAlignment="Left" Margin="16,260,0,0" VerticalAlignment="Top" Click="FBLogout_Click"/>
                     <TextBlock x:Name="textBoxConnectFB" HorizontalAlignment="Left" Margin="0,200,0,0" TextWrapping="Wrap" Text="Login with:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
+                    <Image x:Name="image1" HorizontalAlignment="Left" Height="100" Margin="120,329,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.493,-0.533"/>
                 </Grid>
             </PivotItem>
         </Pivot>
