@@ -25,6 +25,7 @@ using System.Text;
 using Newtonsoft.Json;
 using KubApp;
 using uPLibrary.Networking.M2Mqtt;
+using Windows.UI.Core;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -46,6 +47,7 @@ namespace KubApp
         {
             this.InitializeComponent();
             ZXing.Net.Mobile.Forms.WindowsUniversal.ZXingScannerViewRenderer.Init();
+            backButtonPressed();
         }
 
         private MobileBarcodeScanner _scanner;
@@ -74,8 +76,15 @@ namespace KubApp
             string newMessage = string.Empty;
             newMessage = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
             var dialog = new MessageDialog(newMessage);
-            kubID();
-            await dialog.ShowAsync();          
+            await dialog.ShowAsync();        
+        }
+
+        private void backButtonPressed()
+        {
+            SystemNavigationManager.GetForCurrentView().BackRequested += (s, e) =>
+            {
+                this.Frame.Navigate(typeof(MainPage));
+            };
         }
 
         public void kubID()
@@ -83,13 +92,9 @@ namespace KubApp
             if (QRresult != null)
             {
                 //De uitgelezen QR code
-                var json = QRresult;
+                var json = JObject.Parse(QRresult);
 
                 //Zet de JSON string om
-                //kubs = JsonConvert.DeserializeObject<Dictionary<string, Kub>>(json);
-
-                //Voegt nieuwe Kubs too aan de dictionary
-                //kubs.Add(QRresult, client);
             }
         }
     }
