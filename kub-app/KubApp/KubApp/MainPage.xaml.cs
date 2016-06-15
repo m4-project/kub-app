@@ -29,6 +29,9 @@ using System.Text.RegularExpressions;
 using Windows.Web;
 using Windows.UI.WebUI;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Notifications;
+using NotificationsExtensions;
+using Microsoft.QueryStringDotNET;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -90,10 +93,10 @@ namespace KubApp_v0._1
 
             if(webAuthenticationResult.ResponseStatus == WebAuthenticationStatus.Success)
             {
-                var OutputToken = webAuthenticationResult.ResponseData.ToString();
+                var outputToken = webAuthenticationResult.ResponseData.ToString();
 
                 var pattern = string.Format("{0}#access_token={1}&expires_in={2}", WebAuthenticationBroker.GetCurrentApplicationCallbackUri(), "(?<access_token>.+)", "(?<expires_in>.+)");
-                var match = Regex.Match(OutputToken, pattern);
+                var match = Regex.Match(outputToken, pattern);
 
                 var access_token = match.Groups["access_token"];
                 var expires_in = match.Groups["expires_in"];
