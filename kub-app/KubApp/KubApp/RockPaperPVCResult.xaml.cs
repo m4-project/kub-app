@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KubApp_v0._1;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -135,6 +136,11 @@ namespace KubApp
                 passlist.Add(roundscore.ToString());
                 passlist.Add(highscore.ToString());
                 this.Frame.Navigate(typeof(RockPaperPVC), passlist);
+        }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }

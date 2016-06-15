@@ -18,6 +18,7 @@ using Windows.UI.Popups;
 using WinRTXamlToolkit;
 using WinRTXamlToolkit.AwaitableUI;
 using Windows.UI.Xaml.Media.Animation;
+using KubApp_v0._1;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -232,5 +233,9 @@ namespace KubApp
             randomcolor();
         }
 
+        private void quitGame_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
     }
 }
