@@ -170,10 +170,6 @@ namespace KubApp_v0._1
             client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
             client.MqttMsgSubscribed += client_MqttSubscribed;
             client.ConnectionClosed += client_ConnectionClosed;
-
-            //TODO: maak instellingenpagina om kubs te koppelen
-            //this.selectedKub = new Kub("1234", client);
-            //this.kubs.Add("1234", selectedKub);
         }
 
         private void DispatcherTimer_Tick(object sender, object e)
@@ -309,19 +305,22 @@ namespace KubApp_v0._1
                     {
                         foreach (string id in kubIds)
                         {
-                            kubs.Add(id, new Kub(id, client));
+                            Kub kub = new Kub(id, this.client);
+                            kubs.Add(id, kub);
+                            comboBox.Items.Add(kub);
+                            if (kubInfo.Values.ContainsKey("selectedKub") && id == (string) kubInfo.Values["selectedkub"])
+                            {
+                                this.selectedKub = kub;
+                                this.comboBox.SelectedIndex = this.comboBox.Items.IndexOf(kub);
+                            }
                         }
                     }
-                }
-                if (kubInfo.Values.ContainsKey("selectedKub"))
-                {
-                    this.selectedKub = new Kub((string) kubInfo.Values["selectedkub"], this.client);
                 }
             }
 
             foreach (var item in kubs)
             {
-                comboBox.Items.Add(item.Value);
+                
             }
         }
 
