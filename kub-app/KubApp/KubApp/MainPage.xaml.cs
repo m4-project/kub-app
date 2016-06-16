@@ -21,7 +21,6 @@ using NotificationsExtensions.Toasts;
 using Microsoft.QueryStringDotNET;
 using Newtonsoft.Json.Linq;
 using Windows.UI.Popups;
-
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace KubApp_v0._1
@@ -68,13 +67,21 @@ namespace KubApp_v0._1
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
 
-            //Sets Facebook client, user and profile picture for last logged in user.
-            if (accessToken != "0")
-            {                
-                fbClient = new Facebook.FacebookClient(fbInfo.Values["token"].ToString());
-                fbUser = fbClient.GetTaskAsync("me");
-                image1.Source = new BitmapImage(new Uri(fbInfo.Values["profilePicUrl"].ToString(), UriKind.Absolute));
+            // Sets Facebook client, user and profile picture for last logged in user.
+            try
+            {               
+                if (fbInfo.Values["token"].ToString() != "0")
+                {
+                    fbClient = new Facebook.FacebookClient(fbInfo.Values["token"].ToString());
+                    fbUser = fbClient.GetTaskAsync("me");
+                    fbProfilePic.Source = new BitmapImage(new Uri(fbInfo.Values["profilePicUrl"].ToString(), UriKind.Absolute));
+                }
             }
+            catch
+            {
+                return;
+            }
+
         }
 
         /// <summary>
@@ -123,8 +130,8 @@ namespace KubApp_v0._1
                     WebResponse response = await profilePicRequest.GetResponseAsync();
                     var pictureUrl = response.ResponseUri.ToString();
 
-                    image1.Visibility = Visibility.Visible;
-                    image1.Source = new BitmapImage(new Uri(pictureUrl, UriKind.Absolute));
+                    fbProfilePic.Visibility = Visibility.Visible;
+                    fbProfilePic.Source = new BitmapImage(new Uri(pictureUrl, UriKind.Absolute));
 
                     fbInfo.Values["token"] = accessToken;
                     fbInfo.Values["profilePicUrl"] = pictureUrl;
@@ -168,17 +175,18 @@ namespace KubApp_v0._1
                 Uri startUri = new Uri(@"https://www.facebook.com/logout.php?next=https://www.facebook.com/&access_token=" + fbClient.AccessToken);
                 Uri endUri = new Uri(redirectUri, UriKind.Absolute);
 
-                WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri);
+                await WebAuthenticationBroker.AuthenticateAsync(WebAuthenticationOptions.None, startUri, endUri);
 
-                accessToken = "0";
-                fbInfo.Values["token"] = "0";
-                image1.Visibility = Visibility.Collapsed;
+                this.accessToken = "0";
+                this.fbInfo.Values["token"] = "0";
+                fbProfilePic.Visibility = Visibility.Collapsed;
             }
             else
             {
                 var dialog = new MessageDialog("It seems that you're already logged out!");
                 await dialog.ShowAsync();
             }
+
         }
 
         /// <summary>
@@ -209,6 +217,24 @@ namespace KubApp_v0._1
             }
         }
 
+        private void showToast(ToastContent content)
+        {
+            ToastNotificationManager.CreateToastNotifier().Show(new ToastNotification(content.GetXml()));
+        }
+
+        private void notification(string titleText, string bodyText)
+        {
+            showToast(new ToastContent()
+            {
+                Visual = new ToastVisual()
+                {
+                    TitleText = new ToastText() { Text = titleText },
+                    BodyTextLine1 = new ToastText() { Text = bodyText }
+                },
+
+                Launch = "1500",
+            });
+        }
 
         /// <summary>
         /// On every timer tick event the method of Temperature will be called so that the temperature is refreshed on the INFO page.
@@ -227,8 +253,7 @@ namespace KubApp_v0._1
         /// <param name="args"></param>
         private void ThreadSafeEntry(object sender, object args)
         {
-            
-            if(!this.wasConnected && this.connected)
+            if (!this.wasConnected && this.connected)
             {
                 if (!timer.IsEnabled)
                 {

@@ -100,6 +100,8 @@ namespace KubApp
                     else
                     {
                         await fbClient.PostTaskAsync("/me/feed", new { message = fbMessage });
+                        var dialog = new MessageDialog("Message is succesfully published on your wall!");
+                        await dialog.ShowAsync();
                     }
                 }
                 catch (Exception ex)
