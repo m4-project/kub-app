@@ -10,11 +10,12 @@
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="BackgroundMetKub.png" AlignmentY="Top" AlignmentX="Center"/>
         </Grid.Background>
-        <TextBlock x:Name="textBlock" FontSize="30" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" HorizontalAlignment="Left" Margin="93,258,0,0" TextWrapping="Wrap" Text="Select Level:" VerticalAlignment="Top" Height="47" Width="199"/>
-        <Button x:Name="Easy" FontSize="22" Content="Easy" HorizontalAlignment="Left" Height="40" Margin="60,345,0,0" VerticalAlignment="Top" Width="240" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" Background="#3348221C" Click="Easy_Click"/>
-        <Button x:Name="Medium" FontSize="22" Content="Medium" HorizontalAlignment="Left" Margin="60,423,0,0" VerticalAlignment="Top" Height="40" Width="240" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" Background="#3348221C" Click="Medium_Click"/>
-        <Button x:Name="Hard" FontSize="22" Content="Hard" HorizontalAlignment="Left" Margin="60,501,0,0" VerticalAlignment="Top" Height="40" Width="240" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" Background="#3348221C" Click="Hard_Click"/>
+        <TextBlock x:Name="textBlock" FontSize="30" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" HorizontalAlignment="Left" Margin="93,228,0,0" TextWrapping="Wrap" Text="Select Level:" VerticalAlignment="Top" Height="47" Width="199"/>
+        <Button x:Name="Easy" FontSize="22" Content="Easy" HorizontalAlignment="Left" Height="40" Margin="60,309,0,0" VerticalAlignment="Top" Width="240" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" Background="#3348221C" Click="Easy_Click"/>
+        <Button x:Name="Medium" FontSize="22" Content="Medium" HorizontalAlignment="Left" Margin="60,379,0,0" VerticalAlignment="Top" Height="40" Width="240" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" Background="#3348221C" Click="Medium_Click"/>
+        <Button x:Name="Hard" FontSize="22" Content="Hard" HorizontalAlignment="Left" Margin="60,449,0,0" VerticalAlignment="Top" Height="40" Width="240" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" Background="#3348221C" Click="Hard_Click"/>
         <Button x:Name="Instruction" FontSize="22" Content="?" HorizontalAlignment="Left" Margin="301,19,0,0" VerticalAlignment="Top" Height="40" Width="40" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" Background="#3348221C" Click="Instruction_Click"/>
+        <Button x:Name="QuitGame" FontSize="22" Content="QuitGame" HorizontalAlignment="Left" Margin="60,522,0,0" VerticalAlignment="Top" Height="40" Width="240" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" Background="#3348221C" Click="QuitGame_Click"/>
 
     </Grid>
 </Page>

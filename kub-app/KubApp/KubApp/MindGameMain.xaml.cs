@@ -1,4 +1,5 @@
-﻿using MindGame;
+﻿using KubApp_v0._1;
+using MindGame;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -52,6 +53,11 @@ namespace KubApp
         private void Instruction_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(Instruction));
+        }
+
+        private void QuitGame_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }
