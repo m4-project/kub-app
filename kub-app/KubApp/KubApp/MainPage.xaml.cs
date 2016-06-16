@@ -217,11 +217,20 @@ namespace KubApp_v0._1
             }
         }
 
+        /// <summary>
+        /// Declares a new toast notification.
+        /// </summary>
+        /// <param name="content"></param>
         private void showToast(ToastContent content)
         {
             ToastNotificationManager.CreateToastNotifier().Show(new ToastNotification(content.GetXml()));
         }
 
+        /// <summary>
+        /// Sets toast notification.
+        /// </summary>
+        /// <param name="titleText"></param>
+        /// <param name="bodyText"></param>
         private void notification(string titleText, string bodyText)
         {
             showToast(new ToastContent()
@@ -232,7 +241,7 @@ namespace KubApp_v0._1
                     BodyTextLine1 = new ToastText() { Text = bodyText }
                 },
 
-                Launch = "1500",
+                Launch = "500",
             });
         }
 
@@ -273,26 +282,35 @@ namespace KubApp_v0._1
             temperatureKub.Text = this.threadSafeTemperature.ToString();
 
             //Looks at the temperature of the Kub and decides which color must be shown in the rectangle.
-            //It also sets the status of the Kub.
+            //It also sets the status of the Kub
+            //And sends push notification text to toast notification.
             if (this.threadSafeTemperature >= 65)
             {
                 statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Red);
-                textBlockStatus.Text = "Status: Feel the Heat";
+                string status = "Feel the Heat";
+                textBlockStatus.Text = "Status: " + status;
+                notification("New status: ", status);
             }
             else if (this.threadSafeTemperature < 60 && this.threadSafeTemperature > 48)
             {
                 statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Green);
-                textBlockStatus.Text = "Status: Taste the Flavors";
+                string status = "Taste the Flavors";
+                textBlockStatus.Text = "Status: " + status;
+                notification("New status: ", status);
             }
             else if (this.threadSafeTemperature < 48 && this.threadSafeTemperature > 20)
             {
                 statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Blue);
-                textBlockStatus.Text = "Status: Enjoy the Sweetness";
+                string status = "Enjoy the Sweetness";
+                textBlockStatus.Text = "Status: " + status;
+                notification("New status: ", status);
             }
             else if (this.threadSafeTemperature < 20)
             {
                 statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.White);
-                textBlockStatus.Text = "Status: Like Iced Coffee?";
+                string status = "Like Iced Coffee?";
+                textBlockStatus.Text = "Status: " + status;
+                notification("New status: ", status);
             }
 
             this.wasConnected = this.connected;
@@ -595,6 +613,11 @@ namespace KubApp_v0._1
                 slider.IsEnabled = true;
                 selectedKub.SetMode(Kub.Mode.Manual);
             }
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
