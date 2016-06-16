@@ -187,6 +187,7 @@ namespace KubApp_v0._1
         /// <param name="args"></param>
         private void ThreadSafeEntry(object sender, object args)
         {
+            
             if(!this.wasConnected && this.connected)
             {
                 if (!timer.IsEnabled)
