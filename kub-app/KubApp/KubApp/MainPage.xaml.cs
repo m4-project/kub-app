@@ -29,6 +29,9 @@ using System.Text.RegularExpressions;
 using Windows.Web;
 using Windows.UI.WebUI;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Notifications;
+using NotificationsExtensions;
+using Microsoft.QueryStringDotNET;
 using Newtonsoft.Json.Linq;
 using System.Collections;
 
@@ -48,7 +51,7 @@ namespace KubApp_v0._1
 
         //Dictionary voor alle kubs
         public Dictionary<string, Kub> kubs = new Dictionary<string, Kub>();
-
+        
         private Kub selectedKub;
         private DispatcherTimer timer = new DispatcherTimer();
         private DispatcherTimer threadSafeTimer = new DispatcherTimer();
@@ -82,6 +85,7 @@ namespace KubApp_v0._1
             this.NavigationCacheMode = NavigationCacheMode.Required;    
         }
 
+
         private async void FBLogin()
         {
             //Facebook app id
@@ -100,10 +104,10 @@ namespace KubApp_v0._1
 
             if(webAuthenticationResult.ResponseStatus == WebAuthenticationStatus.Success)
             {
-                var OutputToken = webAuthenticationResult.ResponseData.ToString();
+                var outputToken = webAuthenticationResult.ResponseData.ToString();
 
                 var pattern = string.Format("{0}#access_token={1}&expires_in={2}", WebAuthenticationBroker.GetCurrentApplicationCallbackUri(), "(?<access_token>.+)", "(?<expires_in>.+)");
-                var match = Regex.Match(OutputToken, pattern);
+                var match = Regex.Match(outputToken, pattern);
 
                 var access_token = match.Groups["access_token"];
                 var expires_in = match.Groups["expires_in"];
@@ -485,6 +489,11 @@ namespace KubApp_v0._1
         private void RockPaper_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(RockPaperMain));
+        }
+
+        private void FBLOGO_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(FaceBookPage));
         }
     }
 }

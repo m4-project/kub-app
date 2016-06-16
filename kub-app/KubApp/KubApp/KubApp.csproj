@@ -139,7 +139,10 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="BackgroundMetKub.png" />
     <Content Include="bgsky.jpg" />
+    <Content Include="button-facebook.png" />
+    <Content Include="Button_Cancel.png" />
     <Content Include="colormatchlogo.png" />
+    <Content Include="facebook-share-button.png" />
     <Content Include="fb.png" />
     <Content Include="mind game.png" />
     <Content Include="mindgame.png" />
@@ -164,6 +167,9 @@
     </Compile>
     <Compile Include="ColorMatchGame.xaml.cs">
       <DependentUpon>ColorMatchGame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FaceBookPage.xaml.cs">
+      <DependentUpon>FaceBookPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Kub.cs" />
     <Compile Include="ColorMatchGetReady.xaml.cs">
@@ -252,6 +258,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ColorMatchWrong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FaceBookPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
