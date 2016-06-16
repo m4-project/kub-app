@@ -44,6 +44,10 @@ namespace KubApp
                     //Correct endianness for payload bytes
                     ushort resId = BitConverter.ToUInt16(payload, 0);
                     uint value = BitConverter.ToUInt32(new byte[4] {payload[5], payload[4], payload[3], payload[2] }, 0);
+                    if (!this.requests.ContainsKey(resId))
+                    {
+                        return;
+                    }
                     OnResponse callback = this.requests[resId];
                     if (callback == null)
                     {
@@ -76,6 +80,11 @@ namespace KubApp
         {
             byte[] payload = new byte[6] { 1, 0, 0, 0, 1, (byte)mode };
             mqttClient.Publish("kub/" + this.id + "/setmode", payload);
+        }
+
+        public override string ToString()
+        {
+            return this.id;
         }
     }
 }

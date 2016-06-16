@@ -41,8 +41,6 @@ namespace KubApp
 
         public string QRresult;
 
-        //private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
-
         public newKub()
         {
             this.InitializeComponent();
@@ -76,7 +74,8 @@ namespace KubApp
             string newMessage = string.Empty;
             newMessage = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
             var dialog = new MessageDialog(newMessage);
-            await dialog.ShowAsync();        
+            await dialog.ShowAsync();
+            MainPage.instance.addNewKub(QRresult);
         }
 
         private void backButtonPressed()
@@ -85,17 +84,6 @@ namespace KubApp
             {
                 this.Frame.Navigate(typeof(MainPage));
             };
-        }
-
-        public void kubID()
-        {
-            if (QRresult != null)
-            {
-                //De uitgelezen QR code
-                var json = JObject.Parse(QRresult);
-
-                //Zet de JSON string om
-            }
         }
     }
 }
