@@ -59,6 +59,9 @@ namespace KubApp_v0._1
         private DateTime TokenExpiry;
         private Facebook.FacebookClient fbClient;
         private dynamic fbUser;
+
+        //Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+        //Windows.Storage.StorageFile fbInfo;
         Windows.Storage.ApplicationDataContainer fbInfo = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         public MainPage()
@@ -421,7 +424,7 @@ namespace KubApp_v0._1
 
         private void FBLOGO_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(FaceBookPage));
+            this.Frame.Navigate(typeof(FaceBookPage), fbInfo.Values["token"]);
         }
     }
 }

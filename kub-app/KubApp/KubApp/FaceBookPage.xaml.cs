@@ -45,7 +45,6 @@ namespace KubApp
         private string message;
         Windows.Storage.ApplicationDataContainer fbInfo = Windows.Storage.ApplicationData.Current.LocalSettings;
         private string AccessToken;
-        private DateTime TokenExpiry;
         private Facebook.FacebookClient fbClient;
         private dynamic fbUser;
 
@@ -62,61 +61,25 @@ namespace KubApp
         private void POST_Click(object sender, RoutedEventArgs e)
         {
             this.message = PostText.Text;
-            FBPost();
+            PostOnFb();
         }
 
-        private async void FBPost()
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (fbInfo.Values["token"].ToString() == "0")
+            AccessToken = e.Parameter as string;
+        }
+
+        private async void PostOnFb()
+        {
+            try
             {
-                FBLogin();
-            }
-            else
-            {
-                Object tokenValue = fbInfo.Values["token"];
-                fbClient = new Facebook.FacebookClient(tokenValue.ToString());
+                fbClient = new Facebook.FacebookClient(AccessToken);
                 fbUser = await fbClient.GetTaskAsync("me");
                 await fbClient.PostTaskAsync("/me/feed", new { message = this.message });
             }
-        }
-        private async void FBLogin()
-        {
-            //Facebook app id
-            var clientId = "1269278043097270";
-            //Facebook permissions
-            var scope = "public_profile, publish_actions, manage_pages";
-
-            var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
-            var fb = new Facebook.FacebookClient();
-            Uri loginUrl = fb.GetLoginUrl(new { client_id = clientId, redirect_uri = redirectUri, response_type = "token", scope = scope });
-
-            Uri startUri = loginUrl;
-            Uri endUri = new Uri(redirectUri, UriKind.Absolute);
-
-            WebAuthenticationResult webAuthenticationResult = await WebAuthenticationBroker.AuthenticateAsync(WebAuthenticationOptions.None, startUri, endUri);
-
-            if (webAuthenticationResult.ResponseStatus == WebAuthenticationStatus.Success)
+            catch(Exception ex)
             {
-                var outputToken = webAuthenticationResult.ResponseData.ToString();
-
-                var pattern = string.Format("{0}#access_token={1}&expires_in={2}", WebAuthenticationBroker.GetCurrentApplicationCallbackUri(), "(?<access_token>.+)", "(?<expires_in>.+)");
-                var match = Regex.Match(outputToken, pattern);
-
-                var access_token = match.Groups["access_token"];
-                var expires_in = match.Groups["expires_in"];
-
-                AccessToken = access_token.Value;
-                TokenExpiry = DateTime.Now.AddSeconds(double.Parse(expires_in.Value));
-
-                fbClient = new Facebook.FacebookClient(AccessToken);
-                fbUser = await fbClient.GetTaskAsync("me");
-
-                WebRequest profilePicRequest = HttpWebRequest.Create(string.Format("https://graph.facebook.com/{0}/picture", fbUser.id));
-                WebResponse response = await profilePicRequest.GetResponseAsync();
-                var pictureUrl = response.ResponseUri.ToString();
-                //image1.Source = new BitmapImage(new Uri(pictureUrl, UriKind.Absolute));
-
-                fbInfo.Values["token"] = AccessToken;
+                PostText.Text += "!! Something went wrong, please try again !!" + ex;
             }
         }
     }
