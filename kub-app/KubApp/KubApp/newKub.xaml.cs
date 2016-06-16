@@ -75,7 +75,7 @@ namespace KubApp
             newMessage = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
             var dialog = new MessageDialog(newMessage);
             await dialog.ShowAsync();
-            MainPage.instance.addNewKub(QRresult);
+            MainPage.instance.AddNewKub(QRresult);
         }
 
         private void backButtonPressed()
