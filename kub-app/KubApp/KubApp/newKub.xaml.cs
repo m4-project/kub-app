@@ -80,12 +80,19 @@ namespace KubApp
         /// <param name="result"></param>
         private async void ProcessScanResult(ZXing.Result result)
         {
-            QRresult = result.Text;
-            string newMessage = string.Empty;
-            newMessage = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
-            var dialog = new MessageDialog(newMessage);
-            await dialog.ShowAsync();
-            MainPage.instance.AddNewKub(QRresult);
+            if (result.Text.Length < 48 || result.Text.Length > 48)
+            {
+                var dialog = new MessageDialog("Please fill in a correct Kub QR-code!");
+            }
+            else if (result.Text.Length == 48)
+            {
+                QRresult = result.Text;
+                string newMessage = string.Empty;
+                newMessage = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
+                var dialog = new MessageDialog(newMessage);
+                await dialog.ShowAsync();
+                MainPage.instance.AddNewKub(QRresult);
+            }
         }
 
         /// <summary>
