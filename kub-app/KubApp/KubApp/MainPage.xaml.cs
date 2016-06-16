@@ -137,8 +137,6 @@ namespace KubApp_v0._1
         {
             string tokenValue = fbInfo.Values["token"].ToString();
 
-            //await fbClient.DeleteTaskAsync("me/permissions");
-
             var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
 
             Uri startUri = new Uri(@"https://www.facebook.com/logout.php?next=https://facebook.com/&access_token=" + fbClient.AccessToken);

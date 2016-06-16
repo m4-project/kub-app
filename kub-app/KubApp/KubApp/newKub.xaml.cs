@@ -45,11 +45,17 @@ namespace KubApp
         {
             this.InitializeComponent();
             ZXing.Net.Mobile.Forms.WindowsUniversal.ZXingScannerViewRenderer.Init();
-            backButtonPressed();
+            BackButtonPressed();
         }
 
         private MobileBarcodeScanner _scanner;
 
+        /// <summary>
+        /// When the page is loaded the QR scanner will start automatically and will wait until a barcode is scanned.
+        /// The scan result will be passed to the method ProcessScanResult.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             try
@@ -68,6 +74,10 @@ namespace KubApp
             }
         }
 
+        /// <summary>
+        /// Processes the scanresult.
+        /// </summary>
+        /// <param name="result"></param>
         private async void ProcessScanResult(ZXing.Result result)
         {
             QRresult = result.Text;
@@ -78,7 +88,10 @@ namespace KubApp
             MainPage.instance.AddNewKub(QRresult);
         }
 
-        private void backButtonPressed()
+        /// <summary>
+        /// If the back button is pressed on the windows phone, the user will be redirected to the mainpage.
+        /// </summary>
+        private void BackButtonPressed()
         {
             SystemNavigationManager.GetForCurrentView().BackRequested += (s, e) =>
             {
