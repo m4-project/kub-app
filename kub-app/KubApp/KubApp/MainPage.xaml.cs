@@ -131,8 +131,6 @@ namespace KubApp_v0._1
         {
             string tokenValue = fbInfo.Values["token"].ToString();
 
-            //await fbClient.DeleteTaskAsync("me/permissions");
-
             var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
 
             Uri startUri = new Uri(@"https://www.facebook.com/logout.php?next=https://facebook.com/&access_token=" + fbClient.AccessToken);
@@ -153,10 +151,17 @@ namespace KubApp_v0._1
         /// </summary>
         public void Connect()
         {
-            client.Connect("kub-app");
-            client.MqttMsgPublishReceived += Client_MqttMsgPublishReceived;
-            client.MqttMsgSubscribed += Client_MqttSubscribed;
-            client.ConnectionClosed += Client_ConnectionClosed;
+            try
+            {
+                client.Connect("kub-app");
+                client.MqttMsgPublishReceived += Client_MqttMsgPublishReceived;
+                client.MqttMsgSubscribed += Client_MqttSubscribed;
+                client.ConnectionClosed += Client_ConnectionClosed;
+            }
+            catch
+            {
+                return;
+            }
         }
 
 
