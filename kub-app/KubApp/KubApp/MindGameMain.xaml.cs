@@ -28,8 +28,14 @@ namespace KubApp
             this.InitializeComponent();
         }
 
+        /// <summary>
+        /// Deze methode verwijst u naar de andere pagina
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Easy_Click(object sender, RoutedEventArgs e)
         {
+            //Deze methode verwijst u naar de "Easy" pagina.
             this.Frame.Navigate(typeof(Easy));
         }
 
