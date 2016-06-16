@@ -80,11 +80,26 @@ namespace KubApp
         /// <param name="result"></param>
         private async void ProcessScanResult(ZXing.Result result)
         {
-            if (result.Text.Length < 48 || result.Text.Length > 48)
+            bool safeJsonString = false;
+
+            string jsonString = result.Text;
+            try
             {
-                var dialog = new MessageDialog("Please fill in a correct Kub QR-code!");
+                var jsonObj = JObject.Parse(jsonString);
+                safeJsonString = true;
             }
-            else if (result.Text.Length == 48)
+            catch (System.FormatException fex)
+            {
+                var dialogFex = new MessageDialog("Your QR-Code is invalid!");
+                await dialogFex.ShowAsync();
+            }
+            catch (Exception ex)
+            {
+                var dialogEx = new MessageDialog("Your QR-Code is invalid!");
+                await dialogEx.ShowAsync();
+            }
+
+            if (safeJsonString)
             {
                 QRresult = result.Text;
                 string newMessage = string.Empty;

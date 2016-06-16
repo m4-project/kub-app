@@ -413,7 +413,7 @@ namespace KubApp_v0._1
             Kub newKub = new Kub(kubId, client);
             kubs.Add(kubId, newKub);
 
-            kubInfo.Values["kubStorage"] = string.Join(",", kubs.Keys.Select(k => k).ToArray());
+            kubInfo.Values["allKubsStorage"] = string.Join(",", kubs.Keys.Select(k => k).ToArray());
 
             FillComboBox();
         }
@@ -425,9 +425,9 @@ namespace KubApp_v0._1
         {
             if(kubInfo != null)
             {
-                if (kubInfo.Values.ContainsKey("kubStorage")){
+                if (kubInfo.Values.ContainsKey("allKubsStorage")){
                     kubs.Clear();
-                    string[] kubIds = ((string)kubInfo.Values["kubStorage"]).Split(',');
+                    string[] kubIds = ((string)kubInfo.Values["allKubsStorage"]).Split(',');
                     if (kubIds != null)
                     {
                         foreach (string id in kubIds)
