@@ -33,7 +33,12 @@ namespace KubApp
         {
             this.InitializeComponent();
         }
-
+        /// <summary>
+        /// Executed when navigated to this page
+        /// a list is passed and saved locally
+        /// contains highscore and currentscore
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             List<string> passedlist = new List<string>();
@@ -65,6 +70,12 @@ namespace KubApp
             }
         }
 
+        /// <summary>
+        /// click events are used to navigate to result page
+        /// they pass the list containning, user pick, currnet score and highscore
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rock_Click(object sender, RoutedEventArgs e)
         {
             passlist.Clear();

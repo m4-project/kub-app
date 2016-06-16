@@ -29,6 +29,7 @@ namespace KubApp
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
+            // go back to main menu
             this.Frame.Navigate(typeof(ColorMatchMenu));
         }
     }
