@@ -138,7 +138,6 @@
                             <Image Stretch="Fill" Source="fb.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-15,-10,-15,-10"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="btnFBPost" Visibility="Collapsed" Content="Post on FB" HorizontalAlignment="Left" Margin="208,260,0,0" VerticalAlignment="Top" Click="FBPost" RenderTransformOrigin="1.922,-0.542"/>
                     <Button x:Name="FBLogout" Click="FBLogout_Click" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Height="30" Width="150" Background="Transparent">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="fblogout.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-15,-10,-15,-10"/>
