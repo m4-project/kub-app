@@ -44,15 +44,15 @@ namespace KubApp_v0._1
         private uint threadSafeTemperature = 0;
         private string kubId;
 
-        private string accessToken;
-        private DateTime TokenExpiry;
-        private Facebook.FacebookClient fbClient;
+        private string accessToken;                     
+        private DateTime TokenExpiry;                   
+        private Facebook.FacebookClient fbClient;       
         private dynamic fbUser;
 
         private dynamic data { get; set; }
 
-        Windows.Storage.ApplicationDataContainer fbInfo = Windows.Storage.ApplicationData.Current.LocalSettings;
-        Windows.Storage.ApplicationDataContainer kubInfo = Windows.Storage.ApplicationData.Current.LocalSettings;
+        Windows.Storage.ApplicationDataContainer fbInfo = Windows.Storage.ApplicationData.Current.LocalSettings;    //Creates local storage location for Facebook info.
+        Windows.Storage.ApplicationDataContainer kubInfo = Windows.Storage.ApplicationData.Current.LocalSettings;   //Creates local storage location for Kub info.
 
         public MainPage()
         {
