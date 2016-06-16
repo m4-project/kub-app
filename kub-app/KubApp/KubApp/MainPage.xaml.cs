@@ -49,6 +49,8 @@ namespace KubApp_v0._1
         private Facebook.FacebookClient fbClient;       
         private dynamic fbUser;
 
+        private string bodyText = "Like Iced Coffee?";
+
         private dynamic data { get; set; }
 
         Windows.Storage.ApplicationDataContainer fbInfo = Windows.Storage.ApplicationData.Current.LocalSettings;    //Creates local storage location for Facebook info.
@@ -233,16 +235,21 @@ namespace KubApp_v0._1
         /// <param name="bodyText"></param>
         private void notification(string titleText, string bodyText)
         {
-            showToast(new ToastContent()
+            if(this.bodyText != bodyText)
             {
-                Visual = new ToastVisual()
+                showToast(new ToastContent()
                 {
-                    TitleText = new ToastText() { Text = titleText },
-                    BodyTextLine1 = new ToastText() { Text = bodyText }
-                },
+                    Visual = new ToastVisual()
+                    {
+                        TitleText = new ToastText() { Text = titleText },
+                        BodyTextLine1 = new ToastText() { Text = bodyText }
+                    },
 
-                Launch = "500",
-            });
+                    Launch = "500",
+                });
+
+                this.bodyText = bodyText;
+            }
         }
 
         /// <summary>
@@ -613,11 +620,6 @@ namespace KubApp_v0._1
                 slider.IsEnabled = true;
                 selectedKub.SetMode(Kub.Mode.Manual);
             }
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
