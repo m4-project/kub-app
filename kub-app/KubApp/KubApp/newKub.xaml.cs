@@ -41,17 +41,21 @@ namespace KubApp
 
         public string QRresult;
 
-        //private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
-
         public newKub()
         {
             this.InitializeComponent();
             ZXing.Net.Mobile.Forms.WindowsUniversal.ZXingScannerViewRenderer.Init();
-            backButtonPressed();
+            BackButtonPressed();
         }
 
         private MobileBarcodeScanner _scanner;
 
+        /// <summary>
+        /// When the page is loaded the QR scanner will start automatically and will wait until a barcode is scanned.
+        /// The scan result will be passed to the method ProcessScanResult.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
             try
@@ -70,32 +74,29 @@ namespace KubApp
             }
         }
 
+        /// <summary>
+        /// Processes the scanresult.
+        /// </summary>
+        /// <param name="result"></param>
         private async void ProcessScanResult(ZXing.Result result)
         {
             QRresult = result.Text;
             string newMessage = string.Empty;
             newMessage = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
             var dialog = new MessageDialog(newMessage);
-            await dialog.ShowAsync();        
+            await dialog.ShowAsync();
+            MainPage.instance.AddNewKub(QRresult);
         }
 
-        private void backButtonPressed()
+        /// <summary>
+        /// If the back button is pressed on the windows phone, the user will be redirected to the mainpage.
+        /// </summary>
+        private void BackButtonPressed()
         {
             SystemNavigationManager.GetForCurrentView().BackRequested += (s, e) =>
             {
                 this.Frame.Navigate(typeof(MainPage));
             };
-        }
-
-        public void kubID()
-        {
-            if (QRresult != null)
-            {
-                //De uitgelezen QR code
-                var json = JObject.Parse(QRresult);
-
-                //Zet de JSON string om
-            }
         }
     }
 }

@@ -140,6 +140,7 @@ namespace KubApp
 
         private void exit_Click(object sender, RoutedEventArgs e)
         {
+            // navigate back to main page
             this.Frame.Navigate(typeof(MainPage));
         }
     }

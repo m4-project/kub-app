@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="KubApp.FaceBookPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KubApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid  x:Name="LayoutRoot" Background="Transparent">
+        <Grid Background="Transparent">
+            <Image Stretch="Fill" Source="Assets/bg.jpg" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="errorTextBlock" HorizontalAlignment="Left" Margin="62,323,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="235" RenderTransformOrigin="0.489,-1.15"/>
+        </Grid>
+        <Grid Background="Transparent" VerticalAlignment="Top" Margin="0,80,0,0" BorderBrush="Black" BorderThickness="0" Height="80" Width="240">
+            <Image Stretch="Fill" Source="facebook-share-button.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-20,-10, 12"/>
+        </Grid>
+        <TextBox x:Name="PostText" PlaceholderText="Enjoying coffee with my 'kub'!" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="60,160,60,0" TextWrapping="Wrap" Height="138" Width="240"/>
+        <Button x:Name="POST" Click="POST_Click" HorizontalAlignment="Center" Margin="0,390,0,0" VerticalAlignment="Top" Height="50" Width="240">
+            <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
+                <Image Stretch="Fill" Source="button-facebook.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
+            </Grid>
+        </Button>
+        <Button x:Name="BACK" Click="BACK_Click" HorizontalAlignment="Center" Margin="0,470,0,0" VerticalAlignment="Top" Height="50" Width="240">
+            <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
+                <Image Stretch="Fill" Source="Button_Cancel.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
+            </Grid>
+        </Button>
+    </Grid>
+</Page>

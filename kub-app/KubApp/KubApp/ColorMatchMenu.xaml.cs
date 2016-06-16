@@ -31,16 +31,19 @@ namespace KubApp
 
         private void play_Click(object sender, RoutedEventArgs e)
         {
+            // start game
             this.Frame.Navigate(typeof(ColorMatchGetReady));
         }
 
         private void howtoplay_Click(object sender, RoutedEventArgs e)
         {
+            // go to how to page
             this.Frame.Navigate(typeof(ColorMatchHow));
         }
 
         private void quitGame_Click(object sender, RoutedEventArgs e)
         {
+            // quit and go to main kub ap page
             this.Frame.Navigate(typeof(MainPage));
         }
     }

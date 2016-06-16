@@ -1,38 +1,25 @@
 ﻿using KubApp;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Runtime.InteropServices;
 using System.Net;
-using System.Diagnostics;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Windows.Security.Cryptography;
-using ColorPicker;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
-using uPLibrary.Networking.M2Mqtt.Exceptions;
-using System.Threading.Tasks;
 using Windows.Security.Authentication.Web;
-using Windows.ApplicationModel;
-using Windows.ApplicationModel.Activation;
 using System.Text.RegularExpressions;
-using Windows.Web;
-using Windows.UI.WebUI;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Notifications;
 using NotificationsExtensions;
+using NotificationsExtensions.Toasts;
 using Microsoft.QueryStringDotNET;
-
+using Newtonsoft.Json.Linq;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -43,39 +30,45 @@ namespace KubApp_v0._1
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        //Maakt een nieuwe MqttClient aan
+        public static MainPage instance;
+
         private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
 
-        //Dictionary voor alle kubs
         public Dictionary<string, Kub> kubs = new Dictionary<string, Kub>();
-
+        
         private Kub selectedKub;
         private DispatcherTimer timer = new DispatcherTimer();
         private DispatcherTimer threadSafeTimer = new DispatcherTimer();
         private bool connected = false;
         private bool wasConnected = false;
         private uint threadSafeTemperature = 0;
+        private string kubId;
 
         private string AccessToken;
         private DateTime TokenExpiry;
         private Facebook.FacebookClient fbClient;
         private dynamic fbUser;
+
+        private dynamic data { get; set; }
+
         Windows.Storage.ApplicationDataContainer fbInfo = Windows.Storage.ApplicationData.Current.LocalSettings;
+        Windows.Storage.ApplicationDataContainer kubInfo = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         public MainPage()
         {
             this.InitializeComponent();
+            MainPage.instance = this;
             Connect();
+            FillComboBox();
 
             threadSafeTimer.Interval = new TimeSpan(0, 0, 1);
             threadSafeTimer.Start();
             threadSafeTimer.Tick += ThreadSafeEntry;
 
-            this.NavigationCacheMode = NavigationCacheMode.Required;
-
+            this.NavigationCacheMode = NavigationCacheMode.Required;    
         }
 
-        private async void FBLogin()
+        public async void FBLogin()
         {
             //Facebook app id
             var clientId = "1269278043097270";
@@ -110,6 +103,8 @@ namespace KubApp_v0._1
                 WebRequest profilePicRequest = HttpWebRequest.Create(string.Format("https://graph.facebook.com/{0}/picture", fbUser.id));
                 WebResponse response = await profilePicRequest.GetResponseAsync();
                 var pictureUrl = response.ResponseUri.ToString();
+
+                image1.Visibility = Visibility.Visible;
                 image1.Source = new BitmapImage(new Uri(pictureUrl, UriKind.Absolute));
 
                 fbInfo.Values["token"] = AccessToken;
@@ -119,7 +114,6 @@ namespace KubApp_v0._1
         private async void FBlogin_Click(object sender, RoutedEventArgs e)
         {
             FBLogin();
-
         }
 
         private async void FBPost(object sender, RoutedEventArgs e)
@@ -141,8 +135,6 @@ namespace KubApp_v0._1
         {
             string tokenValue = fbInfo.Values["token"].ToString();
 
-            //await fbClient.DeleteTaskAsync("me/permissions");
-
             var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
 
             Uri startUri = new Uri(@"https://www.facebook.com/logout.php?next=https://facebook.com/&access_token=" + fbClient.AccessToken);
@@ -151,34 +143,58 @@ namespace KubApp_v0._1
             WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri);
 
             fbInfo.Values["token"] = "0";
+            image1.Visibility = Visibility.Collapsed;
         }
 
+        private void FBLOGO_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(FaceBookPage), fbInfo.Values["token"]);
+        }
+
+        /// <summary>
+        /// Connects the MqttClient with de Kub-App and makes sure that the client is subscribed.
+        /// </summary>
         public void Connect()
         {
-            client.Connect("kub-app");
-            client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
-            client.MqttMsgSubscribed += client_MqttSubscribed;
-            client.ConnectionClosed += client_ConnectionClosed;
-
-            //TODO: maak instellingenpagina om kubs te koppelen
-            this.selectedKub = new Kub("1234", client);
-            this.kubs.Add("1234", selectedKub);
+            try
+            {
+                client.Connect("kub-app");
+                client.MqttMsgPublishReceived += Client_MqttMsgPublishReceived;
+                client.MqttMsgSubscribed += Client_MqttSubscribed;
+                client.ConnectionClosed += Client_ConnectionClosed;
+            }
+            catch
+            {
+                return;
+            }
         }
 
+
+        /// <summary>
+        /// On every timer tick event the method of Temperature will be called so that the temperature is refreshed on the INFO page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DispatcherTimer_Tick(object sender, object e)
         {
             Temperature();
         }
 
+        /// <summary>
+        /// Shows the temperature and the status of the Kub.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void ThreadSafeEntry(object sender, object args)
         {
+            
             if(!this.wasConnected && this.connected)
             {
                 if (!timer.IsEnabled)
                 {
-                    //Timer om de temperatuur te refreshen na 1 minuut zodat dit up to date blijft
+                    //Timer to refresh the temperature after 10 seconds, so this stays up-to-date.
                     timer.Tick += DispatcherTimer_Tick;
-                    timer.Interval = new TimeSpan(0, 0, 10); //TODO: restore to 30
+                    timer.Interval = new TimeSpan(0, 0, 10);
                     timer.Start();
                     Temperature();
                 }
@@ -188,10 +204,11 @@ namespace KubApp_v0._1
             }
             textBoxkubstatus.Text = this.connected ? "Connected" : "Disconnected";
             
-            //Zet de text van de textblock naar "Temperature Kub = " + value + " °C"
+            //Sets the text of the textblock to the temperature Value.
             temperatureKub.Text = this.threadSafeTemperature.ToString();
 
-            //Kijkt naar de temperatuur van de Kub en bepaald daarmee de kleur van de achtergrond.
+            //Looks at the temperature of the Kub and decides which color must be shown in the rectangle.
+            //It also sets the status of the Kub.
             if (this.threadSafeTemperature >= 65)
             {
                 statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Red);
@@ -216,17 +233,34 @@ namespace KubApp_v0._1
             this.wasConnected = this.connected;
         }
 
-        private void client_ConnectionClosed(object sender, object args)
+        /// <summary>
+        /// If the connection of the MqttClient has been closed, the boolean connected will be set to "false".
+        /// This boolean is being used to check if there is a connection between the Kub and the MqttClient.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void Client_ConnectionClosed(object sender, object args)
         {
             this.connected = false;
         }
 
-        private void client_MqttSubscribed(object sender, MqttMsgSubscribedEventArgs e)
+        /// <summary>
+        /// If the connection of the MqttClient has been opened, the boolean connected will be set to "true".
+        /// This boolean is being used to check if there is a connection between the Kub and the MqttClient.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Client_MqttSubscribed(object sender, MqttMsgSubscribedEventArgs e)
         {
             connected = true;
         }
 
-        private void client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
+        /// <summary>
+        /// The received message of the Kub will be checked on the content.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
             string[] parts = e.Topic.Split('/');
 
@@ -257,22 +291,96 @@ namespace KubApp_v0._1
             kub.PacketReceived(payload, parts[2]);
         }
 
+        /// <summary>
+        /// Picks up the temperature of the Kub.
+        /// </summary>
         public void Temperature()
         {
-            this.selectedKub.RequestData(Kub.DataType.Temperature, delegate (uint value)
+            if (selectedKub != null)
             {
-                threadSafeTemperature = value;
-            });
+                this.selectedKub.RequestData(Kub.DataType.Temperature, delegate (uint value)
+                {
+                    threadSafeTemperature = value;
+                });
+            }
         }
 
-        private void Info_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Adds a new Kub through the result of the QR scanner.
+        /// </summary>
+        /// <param name="QRresult"></param>
+        public void AddNewKub(string QRresult)
+        {
+            if (kubs.ContainsKey(QRresult))
+            {
+                return;
+            }
+
+            data = JObject.Parse(QRresult);
+
+            kubId = (data.kubid);
+
+            Kub newKub = new Kub(kubId, client);
+            kubs.Add(kubId, newKub);
+
+            kubInfo.Values["kubStorage"] = string.Join(",", kubs.Keys.Select(k => k).ToArray());
+
+            FillComboBox();
+        }
+
+        /// <summary>
+        /// Shows the saved Kub(s) in the combobox on the Settings page.
+        /// </summary>
+        public void FillComboBox()
+        {
+            if(kubInfo != null)
+            {
+                if (kubInfo.Values.ContainsKey("kubStorage")){
+                    kubs.Clear();
+                    string[] kubIds = ((string)kubInfo.Values["kubStorage"]).Split(',');
+                    if (kubIds != null)
+                    {
+                        foreach (string id in kubIds)
+                        {
+                            Kub kub = new Kub(id, this.client);
+                            kubs.Add(id, kub);
+                            comboBox.Items.Add(kub);
+                            if (kubInfo.Values.ContainsKey("selectedKub") && id == (string) kubInfo.Values["selectedkub"])
+                            {
+                                this.selectedKub = kub;
+                                this.comboBox.SelectedIndex = this.comboBox.Items.IndexOf(kub);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Checks if there is a saved Kub, if so then this one will be selected by default.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.comboBox.SelectedItem == null)
+            {
+                return;
+            }
+            this.selectedKub = (Kub)this.comboBox.SelectedItem;
+
+            if (kubInfo != null && this.selectedKub != null)
+            {
+                kubInfo.Values["selectedKub"] = this.selectedKub.id;
+            }
+        }
+
+        private void INFO_Click(object sender, RoutedEventArgs e)
         {
             kubMenu.SelectedIndex = 1;
-            //this.kub = (Kub)e.Parameter;
-            //this.Frame.Navigate(typeof(TemperaturePage), kubs["1234"]); // TODO: maak dit configureerbaar
         }
 
-        private void LED_Click_1(object sender, RoutedEventArgs e)
+        private void LED_Click(object sender, RoutedEventArgs e)
         {
             kubMenu.SelectedIndex = 2;
         }
@@ -282,9 +390,19 @@ namespace KubApp_v0._1
             kubMenu.SelectedIndex = 3;
         }
 
-        private void Game2_Click(object sender, RoutedEventArgs e)
+        private void RockPaperSciccors_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(RockPaperMain));
+        }
+
+        private void SnapGame_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(ColorMatchMenu));
+        }
+
+        private void MindGame_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MindGameMain));
         }
 
         private void SETTINGS_Click(object sender, RoutedEventArgs e)
@@ -293,18 +411,18 @@ namespace KubApp_v0._1
         }
 
         /// <summary>
-        /// Methode om kleur te veranderen. Haalt kleur uit de colorpicker, zet deze om in hex kleur en vervolgens naar rgb.
+        /// Method to change the color, it gets the color from the colorpicker and creates them in hexadecimal and then makes them RGB.
         /// </summary>
-        private void changeColor()
+        private void ChangeColor()
         {
             if (toggleSwitchLed.IsOn)
             {
                 curColor.Fill = colorp.SelectedColor;
 
-                // geselecteerde kleur in hexadecimaal
+                // Selected color in hexadecimal.
                 string hexColor = colorp.SelectedColor.Color.ToString();
 
-                // geselecteerde kleur in RGB
+                // Selected color in RGB.
                 string hexColorSub = hexColor.Substring(3);
                 int R = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
                 int G = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
@@ -316,55 +434,55 @@ namespace KubApp_v0._1
         }
 
         /// <summary>
-        /// Verander kleur op basis van bewegen met pointer.
+        /// Changes the color on basis of the pointermovement.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void colorp_PointerMoved(object sender, PointerRoutedEventArgs e)
+        private void Colorp_PointerMoved(object sender, PointerRoutedEventArgs e)
         {
             if (toggleSwitchLed.IsOn)
             {
-                changeColor();
+                ChangeColor();
             }
         }
 
         /// <summary>
-        /// Verandert kleur naar de kleur waar op geklikt wordt binnen de colorpicker.
+        /// Changes the color to the color pressed in the colorpicker.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void colorp_PointerPressed(object sender, PointerRoutedEventArgs e)
+        private void Colorp_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
             if (toggleSwitchLed.IsOn)
             {
-                changeColor();
+                ChangeColor();
             }
         }
 
         /// <summary>
-        /// Verandert kleur naar de huidige geselecteerde kleur wanneer flyout wordt gesloten.
+        /// Changes the color to the color selected when the flyout is closed.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void pickColorFlyout_Closed(object sender, object e)
+        private void PickColorFlyout_Closed(object sender, object e)
         {
             if (toggleSwitchLed.IsOn)
             {
-                changeColor();
+                ChangeColor();
             }
         }
 
         /// <summary>
-        /// Brightness aanpassen van de huidig geselecteerde kleur.
+        /// Changes the brightness of the selected color.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
-            // geselecteerde kleur in hexadecimaal
+            // Selected color in hexadecimal.
             string hexColor = colorp.SelectedColor.Color.ToString();
 
-            // geselecteerde kleur in RGB
+            // Selected color in RGB.
             string hexColorSub = hexColor.Substring(3);
             int R = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
             int G = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
@@ -392,11 +510,11 @@ namespace KubApp_v0._1
         }
 
         /// <summary>
-        /// Zorgt ervoor dat er geen manual led controls kunnen worden uitgevoerd wanneer toggle switch op OFF staat.
+        /// Makes sure that no manual led controls can be used when the toggle switch is on "OFF".
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void toggleSwitchLed_Toggled(object sender, RoutedEventArgs e)
+        private void ToggleSwitchLed_Toggled(object sender, RoutedEventArgs e)
         {
             if (!toggleSwitchLed.IsOn)
             {
@@ -412,11 +530,6 @@ namespace KubApp_v0._1
                 slider.IsEnabled = true;
                 selectedKub.SetMode(Kub.Mode.Manual);
             }
-        }
-
-        private void RockPaper_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(RockPaperMain));
         }
     }
 }
