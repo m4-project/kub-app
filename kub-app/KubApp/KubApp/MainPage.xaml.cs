@@ -68,7 +68,6 @@ namespace KubApp_v0._1
             this.NavigationCacheMode = NavigationCacheMode.Required;    
         }
 
-
         public async void FBLogin()
         {
             //Facebook app id
@@ -115,7 +114,6 @@ namespace KubApp_v0._1
         private async void FBlogin_Click(object sender, RoutedEventArgs e)
         {
             FBLogin();
-
         }
 
         private async void FBPost(object sender, RoutedEventArgs e)
