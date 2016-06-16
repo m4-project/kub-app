@@ -87,7 +87,7 @@ namespace MindGame
 
             Stopbtn.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             Startbtn.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            this.Frame.Navigate(typeof(EndPage));
+            this.Frame.Navigate(typeof(EndPage), highscore.ToString());
         }
 
         private void timerStart()
@@ -171,7 +171,7 @@ namespace MindGame
                 if (livesEasy == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), this.scoreEasy.ToString());
+                    this.Frame.Navigate(typeof(EndPage), this.highscore.ToString());
                 }
                 Lives.Text = livesEasy.ToString();
                 Score.Text = scoreEasy.ToString();
@@ -208,7 +208,7 @@ namespace MindGame
                 if (livesEasy == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), this.scoreEasy.ToString());
+                    this.Frame.Navigate(typeof(EndPage), this.highscore.ToString());
                 }
                 Lives.Text = livesEasy.ToString();
                 Score.Text = scoreEasy.ToString();

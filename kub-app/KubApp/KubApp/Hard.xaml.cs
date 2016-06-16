@@ -117,7 +117,7 @@ namespace MindGame
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), highscore);
+                    this.Frame.Navigate(typeof(EndPage), highscore.ToString());
                 }
                 Lives.Text = lives.ToString();
                 Score.Text = score.ToString();
@@ -154,7 +154,7 @@ namespace MindGame
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), highscore);
+                    this.Frame.Navigate(typeof(EndPage), highscore.ToString());
                 }
                 Lives.Text = lives.ToString();
                 Score.Text = score.ToString();
@@ -191,7 +191,7 @@ namespace MindGame
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), highscore);
+                    this.Frame.Navigate(typeof(EndPage), highscore.ToString());
                 }
                 Lives.Text = lives.ToString();
                 Score.Text = score.ToString();
@@ -228,7 +228,7 @@ namespace MindGame
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage),highscore);
+                    this.Frame.Navigate(typeof(EndPage),highscore.ToString());
                 }
                 Lives.Text = lives.ToString();
                 Score.Text = score.ToString();
@@ -265,7 +265,7 @@ namespace MindGame
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), highscore);
+                    this.Frame.Navigate(typeof(EndPage), highscore).ToString();
                 }
                 Lives.Text = lives.ToString();
                 Score.Text = score.ToString();
@@ -302,7 +302,7 @@ namespace MindGame
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), highscore);
+                    this.Frame.Navigate(typeof(EndPage), highscore.ToString());
                 }
                 Lives.Text = lives.ToString();
                 Score.Text = score.ToString();
@@ -339,7 +339,7 @@ namespace MindGame
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), highscore);
+                    this.Frame.Navigate(typeof(EndPage), highscore.ToString());
                 }
                 Lives.Text = lives.ToString();
                 Score.Text = score.ToString();
@@ -376,7 +376,7 @@ namespace MindGame
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), highscore);
+                    this.Frame.Navigate(typeof(EndPage), highscore.ToString());
                 }
                 Lives.Text = lives.ToString();
                 Score.Text = score.ToString();
@@ -413,7 +413,7 @@ namespace MindGame
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), highscore);
+                    this.Frame.Navigate(typeof(EndPage), highscore.ToString());
                 }
                 Lives.Text = lives.ToString();
                 Score.Text = score.ToString();
@@ -452,7 +452,7 @@ namespace MindGame
             Stopbtn.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             Startbtn.Visibility = Windows.UI.Xaml.Visibility.Visible;
             dispatcherTimer.Stop();
-            this.Frame.Navigate(typeof(EndPage), highscore);
+            this.Frame.Navigate(typeof(EndPage), highscore.ToString());
         }
     }
 }
