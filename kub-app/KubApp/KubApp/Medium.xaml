@@ -11,10 +11,11 @@
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="BackgroundMetKub.png" AlignmentY="Top" AlignmentX="Center"/>
         </Grid.Background>
-        <Button x:Name="button" Visibility="Collapsed" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Red" HorizontalAlignment="Left" Margin="15,391,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="button_Click"/>
-        <Button x:Name="button1" Visibility="Collapsed" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Lime" HorizontalAlignment="Left" Margin="82,391,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="button1_Click"/>
-        <Button x:Name="button2" Visibility="Collapsed" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Blue" HorizontalAlignment="Left" Margin="149,391,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="button2_Click"/>
-        <Button x:Name="button3" Visibility="Collapsed" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Yellow" HorizontalAlignment="Left" Margin="217,391,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="button3_Click"/>
+        <Button x:Name="BtnRed"  Visibility="Collapsed" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Red" HorizontalAlignment="Left" Margin="15,391,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="BtnRed_Click"/>
+        <Button x:Name="BtnGreen"  Visibility="Collapsed" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Lime" HorizontalAlignment="Left" Margin="82,391,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="BtnGreen_Click"/>
+        <Button x:Name="BtnBlue"  Visibility="Collapsed" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Blue" HorizontalAlignment="Left" Margin="149,391,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="BtnBlue_Click"/>
+        <Button x:Name="BtnYellow"  Visibility="Collapsed" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Yellow" HorizontalAlignment="Left" Margin="217,391,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="BtnYellow_Click"/>
+        <Button x:Name="BtnBlack"  Visibility="Collapsed" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="White" Background="Black" HorizontalAlignment="Left" Margin="285,391,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="BtnBlack_Click"/>
         <Button x:Name="randomColor" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" Background="White" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="339" Height="74"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="154,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="84" Width="42" FontFamily="Rockwell" FontStyle="Italic" Foreground="Black" FontSize="80"/>
         <Button x:Name="Startbtn" Content="Start" HorizontalAlignment="Left" Height="40" Margin="60,508,0,0" VerticalAlignment="Top" Width="240" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" Background="#3348221C" Click="Startbtn_Click"/>
@@ -25,6 +26,6 @@
         <TextBlock x:Name="Score" FontSize="20" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" HorizontalAlignment="Left" Margin="33,348,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
         <TextBlock x:Name="Lives" FontSize="20" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" HorizontalAlignment="Left" Margin="157,348,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top"/>
         <TextBlock x:Name="HighScore" FontSize="20" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" HorizontalAlignment="Left" Margin="253,348,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
-        <Button x:Name="button4" Visibility="Collapsed" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="White" Background="Black" HorizontalAlignment="Left" Margin="285,391,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="button4_Click"/>
+        
     </Grid>
 </Page>

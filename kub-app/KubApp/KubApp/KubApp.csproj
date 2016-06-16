@@ -145,6 +145,7 @@
     <Content Include="facebook-share-button.png" />
     <Content Include="fb.png" />
     <Content Include="fblogout.png" />
+    <Content Include="Instruction.png" />
     <Content Include="mind game.png" />
     <Content Include="mindgame.png" />
     <None Include="KubApp_StoreKey.pfx" />

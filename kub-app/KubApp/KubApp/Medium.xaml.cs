@@ -22,14 +22,18 @@ namespace MindGame
     /// </summary>
     public sealed partial class Medium : Page
     {
-        private int time = 4;
-        private DispatcherTimer dispatcherTimer = new DispatcherTimer();
-        Random rnd = new Random();
-        int randomNummer;
+        private int time = 4;//Dit is een default waarde van de countdown timer.
+
+        private DispatcherTimer dispatcherTimer = new DispatcherTimer();//Dit initialiseert een timer.
+        Random rnd = new Random();//Dit is een variabel voor de random methode.
+
+        int randomNummer;//Dit is een variabel voor de DispatcherTimer_Tick methode.
         int randomNummer1;
-        int score = 0;
-        int lives = 3;
-        private int highscore = 0;
+
+        int score = 0; //Hiermee wordt de score naar de "EndPage" doorgegeven.
+        int lives = 3;//Dit is een default waarde van het aantal levens.
+
+        private int highscore = 0;//Dit is een default waarde van "Highscore".
 
         public Medium()
         {
@@ -46,11 +50,10 @@ namespace MindGame
             }
             else
             {
-                //dispatcherTimer.Stop();
                 textBlock1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
 
-                //Generate new colours
-                randomNummer = rnd.Next(5); //random number 0 to 4
+                //Hiermee genereert u nieuwe achtergrondkleur
+                randomNummer = rnd.Next(5); //random nummer tussen 0 to 5
 
                 if (randomNummer == 0) randomColor.Background = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 0, 0));
                 else if (randomNummer == 1) randomColor.Background = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 0, 255, 0));
@@ -58,8 +61,8 @@ namespace MindGame
                 else if (randomNummer == 3) randomColor.Background = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 255, 255, 0));
                 else if (randomNummer == 4) randomColor.Background = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 0, 0, 0));
 
-                //Generate new text
-                randomNummer1 = rnd.Next(5); //random number 0 to 4
+                //Hiermee genereert u de button text
+                randomNummer1 = rnd.Next(5); //random nummer tussen 0 to 5
 
                 if (randomNummer1 == 0) randomColor.Content = "Red";
                 else if (randomNummer1 == 1) randomColor.Content = "Blue";
@@ -71,17 +74,23 @@ namespace MindGame
 
         private void Startbtn_Click(object sender, RoutedEventArgs e)
         {
-            button.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            button1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            button2.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            button3.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            button4.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            //Met deze methode maakt u de button weer zichtbaar.
+            BtnRed.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            BtnGreen.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            BtnBlue.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            BtnYellow.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            BtnBlack.Visibility = Windows.UI.Xaml.Visibility.Visible;
 
+            //Met deze methode maakt u de startbutton onzichtbaar.
             Startbtn.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            //Met deze methode maakt u de stopbutton zichtbaar.
             Stopbtn.Visibility = Windows.UI.Xaml.Visibility.Visible;
             timerStart();
         }
 
+        /// <summary>
+        /// Met deze methode activeer u de timer.
+        /// </summary>
         private void timerStart()
         {
             DispatcherTimer dispatcherTimer = new DispatcherTimer();
@@ -92,22 +101,30 @@ namespace MindGame
 
         private void Stopbtn_Click(object sender, RoutedEventArgs e)
         {
-            button.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            button1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            button2.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            button3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            button4.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            BtnRed.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            BtnGreen.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            BtnBlue.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            BtnYellow.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            BtnBlack.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
 
             Stopbtn.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             Startbtn.Visibility = Windows.UI.Xaml.Visibility.Visible;
             dispatcherTimer.Stop();
+            //Met deze methode kunt u naar de "EndPage" navigeren.
             this.Frame.Navigate(typeof(EndPage), highscore.ToString());
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Met behulp van deze vier button click method hieronder kunt u de button kleur met de string waarde vergelijken.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnRed_Click(object sender, RoutedEventArgs e)
         {
+            //Hiermee krijgt u de achtergrondkleur van de button.
             SolidColorBrush brush = (SolidColorBrush)randomColor.Background;
 
+            //Hiermee verandert u de integer waarde naar een string.
             string hexColor = brush.Color.ToString();
 
             string substringHexColor = hexColor.Substring(3);
@@ -118,22 +135,22 @@ namespace MindGame
 
             string colorsCombined = "255, " + R.ToString() + ", " + G.ToString() + ", " + B.ToString();
 
-            if (colorsCombined == "255, 255, 0, 0")
+            if (colorsCombined == "255, 255, 0, 0")//Hiermee vergelijkt u de string waarde.
             {
-                score += 10;
-                Score.Text = score.ToString();
-                if (this.score > this.highscore)
+                score += 10; //Wanneer de waarde "255, 255, 0, 0" gelijk aan de string waarde "colorsCombined" krijgt u + 10 punten bij de score.
+                Score.Text = score.ToString(); //Hier wordt de score naar textblock overgeplaats.
+                if (this.score > this.highscore) //Hiermee vergelijkt u of de huidige score groter is dan de highscore.
                 {
-                    this.highscore = score;
+                    this.highscore = score; //zo ja? wordt de huidigescore uw nieuwe highscore.
                 }
             }
             else
             {
-                score -= 10;
-                lives--;
+                score -= 10;// Wanneer de waarde "255, 255, 0, 0" niet gelijk aan de string waarde "colorsCombined" krijgt u - 10 punten bij de score.
+                lives--; //Naast - 10 punten neemt uw levens ook met -1 af.
                 if (lives == 0)
                 {
-                    dispatcherTimer.Stop();
+                    dispatcherTimer.Stop(); //Wanneer de integer waarde van uw levens gelijk is aan 0 
                     this.Frame.Navigate(typeof(EndPage), highscore.ToString());
                 }
                 Lives.Text = lives.ToString();
@@ -141,7 +158,7 @@ namespace MindGame
             }
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void BtnGreen_Click(object sender, RoutedEventArgs e)
         {
             SolidColorBrush brush = (SolidColorBrush)randomColor.Background;
 
@@ -178,7 +195,7 @@ namespace MindGame
             }
         }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void BtnBlue_Click(object sender, RoutedEventArgs e)
         {
             SolidColorBrush brush = (SolidColorBrush)randomColor.Background;
 
@@ -215,7 +232,7 @@ namespace MindGame
             }
         }
 
-        private void button3_Click(object sender, RoutedEventArgs e)
+        private void BtnYellow_Click(object sender, RoutedEventArgs e)
         {
             SolidColorBrush brush = (SolidColorBrush)randomColor.Background;
 
@@ -252,7 +269,7 @@ namespace MindGame
             }
         }
 
-        private void button4_Click(object sender, RoutedEventArgs e)
+        private void BtnBlack_Click(object sender, RoutedEventArgs e)
         {
             SolidColorBrush brush = (SolidColorBrush)randomColor.Background;
 

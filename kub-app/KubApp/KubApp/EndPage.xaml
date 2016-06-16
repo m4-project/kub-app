@@ -14,6 +14,6 @@
         <TextBlock x:Name="textBlock" FontSize="25" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" HorizontalAlignment="Left" Margin="51,316,0,0" TextWrapping="Wrap" Text="High Score:" VerticalAlignment="Top" Width="147" Height="37"/>
         <TextBlock x:Name="ScoreEndPage" FontSize="20" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" HorizontalAlignment="Left" Margin="228,321,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
         <Button x:Name="Mainbtn" Content="Main page" HorizontalAlignment="Left" Height="40" Margin="60,495,0,0" VerticalAlignment="Top" Width="240" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" Background="#3348221C" Click="Mainbtn_Click"/>
-        <TextBlock x:Name="textBlock1" FontSize="30" HorizontalAlignment="Left" Margin="55,232,0,0" Foreground="Black" TextWrapping="Wrap" Text="Gameover Bitch" VerticalAlignment="Top" Width="249" Height="48" FontFamily="Rockwell" FontStyle="Italic"/>
+        <TextBlock x:Name="textBlock1" FontSize="30" HorizontalAlignment="Left" Margin="103,232,0,0" Foreground="Black" TextWrapping="Wrap" Text="Gameover" VerticalAlignment="Top" Width="143" Height="48" FontFamily="Rockwell" FontStyle="Italic"/>
     </Grid>
 </Page>
