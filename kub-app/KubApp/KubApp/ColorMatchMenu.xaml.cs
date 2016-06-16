@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KubApp_v0._1;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -36,6 +37,11 @@ namespace KubApp
         private void howtoplay_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(ColorMatchHow));
+        }
+
+        private void quitGame_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }

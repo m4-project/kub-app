@@ -23,7 +23,7 @@
                        
                        But be ware! Once the timer runs out, you will lose!     
                        So think fast!" FontFamily="Comfortaa" FontSize="20" VerticalAlignment="Top"/>
-            <Button x:Name="back" Content="BACK" FontFamily="Comfortaa" FontSize="30" Background="Transparent" BorderBrush="Black" BorderThickness="5" Click="back_Click" HorizontalAlignment="Left" Margin="64,500,0,0" VerticalAlignment="Top" Height="70" Width="220">
+            <Button x:Name="back" Content="BACK" FontFamily="Comfortaa" FontSize="30" Background="Transparent" BorderBrush="Black" BorderThickness="5" Click="back_Click" HorizontalAlignment="Left" Margin="64,450,0,0" VerticalAlignment="Top" Height="70" Width="220">
             </Button>
         </Grid>
     </Grid>

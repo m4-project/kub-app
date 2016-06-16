@@ -416,6 +416,24 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
+      "NotificationsExtensions.Win10/14332.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/Windows/NotificationsExtensions.winmd": {}
+        },
+        "runtime": {
+          "lib/Windows/NotificationsExtensions.winmd": {}
+        }
+      },
+      "QueryString.NET/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/dotnet/QueryString.NETCore.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/QueryString.NETCore.dll": {}
+        }
+      },
       "System.AppContext/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -2432,6 +2450,24 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
+      "NotificationsExtensions.Win10/14332.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/Windows/NotificationsExtensions.winmd": {}
+        },
+        "runtime": {
+          "lib/Windows/NotificationsExtensions.winmd": {}
+        }
+      },
+      "QueryString.NET/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/dotnet/QueryString.NETCore.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/QueryString.NETCore.dll": {}
+        }
+      },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -4363,6 +4399,24 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
+      "NotificationsExtensions.Win10/14332.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/Windows/NotificationsExtensions.winmd": {}
+        },
+        "runtime": {
+          "lib/Windows/NotificationsExtensions.winmd": {}
+        }
+      },
+      "QueryString.NET/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/dotnet/QueryString.NETCore.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/QueryString.NETCore.dll": {}
+        }
+      },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -6259,6 +6313,24 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        }
+      },
+      "NotificationsExtensions.Win10/14332.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/Windows/NotificationsExtensions.winmd": {}
+        },
+        "runtime": {
+          "lib/Windows/NotificationsExtensions.winmd": {}
+        }
+      },
+      "QueryString.NET/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/dotnet/QueryString.NETCore.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/QueryString.NETCore.dll": {}
         }
       },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -8195,6 +8267,24 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
+      "NotificationsExtensions.Win10/14332.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/Windows/NotificationsExtensions.winmd": {}
+        },
+        "runtime": {
+          "lib/Windows/NotificationsExtensions.winmd": {}
+        }
+      },
+      "QueryString.NET/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/dotnet/QueryString.NETCore.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/QueryString.NETCore.dll": {}
+        }
+      },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -10091,6 +10181,24 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        }
+      },
+      "NotificationsExtensions.Win10/14332.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/Windows/NotificationsExtensions.winmd": {}
+        },
+        "runtime": {
+          "lib/Windows/NotificationsExtensions.winmd": {}
+        }
+      },
+      "QueryString.NET/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/dotnet/QueryString.NETCore.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/QueryString.NETCore.dll": {}
         }
       },
       "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -12025,6 +12133,24 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        }
+      },
+      "NotificationsExtensions.Win10/14332.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/Windows/NotificationsExtensions.winmd": {}
+        },
+        "runtime": {
+          "lib/Windows/NotificationsExtensions.winmd": {}
+        }
+      },
+      "QueryString.NET/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/dotnet/QueryString.NETCore.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet/QueryString.NETCore.dll": {}
         }
       },
       "runtime.aot.System.Private.DataContractSerialization/4.1.0": {
@@ -14494,6 +14620,46 @@
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
         "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
         "tools/install.ps1"
+      ]
+    },
+    "NotificationsExtensions.Win10/14332.0.1": {
+      "sha512": "lw7O9/Whadt1aO1qtVVQzbwCaW3KvdOG8F6u3XE5Rn5i5BWSJFetUAkMzlw5/JF8zQk+2DCi3WFHtZzHzxypqA==",
+      "type": "package",
+      "files": [
+        "NotificationsExtensions.Win10.14332.0.1.nupkg.sha512",
+        "NotificationsExtensions.Win10.nuspec",
+        "build/Windows/NotificationsExtensions.Win10.targets",
+        "build/native/NotificationsExtensions.Win10.targets",
+        "lib/Windows/NotificationsExtensions.pdb",
+        "lib/Windows/NotificationsExtensions.pri",
+        "lib/Windows/NotificationsExtensions.winmd",
+        "lib/Windows/NotificationsExtensions.winmd.xml",
+        "lib/Windows/NotificationsExtensions.xml",
+        "lib/dotnet/NotificationsExtensions.Win10.NETCore.XML",
+        "lib/dotnet/NotificationsExtensions.Win10.NETCore.dll",
+        "lib/dotnet/NotificationsExtensions.Win10.NETCore.pdb",
+        "lib/native/NotificationsExtensions.pdb",
+        "lib/native/NotificationsExtensions.pri",
+        "lib/native/NotificationsExtensions.winmd",
+        "lib/native/NotificationsExtensions.winmd.xml",
+        "lib/native/NotificationsExtensions.xml",
+        "lib/portable-net45+sl50+win+wpa81+wp80/NotificationsExtensions.Win10.Portable.XML",
+        "lib/portable-net45+sl50+win+wpa81+wp80/NotificationsExtensions.Win10.Portable.dll",
+        "lib/portable-net45+sl50+win+wpa81+wp80/NotificationsExtensions.Win10.Portable.pdb"
+      ]
+    },
+    "QueryString.NET/1.0.0": {
+      "sha512": "u+MbuqDtckYQv90rphUgmz1PXA4lBSG50MvP5yHUiCzn/kxAs2W8Pyb9VQRlnc+fBB0q6C/Q+bk+nuKbFVqiIg==",
+      "type": "package",
+      "files": [
+        "QueryString.NET.1.0.0.nupkg.sha512",
+        "QueryString.NET.nuspec",
+        "lib/dotnet/QueryString.NETCore.XML",
+        "lib/dotnet/QueryString.NETCore.dll",
+        "lib/dotnet/QueryString.NETCore.pdb",
+        "lib/portable-net4+sl50+win+wpa81+wp80/QueryString.Portable.dll",
+        "lib/portable-net4+sl50+win+wpa81+wp80/QueryString.Portable.pdb",
+        "lib/portable-net4+sl50+win+wpa81+wp80/QueryString.Portable.xml"
       ]
     },
     "runtime.any.System.Private.DataContractSerialization/4.1.0": {
@@ -17804,6 +17970,8 @@
       "Microsoft.Azure.Mobile.Client >= 2.0.1",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.1.0",
       "Newtonsoft.Json >= 8.0.3",
+      "NotificationsExtensions.Win10 >= 14332.0.1",
+      "QueryString.NET >= 1.0.0",
       "WinRTXamlToolkit.UWP >= 2.0.0",
       "ZXing.Net.Mobile.Forms >= 2.0.4.46"
     ],

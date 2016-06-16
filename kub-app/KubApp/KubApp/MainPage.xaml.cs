@@ -26,7 +26,12 @@ using Windows.Security.Authentication.Web;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using System.Text.RegularExpressions;
-using Facebook;
+using Windows.Web;
+using Windows.UI.WebUI;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Notifications;
+using NotificationsExtensions;
+using Microsoft.QueryStringDotNET;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -35,12 +40,8 @@ namespace KubApp_v0._1
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    //public sealed partial class MainPage : Page
-    public sealed partial class MainPage : Page, IWebAuthenticationContinuable
+    public sealed partial class MainPage : Page
     {
-        
-        public static ContinuationManager continuationManager { get; private set; }
-
         //Maakt een nieuwe MqttClient aan
         private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
 
@@ -57,6 +58,8 @@ namespace KubApp_v0._1
         private string AccessToken;
         private DateTime TokenExpiry;
         private Facebook.FacebookClient fbClient;
+        private dynamic fbUser;
+        Windows.Storage.ApplicationDataContainer fbInfo = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         public MainPage()
         {
@@ -67,59 +70,17 @@ namespace KubApp_v0._1
             threadSafeTimer.Start();
             threadSafeTimer.Tick += ThreadSafeEntry;
 
-            continuationManager = new ContinuationManager();
-
             this.NavigationCacheMode = NavigationCacheMode.Required;
+
         }
 
-        public async Task ParseAuthenticationResult(WebAuthenticationResult result)
-        {
-            switch (result.ResponseStatus)
-            {
-                case WebAuthenticationStatus.ErrorHttp:
-                    Debug.WriteLine("Error");
-                    break;
-                case WebAuthenticationStatus.Success:
-                    var pattern = string.Format("{0}#access_token={1}&expires_in={2}", WebAuthenticationBroker.GetCurrentApplicationCallbackUri(), "(?<access_token>.+)", "(?<expires_in>.+)");
-                    var match = Regex.Match(result.ResponseData, pattern);
 
-                    var access_token = match.Groups["access_token"];
-                    var expires_in = match.Groups["expires_in"];
-
-                    AccessToken = access_token.Value;
-                    TokenExpiry = DateTime.Now.AddSeconds(double.Parse(expires_in.Value));
-
-                    fbClient = new Facebook.FacebookClient(AccessToken);
-                    dynamic user = await fbClient.GetTaskAsync("me");
-                    await fbClient.PostTaskAsync("/me/feed", "test");
-
-                    break;
-                case WebAuthenticationStatus.UserCancel:
-                    Debug.WriteLine("Operation aborted");
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        async void IWebAuthenticationContinuable.ContinueWebAuthentication(WebAuthenticationBrokerContinuationEventArgs args)
-        {
-            await ParseAuthenticationResult(args.WebAuthenticationResult);
-        }
-
-        private async Task showUserInfo()
-        {
-            fbClient = new Facebook.FacebookClient(AccessToken);
-            dynamic user = await fbClient.GetTaskAsync("me");
-            
-        }
-
-        private async Task Login()
+        private async void FBLogin()
         {
             //Facebook app id
             var clientId = "1269278043097270";
             //Facebook permissions
-            var scope = "public_profile, email";
+            var scope = "public_profile, publish_actions, manage_pages";
 
             var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
             var fb = new Facebook.FacebookClient();
@@ -128,15 +89,68 @@ namespace KubApp_v0._1
             Uri startUri = loginUrl;
             Uri endUri = new Uri(redirectUri, UriKind.Absolute);
 
-            WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri, null, WebAuthenticationOptions.None);
+            WebAuthenticationResult webAuthenticationResult = await WebAuthenticationBroker.AuthenticateAsync(WebAuthenticationOptions.None, startUri, endUri);
 
-            
+            if(webAuthenticationResult.ResponseStatus == WebAuthenticationStatus.Success)
+            {
+                var outputToken = webAuthenticationResult.ResponseData.ToString();
+
+                var pattern = string.Format("{0}#access_token={1}&expires_in={2}", WebAuthenticationBroker.GetCurrentApplicationCallbackUri(), "(?<access_token>.+)", "(?<expires_in>.+)");
+                var match = Regex.Match(outputToken, pattern);
+
+                var access_token = match.Groups["access_token"];
+                var expires_in = match.Groups["expires_in"];
+
+                AccessToken = access_token.Value;
+                TokenExpiry = DateTime.Now.AddSeconds(double.Parse(expires_in.Value));
+
+                fbClient = new Facebook.FacebookClient(AccessToken);
+                fbUser = await fbClient.GetTaskAsync("me");
+
+                WebRequest profilePicRequest = HttpWebRequest.Create(string.Format("https://graph.facebook.com/{0}/picture", fbUser.id));
+                WebResponse response = await profilePicRequest.GetResponseAsync();
+                var pictureUrl = response.ResponseUri.ToString();
+                image1.Source = new BitmapImage(new Uri(pictureUrl, UriKind.Absolute));
+
+                fbInfo.Values["token"] = AccessToken;
+            }
         }
 
         private async void FBlogin_Click(object sender, RoutedEventArgs e)
         {
-            await Login();
+            FBLogin();
 
+        }
+
+        private async void FBPost(object sender, RoutedEventArgs e)
+        {
+            if(fbInfo.Values["token"].ToString() == "0")
+            {
+                FBLogin();
+            }
+            else
+            {
+                Object tokenValue = fbInfo.Values["token"];
+                fbClient = new Facebook.FacebookClient(tokenValue.ToString());
+                fbUser = await fbClient.GetTaskAsync("me");
+                await fbClient.PostTaskAsync("/me/feed", new { message = "Drinkt koffie met de Kub!" });
+            }
+        }
+
+        private async void FBLogout_Click(object sender, RoutedEventArgs e)
+        {
+            string tokenValue = fbInfo.Values["token"].ToString();
+
+            //await fbClient.DeleteTaskAsync("me/permissions");
+
+            var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
+
+            Uri startUri = new Uri(@"https://www.facebook.com/logout.php?next=https://facebook.com/&access_token=" + fbClient.AccessToken);
+            Uri endUri = new Uri(redirectUri, UriKind.Absolute);
+
+            WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri);
+
+            fbInfo.Values["token"] = "0";
         }
 
         public void Connect()
@@ -403,6 +417,11 @@ namespace KubApp_v0._1
         private void RockPaper_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(RockPaperMain));
+        }
+
+        private void FBLOGO_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(FaceBookPage));
         }
     }
 }
