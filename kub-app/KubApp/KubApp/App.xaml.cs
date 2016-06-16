@@ -57,10 +57,10 @@ namespace KubApp_v0._1
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
-            if(args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
+            if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
             {
                 var continuationEventArgs = args as IContinuationActivatedEventArgs;
-                if(continuationEventArgs != null)
+                if (continuationEventArgs != null)
                 {
                     MainPage.continuationManager.Continue(continuationEventArgs);
                     MainPage.continuationManager.MarkAsStale();

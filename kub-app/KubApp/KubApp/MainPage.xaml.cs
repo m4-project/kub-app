@@ -26,7 +26,7 @@ using Windows.Security.Authentication.Web;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using System.Text.RegularExpressions;
-
+using Facebook;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -35,16 +35,18 @@ namespace KubApp_v0._1
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
+    //public sealed partial class MainPage : Page
     public sealed partial class MainPage : Page, IWebAuthenticationContinuable
     {
         
         public static ContinuationManager continuationManager { get; private set; }
+
         //Maakt een nieuwe MqttClient aan
         private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
 
         //Dictionary voor alle kubs
         public Dictionary<string, Kub> kubs = new Dictionary<string, Kub>();
-
+        
         private Kub selectedKub;
         private DispatcherTimer timer = new DispatcherTimer();
         private DispatcherTimer threadSafeTimer = new DispatcherTimer();
@@ -54,6 +56,7 @@ namespace KubApp_v0._1
 
         private string AccessToken;
         private DateTime TokenExpiry;
+        private Facebook.FacebookClient fbClient;
 
         public MainPage()
         {
@@ -86,6 +89,10 @@ namespace KubApp_v0._1
                     AccessToken = access_token.Value;
                     TokenExpiry = DateTime.Now.AddSeconds(double.Parse(expires_in.Value));
 
+                    fbClient = new Facebook.FacebookClient(AccessToken);
+                    dynamic user = await fbClient.GetTaskAsync("me");
+                    await fbClient.PostTaskAsync("/me/feed", "test");
+
                     break;
                 case WebAuthenticationStatus.UserCancel:
                     Debug.WriteLine("Operation aborted");
@@ -102,10 +109,36 @@ namespace KubApp_v0._1
 
         private async Task showUserInfo()
         {
-            Facebook.FacebookClient client = new Facebook.FacebookClient(AccessToken);
-            dynamic user = await client.GetTaskAsync("me");
-            textBox.Text = user.name;
+            fbClient = new Facebook.FacebookClient(AccessToken);
+            dynamic user = await fbClient.GetTaskAsync("me");
+            
         }
+
+        private async Task Login()
+        {
+            //Facebook app id
+            var clientId = "1269278043097270";
+            //Facebook permissions
+            var scope = "public_profile, email";
+
+            var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
+            var fb = new Facebook.FacebookClient();
+            Uri loginUrl = fb.GetLoginUrl(new { client_id = clientId, redirect_uri = redirectUri, response_type = "token", scope = scope });
+
+            Uri startUri = loginUrl;
+            Uri endUri = new Uri(redirectUri, UriKind.Absolute);
+
+            WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri, null, WebAuthenticationOptions.None);
+
+            
+        }
+
+        private async void FBlogin_Click(object sender, RoutedEventArgs e)
+        {
+            await Login();
+
+        }
+
         public void Connect()
         {
             client.Connect("kub-app");
@@ -370,36 +403,6 @@ namespace KubApp_v0._1
         private void RockPaper_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(RockPaperMain));
-        }
-
-        private async Task Login()
-        {
-            //Facebook app id
-            var clientId = "1269278043097270";
-            //Facebook permissions
-            var scope = "public_profile, email";
-
-            var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
-            var fb = new Facebook.FacebookClient();
-            Uri loginUrl = fb.GetLoginUrl(new { client_id = clientId, redirect_uri = redirectUri, response_type = "token", scope = scope });
-
-            Uri startUri = loginUrl;
-            Uri endUri = new Uri(redirectUri, UriKind.Absolute);
-
-//#if WINDOWS_PHONE_APP
-            WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri, null, WebAuthenticationOptions.None);
-            //#endif
-
-            //#if WINDOWS_APP
-            //            WebAuthenticationResult result = await WebAuthenticationBroker.AuthenticateAsync(WebAuthenticationOptions.None, startUri, endUri);
-            //            await ParseAuthenticationResult(result);
-            //#endif
-        }
-
-        private async void FBlogin_Click(object sender, RoutedEventArgs e)
-        {
-            await Login();
-            
         }
     }
 }
