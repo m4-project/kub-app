@@ -119,7 +119,7 @@
             </PivotItem>
             <PivotItem Header="SETTINGS">
                 <Grid>
-                    <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged"/>
                     <TextBlock x:Name="textBoxPrimaryKub" HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Primary Kub:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
                     <TextBlock x:Name="textBoxAddKub" HorizontalAlignment="Left" Margin="0,120,0,0" TextWrapping="Wrap" Text="Scan new Kub:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
                     <Button x:Name="ScanQR" Click="ScanQR_Click" HorizontalAlignment="Left" Margin="200,100,0,0" VerticalAlignment="Top" Height="70" Width="70">
