@@ -32,17 +32,13 @@ namespace KubApp
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            
+            //restart game
             this.Frame.Navigate(typeof(ColorMatchGetReady), highpass);
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            //
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            // on navigated to gets highscore as parameter
             var high = e.Parameter as string;
             this.highpass = high;
             textBlock2.Text = high;
@@ -50,6 +46,7 @@ namespace KubApp
 
         private void quitGame_Click(object sender, RoutedEventArgs e)
         {
+            // go back to mainpage
             this.Frame.Navigate(typeof(MainPage));
         }
     }

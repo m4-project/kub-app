@@ -31,8 +31,6 @@ namespace KubApp
     {
         // DispatchTimer Variables
         private DispatcherTimer dispatcherTimer = new DispatcherTimer();
-        private DateTimeOffset startTime;
-        private DateTimeOffset lastTime;
         // Random color ( blue, red, green, yellow ) Variables
         private List<Color> colorList = new List<Color>();
         private Color colorNow;
