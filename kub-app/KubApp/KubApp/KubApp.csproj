@@ -168,9 +168,13 @@
     <Compile Include="ColorMatchGame.xaml.cs">
       <DependentUpon>ColorMatchGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Easy.xaml.cs" />
+    <Compile Include="EndPage.xaml.cs" />
     <Compile Include="FaceBookPage.xaml.cs">
       <DependentUpon>FaceBookPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Hard.xaml.cs" />
+    <Compile Include="Instruction.xaml.cs" />
     <Compile Include="Kub.cs" />
     <Compile Include="ColorMatchGetReady.xaml.cs">
       <DependentUpon>ColorMatchGetReady.xaml</DependentUpon>
@@ -189,6 +193,10 @@
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Medium.xaml.cs" />
+    <Compile Include="MindGameMain.xaml.cs">
+      <DependentUpon>MindGameMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="newKub.xaml.cs">
       <DependentUpon>newKub.xaml</DependentUpon>
@@ -261,13 +269,37 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Easy.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EndPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="FaceBookPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Hard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Instruction.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Medium.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MindGameMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="newKub.xaml">
       <SubType>Designer</SubType>
