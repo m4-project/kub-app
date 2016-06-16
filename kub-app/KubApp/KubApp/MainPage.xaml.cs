@@ -75,6 +75,7 @@ namespace KubApp_v0._1
 
         }
 
+
         private async void FBLogin()
         {
             //Facebook app id
@@ -417,6 +418,11 @@ namespace KubApp_v0._1
         private void RockPaper_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(RockPaperMain));
+        }
+
+        private void FBLOGO_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(FaceBookPage));
         }
     }
 }
