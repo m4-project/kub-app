@@ -48,6 +48,7 @@ namespace KubApp
 
         private void DispatcherTimer_Tick(object sender, object e)
         {
+            // executed when timer runs out
             if (this.timevar > 1)
             {
                 timevar--;
@@ -62,6 +63,7 @@ namespace KubApp
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            // when navigated to this page, gets var from passed parameter, highscore
             var high = e.Parameter as string;
             this.highpass = high;
         }

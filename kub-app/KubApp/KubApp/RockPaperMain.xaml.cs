@@ -31,12 +31,14 @@ namespace KubApp
 
         private void PVC_Click(object sender, RoutedEventArgs e)
         {
+            // start game player versus computer
             this.Frame.Navigate(typeof(RockPaperReady));
         }
 
 
         private void exit_Click(object sender, object e)
         {
+            // navigate back to mainpage
             this.Frame.Navigate(typeof(MainPage));
         }
     }
