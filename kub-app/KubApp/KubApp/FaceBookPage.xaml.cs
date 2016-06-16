@@ -71,15 +71,26 @@ namespace KubApp
 
         private async void PostOnFb()
         {
+            if(AccessToken == "0")
+            {
+                errorTextBlock.Text = "You need to login before you can post on facebook, go to settings to login";
+            }
             try
             {
                 fbClient = new Facebook.FacebookClient(AccessToken);
                 fbUser = await fbClient.GetTaskAsync("me");
-                await fbClient.PostTaskAsync("/me/feed", new { message = this.message });
+                if (message == "")
+                {
+                    errorTextBlock.Text = "You cannot place an empty message";
+                }
+                else
+                {
+                    await fbClient.PostTaskAsync("/me/feed", new { message = this.message });
+                }
             }
             catch(Exception ex)
             {
-                PostText.Text += "!! Something went wrong, please try again !!" + ex;
+                errorTextBlock.Text = "An error occured while posting message on Facebook!";
             }
         }
     }

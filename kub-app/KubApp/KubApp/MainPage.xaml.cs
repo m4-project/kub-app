@@ -15,6 +15,10 @@ using uPLibrary.Networking.M2Mqtt.Messages;
 using Windows.Security.Authentication.Web;
 using System.Text.RegularExpressions;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Notifications;
+using NotificationsExtensions;
+using NotificationsExtensions.Toasts;
+using Microsoft.QueryStringDotNET;
 using Newtonsoft.Json.Linq;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -65,7 +69,7 @@ namespace KubApp_v0._1
         }
 
 
-        private async void FBLogin()
+        public async void FBLogin()
         {
             //Facebook app id
             var clientId = "1269278043097270";
@@ -100,6 +104,8 @@ namespace KubApp_v0._1
                 WebRequest profilePicRequest = HttpWebRequest.Create(string.Format("https://graph.facebook.com/{0}/picture", fbUser.id));
                 WebResponse response = await profilePicRequest.GetResponseAsync();
                 var pictureUrl = response.ResponseUri.ToString();
+
+                image1.Visibility = Visibility.Visible;
                 image1.Source = new BitmapImage(new Uri(pictureUrl, UriKind.Absolute));
 
                 fbInfo.Values["token"] = AccessToken;
@@ -139,6 +145,7 @@ namespace KubApp_v0._1
             WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri);
 
             fbInfo.Values["token"] = "0";
+            image1.Visibility = Visibility.Collapsed;
         }
 
         private void FBLOGO_Click(object sender, RoutedEventArgs e)
