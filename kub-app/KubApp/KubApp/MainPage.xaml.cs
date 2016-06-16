@@ -20,6 +20,7 @@ using NotificationsExtensions;
 using NotificationsExtensions.Toasts;
 using Microsoft.QueryStringDotNET;
 using Newtonsoft.Json.Linq;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -44,7 +45,7 @@ namespace KubApp_v0._1
         private uint threadSafeTemperature = 0;
         private string kubId;
 
-        private string AccessToken;
+        private string accessToken;
         private DateTime TokenExpiry;
         private Facebook.FacebookClient fbClient;
         private dynamic fbUser;
@@ -65,87 +66,126 @@ namespace KubApp_v0._1
             threadSafeTimer.Start();
             threadSafeTimer.Tick += ThreadSafeEntry;
 
-            this.NavigationCacheMode = NavigationCacheMode.Required;    
-        }
+            this.NavigationCacheMode = NavigationCacheMode.Required;
 
-        public async void FBLogin()
-        {
-            //Facebook app id
-            var clientId = "1269278043097270";
-            //Facebook permissions
-            var scope = "public_profile, publish_actions, manage_pages";
-
-            var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
-            var fb = new Facebook.FacebookClient();
-            Uri loginUrl = fb.GetLoginUrl(new { client_id = clientId, redirect_uri = redirectUri, response_type = "token", scope = scope });
-
-            Uri startUri = loginUrl;
-            Uri endUri = new Uri(redirectUri, UriKind.Absolute);
-
-            WebAuthenticationResult webAuthenticationResult = await WebAuthenticationBroker.AuthenticateAsync(WebAuthenticationOptions.None, startUri, endUri);
-
-            if(webAuthenticationResult.ResponseStatus == WebAuthenticationStatus.Success)
-            {
-                var outputToken = webAuthenticationResult.ResponseData.ToString();
-
-                var pattern = string.Format("{0}#access_token={1}&expires_in={2}", WebAuthenticationBroker.GetCurrentApplicationCallbackUri(), "(?<access_token>.+)", "(?<expires_in>.+)");
-                var match = Regex.Match(outputToken, pattern);
-
-                var access_token = match.Groups["access_token"];
-                var expires_in = match.Groups["expires_in"];
-
-                AccessToken = access_token.Value;
-                TokenExpiry = DateTime.Now.AddSeconds(double.Parse(expires_in.Value));
-
-                fbClient = new Facebook.FacebookClient(AccessToken);
-                fbUser = await fbClient.GetTaskAsync("me");
-
-                WebRequest profilePicRequest = HttpWebRequest.Create(string.Format("https://graph.facebook.com/{0}/picture", fbUser.id));
-                WebResponse response = await profilePicRequest.GetResponseAsync();
-                var pictureUrl = response.ResponseUri.ToString();
-
-                image1.Visibility = Visibility.Visible;
-                image1.Source = new BitmapImage(new Uri(pictureUrl, UriKind.Absolute));
-
-                fbInfo.Values["token"] = AccessToken;
+            //Sets Facebook client, user and profile picture for last logged in user.
+            if (accessToken != "0")
+            {                
+                fbClient = new Facebook.FacebookClient(fbInfo.Values["token"].ToString());
+                fbUser = fbClient.GetTaskAsync("me");
+                image1.Source = new BitmapImage(new Uri(fbInfo.Values["profilePicUrl"].ToString(), UriKind.Absolute));
             }
         }
 
-        private async void FBlogin_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Handles user login.
+        /// clientID is from Facebook developer page.
+        /// Sets the scope needed to publish messages on users wall.
+        /// Creates LoginUrl and redirect URL.
+        /// Authentication is handled by WebAuthenticationBroker for save Authentication.
+        /// </summary>
+        public async void FBLogin()
+        {
+            try
+            {
+                //Facebook app id
+                var clientId = "1269278043097270";
+                //Facebook permissions
+                var scope = "public_profile, publish_actions, manage_pages";
+
+                var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
+                var fb = new Facebook.FacebookClient();
+                Uri loginUrl = fb.GetLoginUrl(new { client_id = clientId, redirect_uri = redirectUri, response_type = "token", scope = scope });
+
+                Uri startUri = loginUrl;
+                Uri endUri = new Uri(redirectUri, UriKind.Absolute);
+
+                WebAuthenticationResult webAuthenticationResult = await WebAuthenticationBroker.AuthenticateAsync(WebAuthenticationOptions.None, startUri, endUri);
+
+                //Get acces token out of resonse data to create a facebook client and facebook user.
+                if (webAuthenticationResult.ResponseStatus == WebAuthenticationStatus.Success)
+                {
+                    var outputToken = webAuthenticationResult.ResponseData.ToString();
+
+                    var pattern = string.Format("{0}#access_token={1}&expires_in={2}", WebAuthenticationBroker.GetCurrentApplicationCallbackUri(), "(?<access_token>.+)", "(?<expires_in>.+)");
+                    var match = Regex.Match(outputToken, pattern);
+
+                    var access_token = match.Groups["access_token"];
+                    var expires_in = match.Groups["expires_in"];
+
+                    accessToken = access_token.Value;
+                    TokenExpiry = DateTime.Now.AddSeconds(double.Parse(expires_in.Value));
+
+                    fbClient = new Facebook.FacebookClient(accessToken);
+                    fbUser = await fbClient.GetTaskAsync("me");
+
+                    WebRequest profilePicRequest = HttpWebRequest.Create(string.Format("https://graph.facebook.com/{0}/picture", fbUser.id));
+                    WebResponse response = await profilePicRequest.GetResponseAsync();
+                    var pictureUrl = response.ResponseUri.ToString();
+
+                    image1.Visibility = Visibility.Visible;
+                    image1.Source = new BitmapImage(new Uri(pictureUrl, UriKind.Absolute));
+
+                    fbInfo.Values["token"] = accessToken;
+                    fbInfo.Values["profilePicUrl"] = pictureUrl;
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        /// <summary>
+        /// Navigate user to login page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FBlogin_Click(object sender, RoutedEventArgs e)
         {
             FBLogin();
         }
 
-        private async void FBPost(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Handles user logout.
+        /// Does this by creating a logout URL and by opening this URL in webauthenticationbroker.
+        /// Set acces token to 0;
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void FBLogout_Click(object sender, RoutedEventArgs e)
         {
-            if(fbInfo.Values["token"].ToString() == "0")
+            if(fbInfo.Values["token"].ToString() != "0")
             {
-                FBLogin();
+                string tokenValue = fbInfo.Values["token"].ToString();
+
+                var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
+
+                Uri startUri = new Uri(@"https://www.facebook.com/logout.php?next=https://www.facebook.com/&access_token=" + fbClient.AccessToken);
+                Uri endUri = new Uri(redirectUri, UriKind.Absolute);
+
+                WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri);
+
+                accessToken = "0";
+                fbInfo.Values["token"] = "0";
+                image1.Visibility = Visibility.Collapsed;
             }
             else
             {
-                Object tokenValue = fbInfo.Values["token"];
-                fbClient = new Facebook.FacebookClient(tokenValue.ToString());
-                fbUser = await fbClient.GetTaskAsync("me");
-                await fbClient.PostTaskAsync("/me/feed", new { message = "Drinkt koffie met de Kub!" });
+                var dialog = new MessageDialog("It seems that you're already logged out!");
+                await dialog.ShowAsync();
             }
         }
 
-        private async void FBLogout_Click(object sender, RoutedEventArgs e)
-        {
-            string tokenValue = fbInfo.Values["token"].ToString();
-
-            var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
-
-            Uri startUri = new Uri(@"https://www.facebook.com/logout.php?next=https://facebook.com/&access_token=" + fbClient.AccessToken);
-            Uri endUri = new Uri(redirectUri, UriKind.Absolute);
-
-            WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri);
-
-            fbInfo.Values["token"] = "0";
-            image1.Visibility = Visibility.Collapsed;
-        }
-
+        /// <summary>
+        /// Navigates to Facebook page where user is able to post a message.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FBLOGO_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(FaceBookPage), fbInfo.Values["token"]);
