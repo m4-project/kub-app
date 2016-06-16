@@ -47,18 +47,18 @@
             </PivotItem>
             <PivotItem x:Name="PivotInfo" Header="INFO">
                 <Grid>
-                    <Image x:Name="image" HorizontalAlignment="Left" Height="197" Margin="15,60,0,0" VerticalAlignment="Top" Width="300" Source="Assets/temp.png" Stretch="Fill"/>
-                    <TextBlock x:Name="temperatureKub" HorizontalAlignment="Left" Margin="80,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="150" Width="213" FontFamily="Comfortaa" FontSize="110" Canvas.ZIndex="99" Foreground="#FFE2D2AD"/>
-                    <TextBlock x:Name="textBlockStatus" HorizontalAlignment="Left" Margin="15,290,0,0" TextWrapping="Wrap" Text="Status" FontFamily="Comfortaa" FontSize="25" VerticalAlignment="Top"/>
-                    <Rectangle Name="statusColor" Fill="#FFF42413" HorizontalAlignment="Left" Height="4" Margin="15,325,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.5,0.5">
+                    <Image x:Name="image" HorizontalAlignment="Left" Height="197" Margin="15,20,0,0" VerticalAlignment="Top" Width="300" Source="Assets/temp.png" Stretch="Fill"/>
+                    <TextBlock x:Name="temperatureKub" HorizontalAlignment="Left" Margin="80,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="150" Width="213" FontFamily="Comfortaa" FontSize="110" Canvas.ZIndex="99" Foreground="#FFE2D2AD"/>
+                    <TextBlock x:Name="textBlockStatus" HorizontalAlignment="Left" Margin="15,240,0,0" TextWrapping="Wrap" Text="Status" FontFamily="Comfortaa" FontSize="25" VerticalAlignment="Top"/>
+                    <Rectangle Name="statusColor" Fill="#FFF42413" HorizontalAlignment="Left" Height="4" Margin="15,275,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.5,0.5">
                         <Rectangle.RenderTransform>
                             <CompositeTransform ScaleY="-1"/>
                         </Rectangle.RenderTransform>
                     </Rectangle>
-                    <TextBlock x:Name="textBlockkub" HorizontalAlignment="Left" Margin="15,350,0,0" TextWrapping="Wrap" Text="Kub :" FontFamily="Comfortaa" FontSize="25" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBoxkubstatus" HorizontalAlignment="Left" Margin="90,352,0,0" TextWrapping="Wrap" Text="" FontFamily="Comfortaa" FontSize="20" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="textBlockFb" HorizontalAlignment="Left" Margin="15,400,0,0" TextWrapping="Wrap" Text="Share on:" VerticalAlignment="Top" FontSize ="25" FontFamily="Comfortaa" />
-                    <Button x:Name="FBLOGO" Click="FBLOGO_Click"  HorizontalAlignment="Left" Margin="170,390,0,0" VerticalAlignment="Top" Height="60" Width="60">
+                    <TextBlock x:Name="textBlockkub" HorizontalAlignment="Left" Margin="15,300,0,0" TextWrapping="Wrap" Text="Kub :" FontFamily="Comfortaa" FontSize="25" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBoxkubstatus" HorizontalAlignment="Left" Margin="90,300,0,0" TextWrapping="Wrap" Text="" FontFamily="Comfortaa" FontSize="20" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="textBlockFb" HorizontalAlignment="Left" Margin="15,355,0,0" TextWrapping="Wrap" Text="Share on:" VerticalAlignment="Top" FontSize ="25" FontFamily="Comfortaa" />
+                    <Button x:Name="FBLOGO" Click="FBLOGO_Click"  HorizontalAlignment="Left" Margin="170,340,0,0" VerticalAlignment="Top" Height="60" Width="60">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="fb.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-15,-10,-15,-10"/>
                         </Grid>
@@ -116,7 +116,7 @@
                             <Image Stretch="Fill" Source="snapgame.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="Game3" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                    <Button x:Name="Game3" Click="Game3_Click" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="mindgame.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
@@ -125,7 +125,7 @@
             </PivotItem>
             <PivotItem Header="SETTINGS">
                 <Grid>
-                    <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged"/>
                     <TextBlock x:Name="textBoxPrimaryKub" HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Primary Kub:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
                     <TextBlock x:Name="textBoxAddKub" HorizontalAlignment="Left" Margin="0,120,0,0" TextWrapping="Wrap" Text="Scan new Kub:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
                     <Button x:Name="ScanQR" Click="ScanQR_Click" HorizontalAlignment="Left" Margin="200,100,0,0" VerticalAlignment="Top" Height="70" Width="70">
@@ -139,9 +139,14 @@
                         </Grid>
                     </Button>
                     <Button x:Name="btnFBPost" Visibility="Collapsed" Content="Post on FB" HorizontalAlignment="Left" Margin="208,260,0,0" VerticalAlignment="Top" Click="FBPost" RenderTransformOrigin="1.922,-0.542"/>
-                    <Button x:Name="btnFBLogout" Content="Logout from FB" HorizontalAlignment="Left" Margin="200,262,0,0" VerticalAlignment="Top" Click="FBLogout_Click"/>
-                    <TextBlock x:Name="textBoxConnectFB" HorizontalAlignment="Left" Margin="0,200,0,0" TextWrapping="Wrap" Text="Login with:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
-                    <Image x:Name="image1" HorizontalAlignment="Left" Height="100" Margin="120,329,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.493,-0.533"/>
+                    <Button x:Name="FBLogout" Click="FBLogout_Click" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Height="30" Width="150" Background="Transparent">
+                        <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
+                            <Image Stretch="Fill" Source="fblogout.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-15,-10,-15,-10"/>
+                        </Grid>
+                    </Button>
+                     <TextBlock x:Name="textBoxConnectFB" HorizontalAlignment="Left" Margin="0,200,0,0" TextWrapping="Wrap" Text="Login with:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
+                    <TextBlock x:Name="textBoxConnectedProfile" HorizontalAlignment="Left" Margin="0,270,0,0" TextWrapping="Wrap" Text="Current User:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
+                    <Image x:Name="image1" HorizontalAlignment="Left" Height="100" Margin="200,270,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.493,-0.533"/>
                 </Grid>
             </PivotItem>
         </Pivot>

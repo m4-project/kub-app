@@ -32,6 +32,8 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Notifications;
 using NotificationsExtensions;
 using Microsoft.QueryStringDotNET;
+using Newtonsoft.Json.Linq;
+using System.Collections;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -42,6 +44,8 @@ namespace KubApp_v0._1
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public static MainPage instance;
+
         //Maakt een nieuwe MqttClient aan
         private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
 
@@ -54,27 +58,31 @@ namespace KubApp_v0._1
         private bool connected = false;
         private bool wasConnected = false;
         private uint threadSafeTemperature = 0;
+        private string kubId;
+        private string allKubs;
 
         private string AccessToken;
         private DateTime TokenExpiry;
         private Facebook.FacebookClient fbClient;
         private dynamic fbUser;
 
-        //Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-        //Windows.Storage.StorageFile fbInfo;
+        private dynamic data { get; set; }
+
         Windows.Storage.ApplicationDataContainer fbInfo = Windows.Storage.ApplicationData.Current.LocalSettings;
+        Windows.Storage.ApplicationDataContainer kubInfo = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         public MainPage()
         {
             this.InitializeComponent();
+            MainPage.instance = this;
             Connect();
+            fillComboBox();
 
             threadSafeTimer.Interval = new TimeSpan(0, 0, 1);
             threadSafeTimer.Start();
             threadSafeTimer.Tick += ThreadSafeEntry;
 
-            this.NavigationCacheMode = NavigationCacheMode.Required;
-
+            this.NavigationCacheMode = NavigationCacheMode.Required;    
         }
 
 
@@ -162,10 +170,6 @@ namespace KubApp_v0._1
             client.MqttMsgPublishReceived += client_MqttMsgPublishReceived;
             client.MqttMsgSubscribed += client_MqttSubscribed;
             client.ConnectionClosed += client_ConnectionClosed;
-
-            //TODO: maak instellingenpagina om kubs te koppelen
-            this.selectedKub = new Kub("1234", client);
-            this.kubs.Add("1234", selectedKub);
         }
 
         private void DispatcherTimer_Tick(object sender, object e)
@@ -181,7 +185,7 @@ namespace KubApp_v0._1
                 {
                     //Timer om de temperatuur te refreshen na 1 minuut zodat dit up to date blijft
                     timer.Tick += DispatcherTimer_Tick;
-                    timer.Interval = new TimeSpan(0, 0, 10); //TODO: restore to 30
+                    timer.Interval = new TimeSpan(0, 0, 10);
                     timer.Start();
                     Temperature();
                 }
@@ -262,17 +266,81 @@ namespace KubApp_v0._1
 
         public void Temperature()
         {
-            this.selectedKub.RequestData(Kub.DataType.Temperature, delegate (uint value)
+            if (selectedKub != null)
             {
-                threadSafeTemperature = value;
-            });
+                this.selectedKub.RequestData(Kub.DataType.Temperature, delegate (uint value)
+                {
+                    threadSafeTemperature = value;
+                });
+            }
+        }
+
+        public void addNewKub(string QRresult)
+        {
+            if (kubs.ContainsKey(QRresult))
+            {
+                return;
+            }
+
+            data = JObject.Parse(QRresult);
+
+            kubId = (data.kubid);
+
+            Kub newKub = new Kub(kubId, client);
+            kubs.Add(kubId, newKub);
+
+            kubInfo.Values["kubStorage"] = string.Join(",", kubs.Keys.Select(k => k).ToArray());
+
+            fillComboBox();
+        }
+
+        public void fillComboBox()
+        {
+            if(kubInfo != null)
+            {
+                if (kubInfo.Values.ContainsKey("kubStorage")){
+                    kubs.Clear();
+                    string[] kubIds = ((string)kubInfo.Values["kubStorage"]).Split(',');
+                    if (kubIds != null)
+                    {
+                        foreach (string id in kubIds)
+                        {
+                            Kub kub = new Kub(id, this.client);
+                            kubs.Add(id, kub);
+                            comboBox.Items.Add(kub);
+                            if (kubInfo.Values.ContainsKey("selectedKub") && id == (string) kubInfo.Values["selectedkub"])
+                            {
+                                this.selectedKub = kub;
+                                this.comboBox.SelectedIndex = this.comboBox.Items.IndexOf(kub);
+                            }
+                        }
+                    }
+                }
+            }
+
+            foreach (var item in kubs)
+            {
+                
+            }
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.comboBox.SelectedItem == null)
+            {
+                return;
+            }
+            this.selectedKub = (Kub)this.comboBox.SelectedItem;
+
+            if (kubInfo != null && this.selectedKub != null)
+            {
+                kubInfo.Values["selectedKub"] = this.selectedKub.id;
+            }
         }
 
         private void Info_Click(object sender, RoutedEventArgs e)
         {
             kubMenu.SelectedIndex = 1;
-            //this.kub = (Kub)e.Parameter;
-            //this.Frame.Navigate(typeof(TemperaturePage), kubs["1234"]); // TODO: maak dit configureerbaar
         }
 
         private void LED_Click_1(object sender, RoutedEventArgs e)
@@ -425,6 +493,11 @@ namespace KubApp_v0._1
         private void FBLOGO_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(FaceBookPage), fbInfo.Values["token"]);
+        }
+
+        private void Game3_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MindGameMain));
         }
     }
 }
