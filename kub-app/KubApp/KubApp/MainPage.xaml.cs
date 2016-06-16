@@ -495,5 +495,10 @@ namespace KubApp_v0._1
         {
             this.Frame.Navigate(typeof(FaceBookPage));
         }
+
+        private void Game3_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MindGameMain));
+        }
     }
 }

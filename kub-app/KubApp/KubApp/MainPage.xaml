@@ -116,7 +116,7 @@
                             <Image Stretch="Fill" Source="snapgame.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="Game3" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                    <Button x:Name="Game3" Click="Game3_Click" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="mindgame.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
