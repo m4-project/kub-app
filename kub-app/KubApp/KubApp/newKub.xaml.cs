@@ -88,12 +88,12 @@ namespace KubApp
                 var jsonObj = JObject.Parse(jsonString);
                 safeJsonString = true;
             }
-            catch (System.FormatException fex)
+            catch (System.FormatException)
             {
                 var dialogFex = new MessageDialog("Your QR-Code is invalid!");
                 await dialogFex.ShowAsync();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 var dialogEx = new MessageDialog("Your QR-Code is invalid!");
                 await dialogEx.ShowAsync();
