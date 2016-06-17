@@ -223,7 +223,7 @@ namespace KubApp_v0._1
         /// Declares a new toast notification.
         /// </summary>
         /// <param name="content"></param>
-        private void showToast(ToastContent content)
+        private void ShowToast(ToastContent content)
         {
             ToastNotificationManager.CreateToastNotifier().Show(new ToastNotification(content.GetXml()));
         }
@@ -233,11 +233,11 @@ namespace KubApp_v0._1
         /// </summary>
         /// <param name="titleText"></param>
         /// <param name="bodyText"></param>
-        private void notification(string titleText, string bodyText)
+        private void Notification(string titleText, string bodyText)
         {
             if(this.bodyText != bodyText)
             {
-                showToast(new ToastContent()
+                ShowToast(new ToastContent()
                 {
                     Visual = new ToastVisual()
                     {
@@ -296,28 +296,28 @@ namespace KubApp_v0._1
                 statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Red);
                 string status = "Feel the Heat";
                 textBlockStatus.Text = "Status: " + status;
-                notification("New status: ", status);
+                Notification("New status: ", status);
             }
             else if (this.threadSafeTemperature < 60 && this.threadSafeTemperature > 48)
             {
                 statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Green);
                 string status = "Taste the Flavors";
                 textBlockStatus.Text = "Status: " + status;
-                notification("New status: ", status);
+                Notification("New status: ", status);
             }
             else if (this.threadSafeTemperature < 48 && this.threadSafeTemperature > 20)
             {
                 statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.Blue);
                 string status = "Enjoy the Sweetness";
                 textBlockStatus.Text = "Status: " + status;
-                notification("New status: ", status);
+                Notification("New status: ", status);
             }
             else if (this.threadSafeTemperature < 20)
             {
                 statusColor.Fill = new SolidColorBrush(Windows.UI.Colors.White);
                 string status = "Like Iced Coffee?";
                 textBlockStatus.Text = "Status: " + status;
-                notification("New status: ", status);
+                Notification("New status: ", status);
             }
 
             this.wasConnected = this.connected;
