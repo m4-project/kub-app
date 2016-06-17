@@ -507,8 +507,6 @@ namespace KubApp_v0._1
         {
             if (toggleSwitchLed.IsOn)
             {
-                curColor.Fill = colorp.SelectedColor;
-
                 // Selected color in hexadecimal.
                 string hexColor = colorp.SelectedColor.Color.ToString();
 
@@ -517,9 +515,12 @@ namespace KubApp_v0._1
                 int R = int.Parse(hexColorSub.Substring(0, 2), System.Globalization.NumberStyles.HexNumber);
                 int G = int.Parse(hexColorSub.Substring(2, 2), System.Globalization.NumberStyles.HexNumber);
                 int B = int.Parse(hexColorSub.Substring(4, 2), System.Globalization.NumberStyles.HexNumber);
-                
-                selectedKub.SetLed(0, (byte)R, (byte)G, (byte)B);
-                selectedKub.SetLed(1, (byte)R, (byte)G, (byte)B);
+
+                if (selectedKub != null)
+                {
+                    selectedKub.SetLed(0, (byte)R, (byte)G, (byte)B);
+                    selectedKub.SetLed(1, (byte)R, (byte)G, (byte)B);
+                }
             }
         }
 
@@ -589,9 +590,6 @@ namespace KubApp_v0._1
                 selectedKub.SetLed(0, (byte)resultR, (byte)resultG, (byte)resultB);
                 selectedKub.SetLed(1, (byte)resultR, (byte)resultG, (byte)resultB);
             } 
-
-            SolidColorBrush brush = new SolidColorBrush(Windows.UI.Color.FromArgb(255, (byte)resultR, (byte)resultG, (byte)resultB));
-            curColor.Fill = brush;
         }
 
         private void ScanQR_Click(object sender, RoutedEventArgs e)
@@ -604,21 +602,27 @@ namespace KubApp_v0._1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ToggleSwitchLed_Toggled(object sender, RoutedEventArgs e)
+        private async void ToggleSwitchLed_Toggled(object sender, RoutedEventArgs e)
         {
             if (!toggleSwitchLed.IsOn)
             {
                 colorp.IsEnabled = false;
-                curColor.Opacity = 0.3;
                 slider.IsEnabled = false;
                 selectedKub.SetMode(Kub.Mode.Temperature);
             }
             else
             {
                 colorp.IsEnabled = true;
-                curColor.Opacity = 1.0;
                 slider.IsEnabled = true;
-                selectedKub.SetMode(Kub.Mode.Manual);
+                try
+                {
+                    selectedKub.SetMode(Kub.Mode.Manual);
+                }
+                catch
+                {
+                    var dialog = new MessageDialog("There is no Kub connected");
+                    await dialog.ShowAsync();
+                }
             }
         }
     }
