@@ -106,7 +106,7 @@ namespace KubApp
                 newMessage = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
                 var dialog = new MessageDialog(newMessage);
                 await dialog.ShowAsync();
-                MainPage.instance.AddNewKub(QRresult);
+                MainGameMain.instance.AddNewKub(QRresult);
             }
         }
 
@@ -117,7 +117,7 @@ namespace KubApp
         {
             SystemNavigationManager.GetForCurrentView().BackRequested += (s, e) =>
             {
-                this.Frame.Navigate(typeof(MainPage));
+                this.Frame.Navigate(typeof(MainGameMain));
             };
         }
     }

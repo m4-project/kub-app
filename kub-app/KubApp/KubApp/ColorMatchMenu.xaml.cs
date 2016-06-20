@@ -44,7 +44,7 @@ namespace KubApp
         private void quitGame_Click(object sender, RoutedEventArgs e)
         {
             // quit and go to main kub ap page
-            this.Frame.Navigate(typeof(MainPage));
+            this.Frame.Navigate(typeof(MainGameMain));
         }
     }
 }

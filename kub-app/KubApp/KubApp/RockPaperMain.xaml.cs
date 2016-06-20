@@ -39,7 +39,7 @@ namespace KubApp
         private void exit_Click(object sender, object e)
         {
             // navigate back to mainpage
-            this.Frame.Navigate(typeof(MainPage));
+            this.Frame.Navigate(typeof(MainGameMain));
         }
     }
 }
