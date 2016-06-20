@@ -85,13 +85,13 @@ namespace MindGame
             Startbtn.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             //Met deze methode maakt u de stopbutton zichtbaar.
             Stopbtn.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            timerStart();
+            TimerStart();
         }
 
         /// <summary>
         /// Met deze methode activeer u de timer.
         /// </summary>
-        private void timerStart()
+        private void TimerStart()
         {
             DispatcherTimer dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);

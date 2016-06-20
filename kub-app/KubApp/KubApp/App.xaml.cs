@@ -39,6 +39,7 @@ namespace KubApp_v0._1
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
+
         private void App_BackRequested(object sender,
     Windows.UI.Core.BackRequestedEventArgs e)
         {

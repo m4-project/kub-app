@@ -73,7 +73,6 @@
                             <CompositeTransform ScaleY="-1"/>
                         </Rectangle.RenderTransform>
                     </Rectangle>
-                    <Rectangle x:Name="curColor" Opacity="0.2" HorizontalAlignment="Left" Height="30" Margin="160,-175,0,0" Width="30" Stroke="Black" Fill="White"/>
                     <Button x:Name="PickColor" HorizontalAlignment="Left" Margin="220,140,0,0" VerticalAlignment="Top" Height="50" Width="60" Background="Transparent">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="colormap.gif" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-12,-8,-12,-8"/>
@@ -138,7 +137,6 @@
                             <Image Stretch="Fill" Source="fb.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-15,-10,-15,-10"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="btnFBPost" Visibility="Collapsed" Content="Post on FB" HorizontalAlignment="Left" Margin="208,260,0,0" VerticalAlignment="Top" Click="FBPost" RenderTransformOrigin="1.922,-0.542"/>
                     <Button x:Name="FBLogout" Click="FBLogout_Click" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Height="30" Width="150" Background="Transparent">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="fblogout.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-15,-10,-15,-10"/>
@@ -146,7 +144,7 @@
                     </Button>
                      <TextBlock x:Name="textBoxConnectFB" HorizontalAlignment="Left" Margin="0,200,0,0" TextWrapping="Wrap" Text="Login with:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
                     <TextBlock x:Name="textBoxConnectedProfile" HorizontalAlignment="Left" Margin="0,270,0,0" TextWrapping="Wrap" Text="Current User:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
-                    <Image x:Name="image1" HorizontalAlignment="Left" Height="100" Margin="200,270,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.493,-0.533"/>
+                    <Image x:Name="fbProfilePic" HorizontalAlignment="Left" Height="100" Margin="200,270,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.493,-0.533"/>
                 </Grid>
             </PivotItem>
         </Pivot>
