@@ -137,7 +137,7 @@ namespace MindGame
                 Score.Text = scoreEasy.ToString();  //Hier wordt de score naar textblock overgeplaats.
                 if(this.scoreEasy > this.highscore) //Hiermee vergelijkt u of de huidige score groter is dan de highscore.
                 {
-                    this.highscore = scoreEasy; //zo ja? wordt de huidigescore uw nieuwe highscore.
+                    this.highscore = scoreEasy; //zo ja? wordt de huidige score uw nieuwe highscore.
                 }
             }
             else
@@ -184,7 +184,7 @@ namespace MindGame
                 if (livesEasy == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), this.highscore.ToString());
+                    this.Frame.Navigate(typeof(EndPage), this.scoreEasy.ToString());
                 }
                 Lives.Text = livesEasy.ToString();
                 Score.Text = scoreEasy.ToString();
@@ -221,7 +221,7 @@ namespace MindGame
                 if (livesEasy == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), this.highscore.ToString());
+                    this.Frame.Navigate(typeof(EndPage), this.scoreEasy.ToString());
                 }
                 Lives.Text = livesEasy.ToString();
                 Score.Text = scoreEasy.ToString();
@@ -258,7 +258,7 @@ namespace MindGame
                 if (livesEasy == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), this.highscore.ToString());
+                    this.Frame.Navigate(typeof(EndPage), this.scoreEasy.ToString());
                 }
                 Lives.Text = livesEasy.ToString();
                 Score.Text = scoreEasy.ToString();

@@ -28,9 +28,9 @@ namespace KubApp_v0._1
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainGameMain : Page
     {
-        public static MainPage instance;
+        public static MainGameMain instance;
 
         private MqttClient client = new MqttClient("home.jk-5.nl", 1883, false, MqttSslProtocols.None);
 
@@ -56,10 +56,10 @@ namespace KubApp_v0._1
         Windows.Storage.ApplicationDataContainer fbInfo = Windows.Storage.ApplicationData.Current.LocalSettings;    //Creates local storage location for Facebook info.
         Windows.Storage.ApplicationDataContainer kubInfo = Windows.Storage.ApplicationData.Current.LocalSettings;   //Creates local storage location for Kub info.
 
-        public MainPage()
+        public MainGameMain()
         {
             this.InitializeComponent();
-            MainPage.instance = this;
+            MainGameMain.instance = this;
             Connect();
             FillComboBox();
 

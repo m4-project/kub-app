@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ColorPicker="using:ColorPicker"
-    x:Class="KubApp_v0._1.MainPage"
+    x:Class="KubApp_v0._1.MainGameMain"
     mc:Ignorable="d">
 
     <Grid  x:Name="LayoutRoot" Background="Transparent">

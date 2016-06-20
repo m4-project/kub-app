@@ -52,7 +52,7 @@ namespace KubApp
 
         private void BACK_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MainPage));
+            this.Frame.Navigate(typeof(MainGameMain));
         }
 
         /// <summary>

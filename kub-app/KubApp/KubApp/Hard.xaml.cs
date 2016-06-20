@@ -29,7 +29,7 @@ namespace MindGame
         int randomNummer; //Dit is een variabel voor de DispatcherTimer_Tick methode.
         int randomNummer1;
 
-        int score = 0; //Hiermee wordt de score naar de "EndPage" doorgegeven.
+        int scoreHard = 0; //Hiermee wordt de score naar de "EndPage" doorgegeven.
         int lives = 3; //Dit is een default waarde van het aantal levens.
 
         private int highscore = 0; //Dit is een default waarde van "Highscore".
@@ -115,24 +115,24 @@ namespace MindGame
 
             if (colorsCombined == "255, 255, 0, 0")//Hiermee vergelijkt u de string waarde.
             {
-                score += 10; //Wanneer de waarde "255, 255, 0, 0" gelijk aan de string waarde "colorsCombined" krijgt u + 10 punten bij de score.
-                Score.Text = score.ToString(); //Hier wordt de score naar textblock overgeplaats.
-                if (this.score > this.highscore) //Hiermee vergelijkt u of de huidige score groter is dan de highscore.
+                scoreHard += 10; //Wanneer de waarde "255, 255, 0, 0" gelijk aan de string waarde "colorsCombined" krijgt u + 10 punten bij de score.
+                Score.Text = scoreHard.ToString(); //Hier wordt de score naar textblock overgeplaats.
+                if (this.scoreHard > this.highscore) //Hiermee vergelijkt u of de huidige score groter is dan de highscore.
                 {
-                    this.highscore = score; //zo ja? wordt de huidigescore uw nieuwe highscore.
+                    this.highscore = scoreHard; //zo ja? wordt de huidigescore uw nieuwe highscore.
                 }
             }
             else
             {
-                score -= 10; // Wanneer de waarde "255, 255, 0, 0" niet gelijk aan de string waarde "colorsCombined" krijgt u - 10 punten bij de score.
+                scoreHard -= 10; // Wanneer de waarde "255, 255, 0, 0" niet gelijk aan de string waarde "colorsCombined" krijgt u - 10 punten bij de score.
                 lives--; //Naast - 10 punten neemt uw levens ook met -1 af.
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop(); //Wanneer de integer waarde van uw levens gelijk is aan 0 
-                    this.Frame.Navigate(typeof(EndPage), highscore.ToString());
+                    this.Frame.Navigate(typeof(EndPage), this.scoreHard.ToString());
                 }
                 Lives.Text = lives.ToString();
-                Score.Text = score.ToString();
+                Score.Text = scoreHard.ToString();
             }
         }
 
@@ -152,24 +152,24 @@ namespace MindGame
 
             if (colorsCombined == "255, 0, 255, 0")
             {
-                score += 10;
-                Score.Text = score.ToString();
-                if (this.score > this.highscore)
+                scoreHard += 10;
+                Score.Text = scoreHard.ToString();
+                if (this.scoreHard > this.highscore)
                 {
-                    this.highscore = score;
+                    this.highscore = scoreHard;
                 }
             }
             else
             {
-                score -= 10;
+                scoreHard -= 10;
                 lives--;
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), highscore.ToString());
+                    this.Frame.Navigate(typeof(EndPage), this.scoreHard.ToString());
                 }
                 Lives.Text = lives.ToString();
-                Score.Text = score.ToString();
+                Score.Text = scoreHard.ToString();
             }
         }
 
@@ -189,24 +189,24 @@ namespace MindGame
 
             if (colorsCombined == "255, 0, 0, 255")
             {
-                score += 10;
-                Score.Text = score.ToString();
-                if (this.score > this.highscore)
+                scoreHard += 10;
+                Score.Text = scoreHard.ToString();
+                if (this.scoreHard > this.highscore)
                 {
-                    this.highscore = score;
+                    this.highscore = scoreHard;
                 }
             }
             else
             {
-                score -= 10;
+                scoreHard -= 10;
                 lives--;
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), highscore.ToString());
+                    this.Frame.Navigate(typeof(EndPage), this.scoreHard.ToString());
                 }
                 Lives.Text = lives.ToString();
-                Score.Text = score.ToString();
+                Score.Text = scoreHard.ToString();
             }
         }
 
@@ -226,24 +226,24 @@ namespace MindGame
 
             if (colorsCombined == "255, 255, 255, 0")
             {
-                score += 10;
-                Score.Text = score.ToString();
-                if (this.score > this.highscore)
+                scoreHard += 10;
+                Score.Text = scoreHard.ToString();
+                if (this.scoreHard > this.highscore)
                 {
-                    this.highscore = score;
+                    this.highscore = scoreHard;
                 }
             }
             else
             {
-                score -= 10;
+                scoreHard -= 10;
                 lives--;
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage),highscore.ToString());
+                    this.Frame.Navigate(typeof(EndPage), this.scoreHard.ToString());
                 }
                 Lives.Text = lives.ToString();
-                Score.Text = score.ToString();
+                Score.Text = scoreHard.ToString();
             }
         }
 
@@ -263,24 +263,24 @@ namespace MindGame
 
             if (colorsCombined == "255, 0, 0, 0")
             {
-                score += 10;
-                Score.Text = score.ToString();
-                if (this.score > this.highscore)
+                scoreHard += 10;
+                Score.Text = scoreHard.ToString();
+                if (this.scoreHard > this.highscore)
                 {
-                    this.highscore = score;
+                    this.highscore = scoreHard;
                 }
             }
             else
             {
-                score -= 10;
+                scoreHard -= 10;
                 lives--;
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), highscore).ToString();
+                    this.Frame.Navigate(typeof(EndPage), this.scoreHard.ToString());
                 }
                 Lives.Text = lives.ToString();
-                Score.Text = score.ToString();
+                Score.Text = scoreHard.ToString();
             }
         }
 
@@ -300,24 +300,24 @@ namespace MindGame
 
             if (colorsCombined == "255, 128, 128, 128")
             {
-                score += 10;
-                Score.Text = score.ToString();
-                if (this.score > this.highscore)
+                scoreHard += 10;
+                Score.Text = scoreHard.ToString();
+                if (this.scoreHard > this.highscore)
                 {
-                    this.highscore = score;
+                    this.highscore = scoreHard;
                 }
             }
             else
             {
-                score -= 10;
+                scoreHard -= 10;
                 lives--;
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), highscore.ToString());
+                    this.Frame.Navigate(typeof(EndPage), this.scoreHard.ToString());
                 }
                 Lives.Text = lives.ToString();
-                Score.Text = score.ToString();
+                Score.Text = scoreHard.ToString();
             }
         }
 
@@ -337,24 +337,24 @@ namespace MindGame
 
             if (colorsCombined == "255, 75, 0, 130")
             {
-                score += 10;
-                Score.Text = score.ToString();
-                if (this.score > this.highscore)
+                scoreHard += 10;
+                Score.Text = scoreHard.ToString();
+                if (this.scoreHard > this.highscore)
                 {
-                    this.highscore = score;
+                    this.highscore = scoreHard;
                 }
             }
             else
             {
-                score -= 10;
+                scoreHard -= 10;
                 lives--;
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), highscore.ToString());
+                    this.Frame.Navigate(typeof(EndPage), this.scoreHard.ToString());
                 }
                 Lives.Text = lives.ToString();
-                Score.Text = score.ToString();
+                Score.Text = scoreHard.ToString();
             }
         }
 
@@ -374,24 +374,24 @@ namespace MindGame
 
             if (colorsCombined == "255, 255, 127, 80")
             {
-                score += 10;
-                Score.Text = score.ToString();
-                if (this.score > this.highscore)
+                scoreHard += 10;
+                Score.Text = scoreHard.ToString();
+                if (this.scoreHard > this.highscore)
                 {
-                    this.highscore = score;
+                    this.highscore = scoreHard;
                 }
             }
             else
             {
-                score -= 10;
+                scoreHard -= 10;
                 lives--;
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), highscore.ToString());
+                    this.Frame.Navigate(typeof(EndPage), this.scoreHard.ToString());
                 }
                 Lives.Text = lives.ToString();
-                Score.Text = score.ToString();
+                Score.Text = scoreHard.ToString();
             }
         }
 
@@ -411,24 +411,24 @@ namespace MindGame
 
             if (colorsCombined == "255, 255, 69, 0")
             {
-                score += 10;
-                Score.Text = score.ToString();
-                if (this.score > this.highscore)
+                scoreHard += 10;
+                Score.Text = scoreHard.ToString();
+                if (this.scoreHard > this.highscore)
                 {
-                    this.highscore = score;
+                    this.highscore = scoreHard;
                 }
             }
             else
             {
-                score -= 10;
+                scoreHard -= 10;
                 lives--;
                 if (lives == 0)
                 {
                     dispatcherTimer.Stop();
-                    this.Frame.Navigate(typeof(EndPage), highscore.ToString());
+                    this.Frame.Navigate(typeof(EndPage), this.scoreHard.ToString());
                 }
                 Lives.Text = lives.ToString();
-                Score.Text = score.ToString();
+                Score.Text = scoreHard.ToString();
             }
         }
 
