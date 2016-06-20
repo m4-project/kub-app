@@ -233,6 +233,7 @@ namespace KubApp
 
         private void quitGame_Click(object sender, RoutedEventArgs e)
         {
+            dispatcherTimer.Stop();
             this.Frame.Navigate(typeof(MainGameMain));
         }
     }
