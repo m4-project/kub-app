@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ColorPicker="using:ColorPicker"
-    x:Class="KubApp_v0._1.MainPage"
+    x:Class="KubApp_v0._1.MainGameMain"
     mc:Ignorable="d">
 
     <Grid  x:Name="LayoutRoot" Background="Transparent">
@@ -23,12 +23,12 @@
             </Pivot.HeaderTemplate>
             <PivotItem x:Name="PivotMainpage" Header="MAIN" FontFamily="comfortaa" Margin="10,0,14,13">
                 <Grid>
-                    <Button x:Name="INFO" Click="Info_Click" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Height="122" Width="122">
+                    <Button x:Name="INFO" Click="INFO_Click" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Height="122" Width="122">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="Assets/info.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="LED" Click="LED_Click_1" HorizontalAlignment="Left" Margin="168,20,0,0" VerticalAlignment="Top" Height="122" Width="122">
+                    <Button x:Name="LED" Click="LED_Click" HorizontalAlignment="Left" Margin="168,20,0,0" VerticalAlignment="Top" Height="122" Width="122">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="Assets/led.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-7"/>
                         </Grid>
@@ -73,7 +73,6 @@
                             <CompositeTransform ScaleY="-1"/>
                         </Rectangle.RenderTransform>
                     </Rectangle>
-                    <Rectangle x:Name="curColor" Opacity="0.2" HorizontalAlignment="Left" Height="30" Margin="160,-175,0,0" Width="30" Stroke="Black" Fill="White"/>
                     <Button x:Name="PickColor" HorizontalAlignment="Left" Margin="220,140,0,0" VerticalAlignment="Top" Height="50" Width="60" Background="Transparent">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="colormap.gif" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-12,-8,-12,-8"/>
@@ -87,15 +86,15 @@
                                     </Style>
                                 </Flyout.FlyoutPresenterStyle>
                                 <Grid Height="260" Width="260">
-                                    <ColorPicker:ColorPicker x:Name="colorp" VerticalAlignment="Top" Background="White" PointerMoved="colorp_PointerMoved" PointerPressed="colorp_PointerPressed" IsEnabled="False" Width="260" Height="260"/>
+                                    <ColorPicker:ColorPicker x:Name="colorp" VerticalAlignment="Top" Background="White" PointerMoved="Colorp_PointerMoved" PointerPressed="Colorp_PointerPressed" IsEnabled="False" Width="260" Height="260"/>
                                 </Grid>
                             </Flyout>
                         </Button.Flyout>
                     </Button>
                     <TextBlock x:Name="textBoxBrightness" HorizontalAlignment="Left" Margin="0,240,0,0" TextWrapping="Wrap" Text="Brightness" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
-                    <Slider x:Name="slider" Minimum="0" Maximum="100" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Width="300" ValueChanged="slider_ValueChanged" Value="100" IsEnabled="False"/>
+                    <Slider x:Name="slider" Minimum="0" Maximum="100" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Width="300" ValueChanged="Slider_ValueChanged" Value="100" IsEnabled="False"/>
                     <TextBlock x:Name="textBoxPower" HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Manual LED control" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
-                    <ToggleSwitch x:Name="toggleSwitchLed" HorizontalAlignment="Left" Margin="229,50,-23,0" VerticalAlignment="Top" Toggled="toggleSwitchLed_Toggled"/>
+                    <ToggleSwitch x:Name="toggleSwitchLed" HorizontalAlignment="Left" Margin="229,50,-23,0" VerticalAlignment="Top" Toggled="ToggleSwitchLed_Toggled"/>
                     <Rectangle Fill="#FFF42413" HorizontalAlignment="Left" Height="4" Margin="10,100,0,0" Stroke="Transparent" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.5,0.5">
                         <Rectangle.RenderTransform>
                             <CompositeTransform ScaleY="-1"/>
@@ -106,17 +105,17 @@
             </PivotItem>
             <PivotItem Header="GAMES" Margin="12,0,12,36">
                 <Grid>
-                    <Button x:Name="RockPaper" Click="RockPaper_Click" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                    <Button x:Name="RockPaperSciccors" Click="RockPaperSciccors_Click" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="rockpaper.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="Game2"  Click="Game2_Click" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                    <Button x:Name="SnapGame"  Click="SnapGame_Click" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="snapgame.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="Game3" Click="Game3_Click" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Height="122" Width="280">
+                    <Button x:Name="MindGame" Click="MindGame_Click" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Height="122" Width="280">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="mindgame.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-10,-6,-10,-6"/>
                         </Grid>
@@ -125,7 +124,7 @@
             </PivotItem>
             <PivotItem Header="SETTINGS">
                 <Grid>
-                    <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged"/>
+                    <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"/>
                     <TextBlock x:Name="textBoxPrimaryKub" HorizontalAlignment="Left" Margin="0,50,0,0" TextWrapping="Wrap" Text="Primary Kub:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
                     <TextBlock x:Name="textBoxAddKub" HorizontalAlignment="Left" Margin="0,120,0,0" TextWrapping="Wrap" Text="Scan new Kub:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
                     <Button x:Name="ScanQR" Click="ScanQR_Click" HorizontalAlignment="Left" Margin="200,100,0,0" VerticalAlignment="Top" Height="70" Width="70">
@@ -138,7 +137,6 @@
                             <Image Stretch="Fill" Source="fb.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-15,-10,-15,-10"/>
                         </Grid>
                     </Button>
-                    <Button x:Name="btnFBPost" Visibility="Collapsed" Content="Post on FB" HorizontalAlignment="Left" Margin="208,260,0,0" VerticalAlignment="Top" Click="FBPost" RenderTransformOrigin="1.922,-0.542"/>
                     <Button x:Name="FBLogout" Click="FBLogout_Click" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top" Height="30" Width="150" Background="Transparent">
                         <Grid Background="Transparent" BorderBrush="Black" BorderThickness="1">
                             <Image Stretch="Fill" Source="fblogout.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-15,-10,-15,-10"/>
@@ -146,7 +144,7 @@
                     </Button>
                      <TextBlock x:Name="textBoxConnectFB" HorizontalAlignment="Left" Margin="0,200,0,0" TextWrapping="Wrap" Text="Login with:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
                     <TextBlock x:Name="textBoxConnectedProfile" HorizontalAlignment="Left" Margin="0,270,0,0" TextWrapping="Wrap" Text="Current User:" VerticalAlignment="Top" FontFamily="Comfortaa" FontSize="25"/>
-                    <Image x:Name="image1" HorizontalAlignment="Left" Height="100" Margin="200,270,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.493,-0.533"/>
+                    <Image x:Name="fbProfilePic" HorizontalAlignment="Left" Height="100" Margin="200,270,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.493,-0.533"/>
                 </Grid>
             </PivotItem>
         </Pivot>

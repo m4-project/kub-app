@@ -30,7 +30,7 @@ namespace MindGame
 
         private void Mainbtn_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MainPage));
+            this.Frame.Navigate(typeof(KubApp.MindGameMain));
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
