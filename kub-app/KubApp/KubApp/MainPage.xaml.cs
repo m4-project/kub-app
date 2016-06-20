@@ -480,7 +480,7 @@ namespace KubApp_v0._1
             kubMenu.SelectedIndex = 3;
         }
 
-        private void RockPaperSciccors_Click(object sender, RoutedEventArgs e)
+        private void RockPaperScissors_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(RockPaperMain));
         }
