@@ -11,11 +11,11 @@
         <Grid.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="BackgroundMetKub.png" AlignmentY="Top" AlignmentX="Center"/>
         </Grid.Background>
-        <Button x:Name="button" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Red" HorizontalAlignment="Left" Margin="15,385,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="button_Click"/>
-        <Button x:Name="button1" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Lime" HorizontalAlignment="Left" Margin="82,385,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="button1_Click"/>
-        <Button x:Name="button2" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Blue" HorizontalAlignment="Left" Margin="149,385,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="button2_Click"/>
-        <Button x:Name="button3" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Yellow" HorizontalAlignment="Left" Margin="217,385,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="button3_Click"/>
-        <Button x:Name="button4" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="White" Background="Black" HorizontalAlignment="Left" Margin="285,385,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="button4_Click"/>
+        <Button x:Name="BtnRed" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Red" HorizontalAlignment="Left" Margin="15,385,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="BtnRed_Click"/>
+        <Button x:Name="BtnGreen" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Lime" HorizontalAlignment="Left" Margin="82,385,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="BtnGreen_Click"/>
+        <Button x:Name="BtnBlue" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Blue" HorizontalAlignment="Left" Margin="149,385,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="BtnBlue_Click"/>
+        <Button x:Name="BtnYellow" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Yellow" HorizontalAlignment="Left" Margin="217,385,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="BtnYellow_Click"/>
+        <Button x:Name="BtnBlack" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="White" Background="Black" HorizontalAlignment="Left" Margin="285,385,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="BtnBlack_Click"/>
         <Button x:Name="randomColor" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" Background="White" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="339" Height="74"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="154,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="84" Width="42" FontFamily="Rockwell" FontStyle="Italic" Foreground="Black" FontSize="80"/>
         <Button x:Name="Startbtn" Content="Start" HorizontalAlignment="Left" Height="40" Margin="60,508,0,0" VerticalAlignment="Top" Width="240" BorderBrush="White" BorderThickness="3" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" Background="#3348221C" Click="Startbtn_Click"/>
@@ -26,9 +26,9 @@
         <TextBlock x:Name="Score" FontSize="20" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" HorizontalAlignment="Left" Margin="33,348,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
         <TextBlock x:Name="Lives" FontSize="20" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" HorizontalAlignment="Left" Margin="157,348,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top"/>
         <TextBlock x:Name="HighScore" FontSize="20" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" HorizontalAlignment="Left" Margin="253,348,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
-        <Button x:Name="button5" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Gray" HorizontalAlignment="Left" Margin="49,445,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="button5_Click"/>
-        <Button x:Name="button6" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Indigo" HorizontalAlignment="Left" Margin="116,445,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="button6_Click"/>
-        <Button x:Name="button7" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Coral" HorizontalAlignment="Left" Margin="183,445,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="button7_Click"/>
-        <Button x:Name="button9" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="OrangeRed" HorizontalAlignment="Left" Margin="251,445,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="button9_Click"/>
+        <Button x:Name="BtnGray" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Gray" HorizontalAlignment="Left" Margin="49,445,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="BtnGray_Click"/>
+        <Button x:Name="BtnIndigo" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Indigo" HorizontalAlignment="Left" Margin="116,445,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="BtnIndigo_Click"/>
+        <Button x:Name="BtnCoral" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="Coral" HorizontalAlignment="Left" Margin="183,445,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="BtnCoral_Click"/>
+        <Button x:Name="BtnOrangeRed" FontFamily="Rockwell" FontStyle="Italic" Foreground="White" BorderBrush="Black" Background="OrangeRed" HorizontalAlignment="Left" Margin="251,445,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="BtnOrangeRed_Click"/>
     </Grid>
 </Page>

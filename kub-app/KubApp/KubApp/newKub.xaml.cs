@@ -80,12 +80,34 @@ namespace KubApp
         /// <param name="result"></param>
         private async void ProcessScanResult(ZXing.Result result)
         {
-            QRresult = result.Text;
-            string newMessage = string.Empty;
-            newMessage = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
-            var dialog = new MessageDialog(newMessage);
-            await dialog.ShowAsync();
-            MainPage.instance.AddNewKub(QRresult);
+            bool safeJsonString = false;
+
+            string jsonString = result.Text;
+            try
+            {
+                var jsonObj = JObject.Parse(jsonString);
+                safeJsonString = true;
+            }
+            catch (System.FormatException)
+            {
+                var dialogFex = new MessageDialog("Your QR-Code is invalid!");
+                await dialogFex.ShowAsync();
+            }
+            catch (Exception)
+            {
+                var dialogEx = new MessageDialog("Your QR-Code is invalid!");
+                await dialogEx.ShowAsync();
+            }
+
+            if (safeJsonString)
+            {
+                QRresult = result.Text;
+                string newMessage = string.Empty;
+                newMessage = (result != null && !string.IsNullOrEmpty(result.Text)) ? "Found QR code: " + result.Text : "Scanning cancelled";
+                var dialog = new MessageDialog(newMessage);
+                await dialog.ShowAsync();
+                MainGameMain.instance.AddNewKub(QRresult);
+            }
         }
 
         /// <summary>
@@ -95,7 +117,7 @@ namespace KubApp
         {
             SystemNavigationManager.GetForCurrentView().BackRequested += (s, e) =>
             {
-                this.Frame.Navigate(typeof(MainPage));
+                this.Frame.Navigate(typeof(MainGameMain));
             };
         }
     }
