@@ -138,14 +138,27 @@ namespace KubApp_v0._1
             string tokenValue = fbInfo.Values["token"].ToString();
 
             var redirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();
-
+            //await fbClient.DeleteTaskAsync("me/permissions");
             Uri startUri = new Uri(@"https://www.facebook.com/logout.php?next=https://facebook.com/&access_token=" + fbClient.AccessToken);
             Uri endUri = new Uri(redirectUri, UriKind.Absolute);
 
             WebAuthenticationBroker.AuthenticateAndContinue(startUri, endUri);
 
+            //await fbClient.DeleteTaskAsync("me/permissions");
             fbInfo.Values["token"] = "0";
+
             image1.Visibility = Visibility.Collapsed;
+        }
+
+        private async void RevokePermissions()
+        {
+            await fbClient.DeleteTaskAsync("me/permissions");
+            
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            RevokePermissions();
         }
 
         private void FBLOGO_Click(object sender, RoutedEventArgs e)
@@ -189,7 +202,8 @@ namespace KubApp_v0._1
         /// <param name="args"></param>
         private void ThreadSafeEntry(object sender, object args)
         {
-            
+
+
             if(!this.wasConnected && this.connected)
             {
                 if (!timer.IsEnabled)
